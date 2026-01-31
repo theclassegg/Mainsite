@@ -1,0 +1,1774 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evergrowth — Agentic GTM Workspace</title>
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root{
+      --bg:#f8f8f8;
+      --surface:#ffffff;
+      --surface-2:#fcfcfd;
+      --text:#0f172a;
+      --muted:#556075;
+      --muted-2:#6b7280;
+      --border:rgba(15,23,42,.10);
+      --border-2:rgba(15,23,42,.08);
+
+      /* Muted + premium accent palette */
+      --primary:#2f5dff;
+      --primary-ink:#0b1b5c;
+      --blue-50:#eef3ff;
+      --lav-50:#f5f2ff;
+      --mint-50:#f1fbf5;
+
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:16px;
+
+      --shadow-sm: 0 8px 22px rgba(15,23,42,.06);
+      --shadow-md: 0 18px 50px rgba(15,23,42,.10);
+      --shadow-lg: 0 30px 70px rgba(15,23,42,.14);
+
+      --container: 1160px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Subtle premium background texture */
+    .bg-noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.35;
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(47,93,255,.08), transparent 55%),
+        radial-gradient(900px 650px at 80% 15%, rgba(153,102,255,.07), transparent 55%),
+        radial-gradient(1000px 700px at 70% 80%, rgba(34,197,94,.06), transparent 55%);
+      mix-blend-mode: normal;
+      z-index:-2;
+    }
+    .bg-lines{
+      position:fixed;
+      inset:-20%;
+      pointer-events:none;
+      z-index:-3;
+      opacity:.35;
+      transform: rotate(-8deg);
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(15,23,42,.04),
+        rgba(15,23,42,.04) 1px,
+        transparent 1px,
+        transparent 44px
+      );
+      mask-image: radial-gradient(circle at 35% 15%, black 0%, transparent 55%);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{
+      width:min(var(--container), calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    /* Header (no CTA) */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(248,248,248,.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(15,23,42,.06);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:-0.03em;
+    }
+    .brand-mark{
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(47,93,255,.95), rgba(47,93,255,.65));
+      box-shadow: 0 10px 24px rgba(47,93,255,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .brand-mark::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(18deg);
+    }
+
+    .nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .nav a{
+      font-size:14px;
+      color:rgba(15,23,42,.70);
+      padding:8px 10px;
+      border-radius:999px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav a:hover{
+      background: rgba(15,23,42,.04);
+      color: rgba(15,23,42,.88);
+    }
+
+    .header-actions{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      color:rgba(15,23,42,.70);
+      font-size:14px;
+    }
+    .header-actions a{
+      padding:8px 10px;
+      border-radius:999px;
+      transition: background .2s ease;
+    }
+    .header-actions a:hover{ background: rgba(15,23,42,.04); }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:999px;
+      padding:12px 16px;
+      font-weight:600;
+      letter-spacing:-0.02em;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-primary{
+      background: linear-gradient(180deg, rgba(47,93,255,1), rgba(47,93,255,.92));
+      color:#fff;
+      box-shadow: 0 18px 42px rgba(47,93,255,.20);
+    }
+    .btn-primary:hover{ box-shadow: 0 22px 55px rgba(47,93,255,.26); }
+    .btn-secondary{
+      background: rgba(255,255,255,.70);
+      border-color: rgba(15,23,42,.10);
+      color: rgba(15,23,42,.88);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-secondary:hover{ background:#fff; }
+    .btn-ghost{
+      background:transparent;
+      border-color: rgba(15,23,42,.10);
+      color: rgba(15,23,42,.82);
+    }
+
+    /* Pills */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.65);
+      border:1px solid rgba(15,23,42,.08);
+      font-size:13px;
+      color: rgba(15,23,42,.72);
+      box-shadow: 0 10px 30px rgba(15,23,42,.04);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: rgba(47,93,255,.95);
+      box-shadow: 0 0 0 4px rgba(47,93,255,.12);
+    }
+
+    /* Sections */
+    section{ padding: 96px 0; }
+    .section-tight{ padding: 72px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:28px;
+    }
+    h1{
+      font-size: clamp(2.6rem, 4vw, 4.1rem);
+      line-height: 1.06;
+      letter-spacing:-0.045em;
+      margin: 14px 0 14px;
+    }
+    h2{
+      font-size: clamp(1.9rem, 2.5vw, 2.7rem);
+      line-height: 1.12;
+      letter-spacing:-0.035em;
+      margin:0;
+    }
+    h3{
+      font-size: 18px;
+      letter-spacing:-0.02em;
+      margin:0;
+    }
+    p{
+      color: rgba(15,23,42,.70);
+      margin: 0 0 14px;
+      font-size: 16px;
+    }
+    .lead{
+      font-size: 18px;
+      color: rgba(15,23,42,.70);
+      max-width: 68ch;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 86px 0 72px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset: -40% -20% auto -20%;
+      height: 520px;
+      background:
+        radial-gradient(closest-side at 25% 35%, rgba(47,93,255,.16), transparent 65%),
+        radial-gradient(closest-side at 65% 20%, rgba(153,102,255,.12), transparent 70%),
+        radial-gradient(closest-side at 85% 70%, rgba(34,197,94,.10), transparent 70%);
+      filter: blur(8px);
+      z-index:-1;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 42px;
+      align-items:center;
+    }
+
+    .hero-subhead{
+      font-size: 18px;
+      color: rgba(15,23,42,.70);
+      max-width: 60ch;
+    }
+    .hero-ctas{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 22px;
+    }
+    .hero-meta{
+      margin-top: 18px;
+      color: rgba(15,23,42,.55);
+      font-size: 13px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .hero-meta span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .tiny-check{
+      width:16px;height:16px;border-radius:5px;
+      background: rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.25);
+      display:inline-flex;align-items:center;justify-content:center;
+      color: rgba(22,101,52,.95);
+      font-weight:800;
+      font-size:12px;
+      line-height:1;
+    }
+
+    .hero-media{
+      position:relative;
+      display:grid;
+      gap:14px;
+    }
+    .media-card{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow:hidden;
+      position:relative;
+    }
+    .media-card img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    .media-caption{
+      padding: 14px 16px 16px;
+      border-top: 1px solid rgba(15,23,42,.06);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      font-size: 13px;
+      color: rgba(15,23,42,.68);
+      background: rgba(255,255,255,.55);
+    }
+    .caption-chip{
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(47,93,255,.10);
+      color: rgba(11,27,92,.90);
+      border: 1px solid rgba(47,93,255,.18);
+      font-weight: 600;
+      white-space:nowrap;
+    }
+
+    /* Floating illustrations (your agency icons) */
+    .float-illust{
+      position:absolute;
+      right:-14px;
+      bottom:-26px;
+      width: 240px;
+      opacity: .85;
+      filter: drop-shadow(0 28px 40px rgba(15,23,42,.12));
+      transform: rotate(2deg);
+      pointer-events:none;
+    }
+    .float-illust.small{
+      width: 168px;
+      right:auto;
+      left:-20px;
+      top:-12px;
+      bottom:auto;
+      transform: rotate(-4deg);
+      opacity:.75;
+    }
+
+    /* Logos */
+    .logos{
+      padding: 22px 0 0;
+    }
+    .logo-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 14px 22px;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top: 10px;
+    }
+    .logo{
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(15,23,42,.08);
+      color: rgba(15,23,42,.55);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* Cards / grids */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items:center;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card{
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 18px;
+      position:relative;
+    }
+    .card.soft{
+      background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.66));
+    }
+    .card h3{ margin-bottom:8px; }
+    .card p{ margin:0; font-size: 15px; color: rgba(15,23,42,.70); }
+
+    .bullets{
+      padding-left: 18px;
+      margin: 12px 0 0;
+      color: rgba(15,23,42,.72);
+      font-size: 15px;
+    }
+    .bullets li{ margin: 8px 0; }
+
+    /* Workflow */
+    .workflow{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .workflow-rail{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .step-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 12px 26px rgba(15,23,42,.05);
+      font-size: 14px;
+      color: rgba(15,23,42,.72);
+      font-weight: 600;
+    }
+    .chip-num{
+      width: 22px; height: 22px;
+      border-radius: 999px;
+      background: rgba(47,93,255,.14);
+      border: 1px solid rgba(47,93,255,.22);
+      color: rgba(11,27,92,.95);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items:center;
+    }
+    .visual-frame{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.80);
+      box-shadow: var(--shadow-md);
+      overflow:hidden;
+      position:relative;
+    }
+    .visual-frame img{ width:100%; display:block; }
+    .visual-pad{ padding: 18px; }
+
+    /* Agent cards */
+    .agent-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .agent-card{
+      text-align:left;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.68));
+      box-shadow: var(--shadow-sm);
+      cursor:pointer;
+      position:relative;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      min-height: 180px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+    }
+    .agent-card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(47,93,255,.22);
+    }
+    .agent-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .agent-title{
+      font-weight: 700;
+      letter-spacing:-0.02em;
+      color: rgba(15,23,42,.90);
+      margin: 0;
+    }
+    .agent-line{
+      margin: 0;
+      color: rgba(15,23,42,.70);
+      font-size: 15px;
+      max-width: 34ch;
+    }
+    .agent-plus{
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.70);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(15,23,42,.65);
+      font-weight: 800;
+      box-shadow: 0 12px 26px rgba(15,23,42,.06);
+      flex: 0 0 auto;
+    }
+    .agent-illust{
+      position:absolute;
+      right:-18px;
+      bottom:-22px;
+      width: 165px;
+      opacity: .90;
+      filter: drop-shadow(0 26px 38px rgba(15,23,42,.12));
+      pointer-events:none;
+      transform: rotate(2deg);
+    }
+
+    /* Proof */
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .metric{
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow-sm);
+      padding: 18px;
+    }
+    .metric-value{
+      font-size: 34px;
+      letter-spacing:-0.04em;
+      font-weight: 800;
+      color: rgba(15,23,42,.92);
+      margin: 0 0 6px;
+    }
+    .metric-label{
+      margin:0;
+      color: rgba(15,23,42,.62);
+      font-size: 14px;
+    }
+
+    .quote-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .quote{
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.68));
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow-sm);
+    }
+    .quote p{
+      margin: 0 0 12px;
+      color: rgba(15,23,42,.78);
+      font-size: 15px;
+    }
+    .quote .who{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      color: rgba(15,23,42,.66);
+      font-size: 13px;
+    }
+    .quote .who strong{
+      color: rgba(15,23,42,.82);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer{
+      padding: 46px 0 60px;
+      border-top: 1px solid rgba(15,23,42,.06);
+      color: rgba(15,23,42,.55);
+      font-size: 14px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 18px;
+    }
+    .footer-col h4{
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: rgba(15,23,42,.72);
+      letter-spacing:-0.02em;
+    }
+    .footer-col a{
+      display:block;
+      padding:6px 0;
+      color: rgba(15,23,42,.56);
+    }
+    .footer-col a:hover{ color: rgba(15,23,42,.82); }
+
+    /* Modals */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 22px;
+      z-index: 100;
+    }
+    .modal[aria-hidden="false"]{ display:flex; }
+    .modal-overlay{
+      position:absolute;
+      inset:0;
+      background: rgba(2,6,23,.62);
+      backdrop-filter: blur(8px);
+    }
+    .modal-panel{
+      position:relative;
+      width:min(1040px, 100%);
+      max-height: 84vh;
+      overflow:auto;
+      border-radius: 26px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-close{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.80);
+      cursor:pointer;
+      font-size: 20px;
+      color: rgba(15,23,42,.70);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 14px 28px rgba(15,23,42,.12);
+    }
+    .modal-inner{
+      padding: 22px;
+    }
+    .modal-top{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .modal-visual{
+      border-radius: 22px;
+      border: 1px solid rgba(15,23,42,.08);
+      overflow:hidden;
+      background: rgba(255,255,255,.85);
+      box-shadow: var(--shadow-sm);
+    }
+    .modal-visual img{ width:100%; display:block; }
+    .modal-copy{
+      border-radius: 22px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.75);
+      box-shadow: var(--shadow-sm);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .modal-kicker{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .modal-kicker .pill{
+      background: rgba(47,93,255,.10);
+      border-color: rgba(47,93,255,.18);
+      color: rgba(11,27,92,.90);
+      box-shadow:none;
+    }
+    .modal-copy h2{
+      font-size: 26px;
+      margin: 0;
+    }
+    .modal-copy p{ margin:0; }
+    .modal-copy ul{
+      margin: 6px 0 0;
+      padding-left: 18px;
+      color: rgba(15,23,42,.74);
+      font-size: 14px;
+    }
+    .modal-copy li{ margin: 8px 0; }
+
+    .modal-proof{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+    .modal-proof .quote{
+      margin:0;
+    }
+    .modal-proof .metric{
+      margin:0;
+    }
+
+    .storylane{
+      margin-top: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow-sm);
+      overflow:hidden;
+    }
+    .storylane-head{
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(15,23,42,.06);
+    }
+    .storylane-head .muted{
+      color: rgba(15,23,42,.62);
+      font-size: 13px;
+      margin:0;
+    }
+    .storylane-embed{
+      position:relative;
+      padding-top: 56.25%;
+      background: linear-gradient(180deg, rgba(238,243,255,.55), rgba(255,255,255,0));
+    }
+    .storylane-embed iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* CTA band */
+    .cta-band{
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(900px 420px at 15% 35%, rgba(47,93,255,.18), transparent 55%),
+        radial-gradient(700px 420px at 85% 35%, rgba(153,102,255,.14), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.62));
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow-md);
+      padding: 28px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .float-illust.small{ display:none; }
+      .split{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .agent-grid{ grid-template-columns: 1fr; }
+      .metrics{ grid-template-columns: 1fr; }
+      .quote-grid{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr 1fr; }
+      .nav{ display:none; }
+      .modal-top{ grid-template-columns: 1fr; }
+      .modal-proof{ grid-template-columns: 1fr; }
+      .cta-band{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-lines" aria-hidden="true"></div>
+
+  <!-- Header (no CTA) -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Evergrowth</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#workflow">How it works</a>
+        <a href="#agents">Agents</a>
+        <a href="#playbooks">Playbooks</a>
+        <a href="#proof">Proof</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#resources">Resources</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#tour" data-modal-open="modal-tour">Watch tour</a>
+        <a href="#">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill"><span class="dot" aria-hidden="true"></span>GTM agents for better outbound</div>
+
+        <h1>
+          <span id="heroRotator">Make outbound sound confident and well-informed.</span>
+        </h1>
+
+        <p class="hero-subhead">
+          Evergrowth is an agentic GTM workspace where digital colleagues qualify accounts, find “why now” signals,
+          build persona‑fit buying groups, draft outreach, and prep reps — then sync outputs into your CRM and sequencing tools
+          so reps can execute fast.
+        </p>
+
+        <div class="hero-ctas">
+          <button class="btn btn-primary" type="button" data-modal-open="modal-sample">
+            Run a sample workflow
+          </button>
+          <button class="btn btn-secondary" type="button" data-modal-open="modal-tour">
+            Watch 90‑sec tour
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span><span class="tiny-check" aria-hidden="true">✓</span>Outputs land in CRM fields, sequences, and call tracks.</span>
+        </div>
+
+        <div class="logos" aria-label="Customer logos">
+          <div class="logo-row">
+            <span class="logo">Customer logo</span>
+            <span class="logo">Customer logo</span>
+            <span class="logo">Customer logo</span>
+            <span class="logo">Customer logo</span>
+            <span class="logo">Customer logo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="media-card">
+          <img
+            src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png"
+            alt="Evergrowth product placeholder"
+          >
+          <div class="media-caption">
+            <span>List → Fit → Signals → Buying group → Plays → Sync</span>
+            <span class="caption-chip">Workflow preview</span>
+          </div>
+
+          <!-- Replace with your agency illustration (place PNG in ./assets/illust/) -->
+          <img class="float-illust"
+               src="./assets/illust/Artboard_1.png"
+               alt=""
+               aria-hidden="true">
+          <img class="float-illust small"
+               src="./assets/illust/Artboard_2.png"
+               alt=""
+               aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN MIRROR -->
+  <section class="section-tight">
+    <div class="container split">
+      <div>
+        <h2>Your reps are doing five jobs manually.</h2>
+        <p class="lead">
+          And it shows up as generic outbound, inconsistent results, and leaders who can’t reliably influence outcomes.
+        </p>
+
+        <ul class="bullets">
+          <li>Writing generic outreach because real context is missing</li>
+          <li>Spending hours researching, then turning it into a plan</li>
+          <li>Hunting for good‑fit contacts (and still single‑threading)</li>
+          <li>Selling to bad‑fit accounts until it’s too late</li>
+          <li>Stitching together tools and getting mixed quality</li>
+        </ul>
+
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-secondary" type="button" data-modal-open="modal-sample">See the workflow</button>
+          <button class="btn btn-ghost" type="button" data-modal-open="modal-tour">What is Evergrowth?</button>
+        </div>
+      </div>
+
+      <div class="visual-frame">
+        <div class="visual-pad">
+          <div class="pill" style="margin-bottom:12px;"><span class="dot"></span>Less busywork, more selling</div>
+          <p style="margin-bottom:0;">
+            Evergrowth turns this into one repeatable workflow — with clear gates, consistent outputs, and a single place leaders can improve what “good” looks like.
+          </p>
+        </div>
+        <!-- Replace with one of your agency icons -->
+        <img src="./assets/illust/Artboard_1_copy.png" alt="Illustration placeholder">
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section id="workflow">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>One workflow from list to launched outbound.</h2>
+          <p class="lead">
+            Qualification → Signals → Buying groups → Plans → Plays → Rep confidence.
+          </p>
+        </div>
+      </div>
+
+      <div class="workflow">
+        <div class="workflow-rail" aria-label="Workflow steps">
+          <span class="step-chip"><span class="chip-num">1</span>Qualify accounts</span>
+          <span class="step-chip"><span class="chip-num">2</span>Find “why now” signals</span>
+          <span class="step-chip"><span class="chip-num">3</span>Build buying groups</span>
+          <span class="step-chip"><span class="chip-num">4</span>Create account plans</span>
+          <span class="step-chip"><span class="chip-num">5</span>Draft plays</span>
+          <span class="step-chip"><span class="chip-num">6</span>Sync + coach</span>
+        </div>
+
+        <div class="split" style="margin-top:18px;">
+          <div class="grid-3">
+            <div class="card soft">
+              <h3>Better targets</h3>
+              <p>Block bad‑fit accounts before reps spend time researching and writing.</p>
+            </div>
+            <div class="card soft">
+              <h3>Better context</h3>
+              <p>Turn scattered sources into a structured “why now” brief reps can use.</p>
+            </div>
+            <div class="card soft">
+              <h3>Better plays</h3>
+              <p>Signal‑tied outreach and talk tracks that feel human and sound confident.</p>
+            </div>
+          </div>
+
+          <div class="visual-frame">
+            <img
+              src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png"
+              alt="Product placeholder: Intelligent GTM Data"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENTS -->
+  <section id="agents">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Meet the Agents behind your best outbound</h2>
+          <p class="lead">
+            Six specialists. One workflow. Click a card for details, proof, and an embedded Storylane demo.
+          </p>
+        </div>
+      </div>
+
+      <div class="agent-grid">
+        <button class="agent-card" type="button" data-modal-open="agent-qualification">
+          <div>
+            <div class="agent-top">
+              <div>
+                <div class="agent-title">Qualification</div>
+              </div>
+              <div class="agent-plus" aria-hidden="true">+</div>
+            </div>
+            <p class="agent-line">Stop wasting time on bad‑fit accounts.</p>
+          </div>
+          <img class="agent-illust" src="./assets/illust/Artboard_1.png" alt="" aria-hidden="true">
+        </button>
+
+        <button class="agent-card" type="button" data-modal-open="agent-research">
+          <div>
+            <div class="agent-top">
+              <div class="agent-title">Research & Signals</div>
+              <div class="agent-plus" aria-hidden="true">+</div>
+            </div>
+            <p class="agent-line">Close the tabs. Start selling with signals.</p>
+          </div>
+          <img class="agent-illust" src="./assets/illust/Artboard_2_copy.png" alt="" aria-hidden="true">
+        </button>
+
+        <button class="agent-card" type="button" data-modal-open="agent-planning">
+          <div>
+            <div class="agent-top">
+              <div class="agent-title">Account Planning</div>
+              <div class="agent-plus" aria-hidden="true">+</div>
+            </div>
+            <p class="agent-line">Walk into every call with a plan.</p>
+          </div>
+          <img class="agent-illust" src="./assets/illust/Artboard_2_copy.png" alt="" aria-hidden="true">
+        </button>
+
+        <button class="agent-card" type="button" data-modal-open="agent-contacts">
+          <div>
+            <div class="agent-top">
+              <div class="agent-title">Contact Finder</div>
+              <div class="agent-plus" aria-hidden="true">+</div>
+            </div>
+            <p class="agent-line">Build buying groups—without keyword roulette.</p>
+          </div>
+          <img class="agent-illust" src="./assets/illust/Artboard_1.png" alt="" aria-hidden="true">
+        </button>
+
+        <button class="agent-card" type="button" data-modal-open="agent-plays">
+          <div>
+            <div class="agent-top">
+              <div class="agent-title">Plays</div>
+              <div class="agent-plus" aria-hidden="true">+</div>
+            </div>
+            <p class="agent-line">Signal‑tied outreach that sounds human.</p>
+          </div>
+          <img class="agent-illust" src="./assets/illust/Artboard_1_copy.png" alt="" aria-hidden="true">
+        </button>
+
+        <button class="agent-card" type="button" data-modal-open="agent-twins">
+          <div>
+            <div class="agent-top">
+              <div class="agent-title">Digital Twins</div>
+              <div class="agent-plus" aria-hidden="true">+</div>
+            </div>
+            <p class="agent-line">Insider guidance before the first touch.</p>
+          </div>
+          <img class="agent-illust" src="./assets/illust/Artboard_2.png" alt="" aria-hidden="true">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYBOOKS -->
+  <section id="playbooks">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Playbooks for your core motions</h2>
+          <p class="lead">Run on demand, on a schedule, or on triggers—so the work happens without reminders.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Outbound (NewBiz)</h3>
+          <p>Qualify → signals → buying group → plays → sync into sequences.</p>
+        </div>
+        <div class="card">
+          <h3>Key accounts / ABM waves</h3>
+          <p>Monitor signals, refresh plans, and keep multithreading current.</p>
+        </div>
+        <div class="card">
+          <h3>Dormant account recycling</h3>
+          <p>Spot changes, rebuild context, and re‑engage with relevance.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div class="card soft" style="display:flex; align-items:center; justify-content:space-between; gap:14px;">
+          <div>
+            <h3 style="margin-bottom:6px;">Try the interactive workflow</h3>
+            <p style="margin:0;">See how Evergrowth turns a list into “ready‑to‑run” outbound.</p>
+          </div>
+          <button class="btn btn-primary" type="button" data-modal-open="modal-sample">Open Storylane</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Proof teams report after deploying Evergrowth</h2>
+          <p class="lead">Keep these as placeholders until you finalize which metrics and customers are approved for homepage use.</p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value">~60%</div>
+          <p class="metric-label">Lower cost per meeting (example)</p>
+        </div>
+        <div class="metric">
+          <div class="metric-value">3–5×</div>
+          <p class="metric-label">Higher open rates (example)</p>
+        </div>
+        <div class="metric">
+          <div class="metric-value">11 min</div>
+          <p class="metric-label">Prep time (from hours) (example)</p>
+        </div>
+      </div>
+
+      <div class="quote-grid">
+        <div class="quote">
+          <p>“All the legwork that used to take days can literally take minutes.”</p>
+          <div class="who">
+            <strong>President</strong>
+            <span>iFind Staffing</span>
+          </div>
+        </div>
+        <div class="quote">
+          <p>“We’re able to use Evergrowth for more personalized copy.”</p>
+          <div class="who">
+            <strong>Sales Manager</strong>
+            <span>Printful</span>
+          </div>
+        </div>
+        <div class="quote">
+          <p>“We can have everything we need in one place.”</p>
+          <div class="who">
+            <strong>Head of Revenue Experimentation</strong>
+            <span>Telescoped</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATIONS -->
+  <section id="integrations">
+    <div class="container split">
+      <div>
+        <h2>Works with your existing stack</h2>
+        <p class="lead">
+          Outputs land in CRM + sequencing tools so reps don’t adopt “yet another place to work.”
+        </p>
+
+        <div class="logo-row" style="margin-top:14px;">
+          <span class="logo">CRM</span>
+          <span class="logo">Sequencer</span>
+          <span class="logo">Dialer</span>
+          <span class="logo">Data vendors</span>
+          <span class="logo">…</span>
+        </div>
+      </div>
+
+      <div class="visual-frame">
+        <div class="visual-pad">
+          <div class="pill"><span class="dot"></span>Sync-ready outputs</div>
+          <p style="margin:12px 0 0;">
+            Replace this with a screenshot showing Evergrowth outputs inside CRM fields / views.
+          </p>
+        </div>
+        <img src="./assets/illust/Artboard_2.png" alt="Illustration placeholder">
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERT HOURS -->
+  <section id="resources">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>We help you keep it sharp</h2>
+          <p class="lead">
+            Expert Hours keep ICP gates, signals, messaging, and playbooks improving—without turning RevOps into “lists as a service.”
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Tighten ICP gates</h3>
+          <p>Make “good fit” explicit, measurable, and consistent.</p>
+        </div>
+        <div class="card">
+          <h3>Upgrade signals</h3>
+          <p>Add new triggers and remove noise as your market shifts.</p>
+        </div>
+        <div class="card">
+          <h3>Ship better plays</h3>
+          <p>Refine messaging and proof so reps don’t freestyle every touch.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;" class="cta-band">
+        <div>
+          <h2 style="margin:0 0 8px;">Want to see it on your ICP?</h2>
+          <p style="margin:0; color:rgba(15,23,42,.68);">
+            We’ll run a sample workflow—qualification → signals → buying group → plays—and show outputs where your reps work.
+          </p>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-start;">
+          <button class="btn btn-primary" type="button" data-modal-open="modal-sample">Run a sample workflow</button>
+          <button class="btn btn-secondary" type="button">Book a demo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom:10px;">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Evergrowth</span>
+        </div>
+        <p style="max-width:48ch;">
+          Agentic GTM workflow for qualification, signals, buying groups, plans, plays, and rep readiness.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#workflow">How it works</a>
+        <a href="#agents">Agents</a>
+        <a href="#playbooks">Playbooks</a>
+        <a href="#integrations">Integrations</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Customers</a>
+        <a href="#">Careers</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#proof">Proof</a>
+        <a href="#" data-modal-open="modal-tour">Watch tour</a>
+        <a href="#" data-modal-open="modal-sample">Sample workflow</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       MODALS (Sample + Tour)
+       ========================= -->
+
+  <!-- Sample workflow modal -->
+  <div class="modal" id="modal-sample" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Sample workflow">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img
+              src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png"
+              alt="Workflow preview image"
+            >
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Sample workflow</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Interactive Storylane</span>
+            </div>
+            <h2>List → qualified → ready outbound</h2>
+            <p>See how Evergrowth qualifies accounts, finds signals, builds buying groups, and drafts plays—then syncs outputs into your workflow.</p>
+            <ul>
+              <li><strong>Fit:</strong> Yes/No + evidence</li>
+              <li><strong>Signals:</strong> “why now” brief</li>
+              <li><strong>Buying group:</strong> persona‑fit contacts</li>
+              <li><strong>Plays:</strong> sequencer‑ready drafts</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“All the legwork that used to take days can literally take minutes.”</p>
+                <div class="who"><strong>President</strong><span>iFind Staffing</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">15–20</div>
+                <p class="metric-label">accounts/week (example)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong style="letter-spacing:-0.02em;">Interactive demo</strong>
+            <p class="muted">Placeholder embed (replace with your final Storylane experience)</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Evergrowth Storylane demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tour modal -->
+  <div class="modal" id="modal-tour" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Tour">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img
+              src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png"
+              alt="Tour preview image"
+            >
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>90‑sec overview</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Video or Storylane</span>
+            </div>
+            <h2>What is Evergrowth?</h2>
+            <p>A quick tour of how Evergrowth improves outbound quality and rep efficiency with qualification, signals, buying groups, and plays.</p>
+            <ul>
+              <li>Make reps sound prepared and confident</li>
+              <li>Reduce research + prep time</li>
+              <li>Stop selling to bad‑fit accounts</li>
+              <li>Keep execution inside existing tools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong style="letter-spacing:-0.02em;">Tour placeholder</strong>
+            <p class="muted">Swap this iframe for a 90‑sec hosted video if preferred</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Evergrowth tour" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       AGENT MODALS (6)
+       Each includes embedded Storylane placeholder
+       ========================= -->
+
+  <!-- Qualification -->
+  <div class="modal" id="agent-qualification" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Qualification agent">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" alt="Qualification output placeholder">
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Qualification</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Gates the workflow</span>
+            </div>
+            <h2>Stop guessing. Start qualifying.</h2>
+            <p>Get an ICP decision before reps invest time—plus the “why” backed by evidence.</p>
+            <ul>
+              <li><strong>Fit:</strong> Yes/No + rationale</li>
+              <li><strong>Evidence:</strong> sources + highlights</li>
+              <li><strong>Routing:</strong> tier / vertical / next steps</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“All the legwork that used to take days can literally take minutes.”</p>
+                <div class="who"><strong>President</strong><span>iFind Staffing</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">15–20</div>
+                <p class="metric-label">accounts/week (example)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong>Interactive demo</strong>
+            <p class="muted">Embed a Qualification-specific Storylane here</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Qualification demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Research & Signals -->
+  <div class="modal" id="agent-research" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Research and signals agent">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png" alt="Signals brief placeholder">
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Research & Signals</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">“Why now” context</span>
+            </div>
+            <h2>Close the tabs. Start selling with signals.</h2>
+            <p>Turn scattered sources into a structured brief reps can use instantly.</p>
+            <ul>
+              <li><strong>Signal set:</strong> defined by your team</li>
+              <li><strong>Outputs:</strong> source‑backed brief + tags</li>
+              <li><strong>Automation:</strong> on demand / scheduled / triggered</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“We can have everything we need in one place.”</p>
+                <div class="who"><strong>Head of Revenue Experimentation</strong><span>Telescoped</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">3–5×</div>
+                <p class="metric-label">open rates (example)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong>Interactive demo</strong>
+            <p class="muted">Embed a Signals-specific Storylane here</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Signals demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Account Planning -->
+  <div class="modal" id="agent-planning" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Account planning agent">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" alt="Account plan placeholder">
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Account Planning</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Rep readiness</span>
+            </div>
+            <h2>Walk into every call with a plan.</h2>
+            <p>Convert research into a structured plan reps can run—consistently.</p>
+            <ul>
+              <li><strong>Stakeholders:</strong> who matters + why</li>
+              <li><strong>Meeting plan:</strong> agenda + questions</li>
+              <li><strong>Next steps:</strong> what to do now</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“Prep that used to take hours can take minutes.”</p>
+                <div class="who"><strong>ABM team</strong><span>(example placeholder)</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">11 min</div>
+                <p class="metric-label">prep time (example)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong>Interactive demo</strong>
+            <p class="muted">Embed an Account Planning Storylane here</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Account planning demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Finder -->
+  <div class="modal" id="agent-contacts" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Contact finder agent">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png" alt="Buying group placeholder">
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Contact Finder</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Buying groups</span>
+            </div>
+            <h2>Build buying groups—without keyword roulette.</h2>
+            <p>Find persona‑fit contacts and enrich reachability so reps can multithread immediately.</p>
+            <ul>
+              <li><strong>Persona-fit:</strong> based on your definitions</li>
+              <li><strong>Coverage:</strong> buying group, not single thread</li>
+              <li><strong>Reachability:</strong> enriched + verified (as available)</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“We’re able to use Evergrowth for more personalized copy.”</p>
+                <div class="who"><strong>Sales Manager</strong><span>Printful</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">30</div>
+                <p class="metric-label">data vendors (placeholder)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong>Interactive demo</strong>
+            <p class="muted">Embed a Buying Group Storylane here</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Contact finder demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plays -->
+  <div class="modal" id="agent-plays" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Plays agent">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" alt="Plays output placeholder">
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Plays</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Ready-to-run</span>
+            </div>
+            <h2>Signal‑tied outreach that sounds human.</h2>
+            <p>Draft emails and talk tracks grounded in signals + your messaging—then sync into sequences.</p>
+            <ul>
+              <li><strong>Drafts:</strong> emails + call openers</li>
+              <li><strong>Persona-aware:</strong> tone and proof by buyer</li>
+              <li><strong>Sync:</strong> sequencer-ready fields</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“More personalized copy — without the reps doing all the work.”</p>
+                <div class="who"><strong>Sales leader</strong><span>(example placeholder)</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">3–5×</div>
+                <p class="metric-label">open rates (example)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong>Interactive demo</strong>
+            <p class="muted">Embed a Plays Storylane here</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Plays demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Twins -->
+  <div class="modal" id="agent-twins" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Digital twins agent">
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-visual">
+            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png" alt="Digital twins placeholder">
+          </div>
+          <div class="modal-copy">
+            <div class="modal-kicker">
+              <span class="pill"><span class="dot"></span>Digital Twins</span>
+              <span style="color:rgba(15,23,42,.55); font-size:13px;">Confidence boost</span>
+            </div>
+            <h2>Insider guidance before the first touch.</h2>
+            <p>Give reps fast answers on the best angle, what to avoid, and how to sound prepared.</p>
+            <ul>
+              <li><strong>Lead with:</strong> best message angle</li>
+              <li><strong>Avoid:</strong> common missteps</li>
+              <li><strong>Prep:</strong> questions + talk track starters</li>
+            </ul>
+
+            <div class="modal-proof">
+              <div class="quote">
+                <p>“Reps sound confident because they’re prepared.”</p>
+                <div class="who"><strong>Sales leader</strong><span>(example placeholder)</span></div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">↓</div>
+                <p class="metric-label">ramp time (example)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storylane">
+          <div class="storylane-head">
+            <strong>Interactive demo</strong>
+            <p class="muted">Embed a Digital Twins Storylane here</p>
+          </div>
+          <div class="storylane-embed">
+            <iframe title="Digital twins demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------------------------
+    // Hero headline rotator
+    // ---------------------------
+    (function(){
+      const el = document.getElementById("heroRotator");
+      if(!el) return;
+
+      const lines = [
+        "Make outbound sound confident and well-informed.",
+        "Cut research + prep from hours to minutes.",
+        "Stop wasting time on bad-fit accounts and the wrong contacts."
+      ];
+
+      let i = 0;
+      let timer = null;
+      const intervalMs = 7000;
+
+      const fadeOut = () => {
+        el.style.transition = "opacity 220ms ease, transform 220ms ease";
+        el.style.opacity = "0";
+        el.style.transform = "translateY(6px)";
+      };
+      const fadeIn = () => {
+        el.style.transition = "opacity 260ms ease, transform 260ms ease";
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      };
+
+      const tick = () => {
+        fadeOut();
+        window.setTimeout(() => {
+          i = (i + 1) % lines.length;
+          el.textContent = lines[i];
+          fadeIn();
+        }, 240);
+      };
+
+      timer = window.setInterval(tick, intervalMs);
+
+      // pause on hover (premium feel)
+      el.addEventListener("mouseenter", () => { if(timer) { clearInterval(timer); timer = null; } });
+      el.addEventListener("mouseleave", () => { if(!timer) timer = setInterval(tick, intervalMs); });
+    })();
+
+    // ---------------------------
+    // Modal system + lazy Storylane iframe loading
+    // ---------------------------
+    (function(){
+      const openBtns = document.querySelectorAll("[data-modal-open]");
+      const closeSelectors = "[data-modal-close]";
+      const modals = document.querySelectorAll(".modal");
+
+      const setAria = (modal, isOpen) => {
+        modal.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      };
+
+      const lazyLoadIframes = (modal) => {
+        const iframes = modal.querySelectorAll("iframe[data-src]");
+        iframes.forEach((iframe) => {
+          if(!iframe.getAttribute("src")) {
+            iframe.setAttribute("src", iframe.getAttribute("data-src"));
+          }
+        });
+      };
+
+      const closeAll = () => {
+        modals.forEach(m => setAria(m, false));
+        document.body.style.overflow = "";
+      };
+
+      const openModal = (id) => {
+        const modal = document.getElementById(id);
+        if(!modal) return;
+        closeAll();
+        setAria(modal, true);
+        document.body.style.overflow = "hidden";
+        lazyLoadIframes(modal);
+
+        // move focus to close button for accessibility
+        const closeBtn = modal.querySelector(".modal-close");
+        if(closeBtn) closeBtn.focus();
+      };
+
+      openBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-modal-open");
+          openModal(id);
+        });
+      });
+
+      modals.forEach(modal => {
+        modal.addEventListener("click", (e) => {
+          const target = e.target;
+          if(target.matches(closeSelectors)) closeAll();
+        });
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if(e.key === "Escape") closeAll();
+      });
+    })();
+  </script>
+</body>
+</html>
