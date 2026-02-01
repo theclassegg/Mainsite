@@ -372,3 +372,1341 @@
     .lead{
       margin: 10px 0 0;
       color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items:center;
+    }
+    @media (max-width: 920px){
+      .split{ grid-template-columns: 1fr; }
+    }
+    .card{
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,15,26,.10);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+    .card-pad{ padding: 20px; }
+
+    .feature{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .feature h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .feature p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .checks{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap: 10px;
+    }
+    .checks li{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      color: rgba(11,15,26,.78);
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+    .checks .check{
+      width: 22px; height: 22px; border-radius: 8px;
+      background: rgba(31,111,255,.12);
+      border: 1px solid rgba(31,111,255,.25);
+      display:grid; place-items:center;
+      color: rgba(31,111,255,1);
+      font-weight: 900;
+      flex:0 0 auto;
+      margin-top: 1px;
+    }
+
+    .media{
+      position: relative;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,15,26,.10);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+    .media::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 20%, rgba(31,111,255,.18), transparent 35%),
+                  radial-gradient(circle at 70% 70%, rgba(124,58,237,.14), transparent 40%);
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+    .media > *{ position:relative; }
+    .media img{
+      width:100%;
+      border-radius: 16px;
+      border: 1px solid rgba(11,15,26,.10);
+      background: #fff;
+      display:block;
+    }
+    .media-cap{
+      margin-top: 12px;
+      color: rgba(11,15,26,.62);
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.35;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Meet the agents */
+    .agents-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 920px){
+      .agents-grid{ grid-template-columns: 1fr; }
+    }
+    .agent-card{
+      border-radius: 22px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(11,15,26,.10);
+      box-shadow: var(--shadow-soft);
+      padding: 16px;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      min-height: 110px;
+      position: relative;
+      overflow:hidden;
+    }
+    .agent-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(11,15,26,.12);
+      background: rgba(255,255,255,.95);
+    }
+    .agent-ico{
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      background: rgba(31,111,255,.10);
+      border: 1px solid rgba(31,111,255,.22);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .agent-ico img{ width: 40px; height: 40px; object-fit: contain; }
+    .agent-meta h4{
+      margin:0;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+    .agent-meta p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .agent-open{
+      position:absolute;
+      right: 14px; bottom: 14px;
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid rgba(11,15,26,.12);
+      background: rgba(255,255,255,.75);
+      display:grid; place-items:center;
+      font-weight: 900;
+      color: rgba(11,15,26,.65);
+    }
+
+    /* Role tabs */
+    .tabs{
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 920px){
+      .tabs{ grid-template-columns: 1fr; }
+    }
+    .tablist{
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,15,26,.10);
+      box-shadow: var(--shadow-soft);
+      padding: 8px;
+      display:grid;
+      gap: 6px;
+    }
+    .tabbtn{
+      text-align:left;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor:pointer;
+      font-weight: 800;
+      color: rgba(11,15,26,.75);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .tabbtn small{
+      font-weight: 800;
+      color: rgba(11,15,26,.42);
+    }
+    .tabbtn.active{
+      background: rgba(31,111,255,.10);
+      border-color: rgba(31,111,255,.25);
+      color: rgba(11,15,26,.92);
+    }
+    .tabpanel{
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,15,26,.10);
+      box-shadow: var(--shadow-soft);
+      padding: 20px;
+      overflow:hidden;
+      position: relative;
+    }
+    .tabpanel::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 20% 25%, rgba(31,111,255,.14), transparent 38%),
+                  radial-gradient(circle at 80% 65%, rgba(124,58,237,.10), transparent 42%);
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+    .tabpanel > *{ position:relative; }
+    .tabpanel h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .tabpanel p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+      max-width: 72ch;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 920px){
+      .mini-grid{ grid-template-columns: 1fr; }
+    }
+    .mini{
+      border-radius: 18px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(11,15,26,.10);
+      padding: 14px;
+    }
+    .mini strong{ display:block; font-size: 13px; letter-spacing: -.01em; }
+    .mini span{ display:block; margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    /* Proof */
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 920px){
+      .metrics{ grid-template-columns: 1fr; }
+    }
+    .metric{
+      border-radius: 20px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,15,26,.10);
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+    .metric .num{
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .metric .lbl{
+      margin-top: 8px;
+      font-weight: 700;
+      color: rgba(11,15,26,.70);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .fineprint{
+      margin-top: 10px;
+      color: rgba(11,15,26,.45);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* Quote rail */
+    .quote-rail{
+      display:flex;
+      gap: 12px;
+      overflow:auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x mandatory;
+    }
+    .quote{
+      min-width: min(420px, 92%);
+      scroll-snap-align: start;
+      border-radius: 22px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(11,15,26,.10);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+    }
+    .quote p{
+      margin:0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(11,15,26,.78);
+      font-weight: 650;
+    }
+    .quote .who{
+      margin-top: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      color: rgba(11,15,26,.55);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    /* Integrations strip */
+    .stack-row{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .stack-chip{
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(11,15,26,.10);
+      font-weight: 800;
+      color: rgba(11,15,26,.65);
+      font-size: 13px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 52px 0;
+      border-top: 1px solid rgba(11,15,26,.08);
+      background: rgba(255,255,255,.35);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 920px){
+      .footer-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    .foot h5{
+      margin:0 0 10px;
+      font-size: 13px;
+      letter-spacing: .02em;
+      color: rgba(11,15,26,.75);
+    }
+    .foot a{
+      display:block;
+      padding: 8px 0;
+      color: rgba(11,15,26,.55);
+      font-weight: 650;
+      font-size: 13px;
+    }
+    .foot a:hover{ color: rgba(11,15,26,.85); }
+
+    /* Modal */
+    .modal-backdrop{
+      position: fixed;
+      inset:0;
+      background: rgba(7,10,18,.55);
+      backdrop-filter: blur(10px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 100;
+    }
+    .modal-backdrop.open{ display:flex; }
+
+    .modal{
+      width: min(980px, 100%);
+      border-radius: 26px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.45);
+      box-shadow: 0 28px 90px rgba(0,0,0,.35);
+      overflow:hidden;
+      position: relative;
+    }
+    .modal::before{
+      content:"";
+      position:absolute; inset:-35%;
+      background: radial-gradient(circle at 25% 15%, rgba(31,111,255,.16), transparent 38%),
+                  radial-gradient(circle at 80% 70%, rgba(124,58,237,.12), transparent 42%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+    .modal-inner{ position:relative; padding: 18px; }
+    .modal-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .modal-title{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+    }
+    .modal-title h3{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+    .modal-title p{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      max-width: 70ch;
+      font-weight: 600;
+    }
+    .close{
+      width: 40px; height: 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(11,15,26,.14);
+      background: rgba(255,255,255,.72);
+      cursor:pointer;
+      font-weight: 900;
+      color: rgba(11,15,26,.70);
+      display:grid; place-items:center;
+    }
+    .modal-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+      align-items:start;
+    }
+    @media (max-width: 920px){
+      .modal-grid{ grid-template-columns: 1fr; }
+    }
+    .modal-box{
+      border-radius: 22px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(11,15,26,.10);
+      padding: 16px;
+      overflow:hidden;
+    }
+    .modal-box h4{
+      margin:0 0 10px;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .bullets{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(11,15,26,.74);
+      font-weight: 650;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+    .storylane{
+      border-radius: 18px;
+      border: 1px solid rgba(11,15,26,.10);
+      overflow:hidden;
+      background: #fff;
+      aspect-ratio: 16/9;
+    }
+    .storylane iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Utility */
+    .muted{ color: var(--muted); }
+    .spacer{ height: 8px; }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Evergrowth</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#agents">Agents</a>
+          <a href="#playbooks">Playbooks</a>
+          <a href="#proof">Proof</a>
+          <a href="#integrations">Integrations</a>
+          <a href="#resources">Resources</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn-secondary" href="#agents">Explore agents</a>
+          <a class="btn btn-primary" href="#how">See it in action</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="pill"><span class="dot"></span> AI agents that run your GTM workflows</span>
+
+            <h1>
+              Confident outbound starts<br/>
+              <span style="background: linear-gradient(135deg, rgba(31,111,255,1), rgba(124,58,237,1)); -webkit-background-clip:text; background-clip:text; color: transparent;">
+                before you hit send.
+              </span>
+            </h1>
+
+            <p class="hero-sub">
+              Evergrowth is an agentic GTM workspace: qualify accounts, find signals, build buying groups,
+              and draft plays — with outputs landing where reps already work (CRM + sequencers).  
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#how">Learn how it works</a>
+              <a class="btn btn-secondary" href="#agents">Meet the agents</a>
+            </div>
+
+            <div class="rotator" aria-live="polite">
+              <div class="rotator-badge">EG</div>
+              <div class="rotator-content">
+                <p class="rotator-title" id="rotTitle">Stop selling to bad-fit accounts.</p>
+                <p class="rotator-desc" id="rotDesc">Qualification + gates keep your team focused on accounts that can actually buy.</p>
+                <div class="rotator-dots" role="tablist" aria-label="Hero use cases">
+                  <button class="dotbtn active" data-rot="0" aria-label="Use case 1"></button>
+                  <button class="dotbtn" data-rot="1" aria-label="Use case 2"></button>
+                  <button class="dotbtn" data-rot="2" aria-label="Use case 3"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-mini">
+              <span>Less research busywork</span>
+              <span>Better fit + signals</span>
+              <span>More consistent plays</span>
+              <span>Fewer tools to wrangle</span>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card-inner">
+              <img class="hero-shot" alt="Product screenshot placeholder"
+                src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png" />
+              <div class="hero-card-caption">
+                <div>
+                  <p class="caption-title">Your GTM brain → agents + plays</p>
+                  <p class="caption-sub">ICPs, personas, messaging and proof wired into workflows.</p>
+                </div>
+                <span class="caption-chip">CRM-ready outputs</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="logos">
+          <div class="logos-row">
+            <span class="muted" style="font-weight:800;">Built for modern revenue teams:</span>
+            <span class="logo-pill">SDRs</span>
+            <span class="logo-pill">AEs</span>
+            <span class="logo-pill">RevOps</span>
+            <span class="logo-pill">Marketing</span>
+            <span class="logo-pill">ABM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS / REGIE-STYLE “UNIFIED” SECTION -->
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">How it works</div>
+            <h2>One workflow for agents and reps.</h2>
+            <p class="lead">
+              Evergrowth runs the loop: qualify → research signals → find the right buyers → draft plays → sync to your CRM/sequencer.
+              No guessing. No tab-hopping. No burning cycles on bad fit.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-secondary" href="#playbooks">See playbooks</a>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-pad feature">
+              <h3>Your entire outbound motion — without the tool sprawl</h3>
+              <p>
+                Keep your existing stack. Evergrowth does the upstream work (fit, signals, buying groups, enrichment, drafts),
+                then pushes structured outputs back into the systems reps live in.
+              </p>
+              <ul class="checks">
+                <li><span class="check">✓</span> Stop researching the wrong accounts</li>
+                <li><span class="check">✓</span> Stop guessing “why now?”</li>
+                <li><span class="check">✓</span> Stop single-threading with weak contact data</li>
+              </ul>
+
+              <div class="spacer"></div>
+
+              <div class="stack-row">
+                <span class="stack-chip">CRM</span>
+                <span class="stack-chip">Sequencers</span>
+                <span class="stack-chip">Dialers</span>
+                <span class="stack-chip">Data vendors</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="media">
+            <img alt="Intelligent GTM data placeholder"
+              src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" />
+            <div class="media-cap">
+              <span>Support media: product screenshot (real UI)</span>
+              <span>Swap for: workflow diagram (qualify → signals → buyers → plays)</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="split">
+          <div class="media">
+            <img alt="Agency illustration option"
+              src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_1.png" />
+            <div class="media-cap">
+              <span>Optional illustration: “less busywork”</span>
+              <span>Use as a supporting graphic</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-pad feature">
+              <h3>Better conversations, not louder sequences</h3>
+              <p>
+                Plays are tied to real account context and your messaging — so reps sound prepared,
+                confident, and consistent (instead of generic AI copy).
+              </p>
+              <ul class="checks">
+                <li><span class="check">✓</span> Draft outreach based on signals + persona</li>
+                <li><span class="check">✓</span> Keep language and proof consistent across the team</li>
+                <li><span class="check">✓</span> Refresh research automatically so outreach doesn’t go stale</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-pad feature">
+              <h3>Expand reach without expanding headcount</h3>
+              <p>
+                Agents do the time-heavy steps at scale — so small teams can work more of their TAM,
+                without turning RevOps into “lists as a service.”
+              </p>
+              <ul class="checks">
+                <li><span class="check">✓</span> Gate bad-fit accounts before anyone wastes time</li>
+                <li><span class="check">✓</span> Build buying groups (not one-name lists)</li>
+                <li><span class="check">✓</span> Push “ready-to-run” segments back to your CRM</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="media">
+            <img alt="Agency illustration option"
+              src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_2.png" />
+            <div class="media-cap">
+              <span>Optional illustration: “compounding system”</span>
+              <span>Use as supporting visual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET THE AGENTS -->
+    <section id="agents">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Meet the agents</div>
+            <h2>Six agents that remove the biggest GTM bottlenecks.</h2>
+            <p class="lead">
+              Each one has a job. Together, they run end-to-end workflows — and keep reps focused on selling.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-secondary" href="#integrations">See integrations</a>
+          </div>
+        </div>
+
+        <div class="agents-grid" id="agentsGrid">
+          <!-- Cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYBOOKS -->
+    <section id="playbooks">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Playbooks</div>
+            <h2>Orchestrate agents into repeatable revenue motions.</h2>
+            <p class="lead">
+              Package qualification, signals, contacts, enrichment, and plays into workflows you can run on-demand or on a schedule.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="#proof">See proof</a>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-pad feature">
+              <h3>Examples your team can run this week</h3>
+              <ul class="checks">
+                <li><span class="check">✓</span> Qualify & prep a fresh outbound list (fit → signals → buyers → drafted plays)</li>
+                <li><span class="check">✓</span> Refresh ABM research and account plans for your top accounts</li>
+                <li><span class="check">✓</span> Recycle dormant CRM accounts (re-qualify, refresh signals, find new buyers, re-draft outreach)</li>
+              </ul>
+              <p style="margin-top:10px">
+                Add “gates” so only ICP-verified accounts flow downstream — protecting rep time and CRM health.
+              </p>
+            </div>
+          </div>
+
+          <div class="media">
+            <img alt="Agency illustration option"
+              src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_2_copy.png" />
+            <div class="media-cap">
+              <span>Optional illustration: “workflow automation”</span>
+              <span>Swap for: animated workflow diagram</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLE TABS (REGIE-LIKE) -->
+    <section id="for-teams">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Who it’s for</div>
+            <h2>Put Evergrowth to work for your team.</h2>
+            <p class="lead">
+              Whether you’re running high-volume outbound or focused ABM, Evergrowth keeps fit, context, contacts, and plays consistent.
+            </p>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <div class="tablist" role="tablist" aria-label="Teams">
+            <button class="tabbtn active" data-tab="sdr" role="tab">SDRs <small>speed + quality</small></button>
+            <button class="tabbtn" data-tab="ae" role="tab">AEs <small>better meetings</small></button>
+            <button class="tabbtn" data-tab="leaders" role="tab">Sales Leaders <small>coverage</small></button>
+            <button class="tabbtn" data-tab="revops" role="tab">RevOps <small>consistency</small></button>
+            <button class="tabbtn" data-tab="marketing" role="tab">Marketing <small>message control</small></button>
+          </div>
+
+          <div class="tabpanel" id="tabpanel" role="tabpanel">
+            <!-- injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Proof</div>
+            <h2>Results teams report after deploying Evergrowth.</h2>
+            <p class="lead">
+              When fit + signals + contacts + plays are automated and consistent, teams move faster — and waste less effort on dead ends.
+            </p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="num">5 hrs → 11 mins</div>
+            <div class="lbl">ABM prep time reported (Aqfer)</div>
+          </div>
+          <div class="metric">
+            <div class="num">1–3 → 15–20</div>
+            <div class="lbl">Accounts/week researched (iFind Staffing)</div>
+          </div>
+          <div class="metric">
+            <div class="num">3–5×</div>
+            <div class="lbl">Open-rate increase reported (Telescoped)</div>
+          </div>
+        </div>
+        <div class="fineprint">
+          Notes: these are customer-reported outcomes from your Evergrowth overview; use the exact customer-approved phrasing on the live site.
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="section-head" style="margin-bottom: 12px;">
+          <div>
+            <h2 style="font-size: 22px;">“Don’t just take our word for it.”</h2>
+            <p class="lead" style="font-size: 14px; margin-top: 8px;">
+              A few quotes to anchor the story (swap in final headshots + approvals).
+            </p>
+          </div>
+        </div>
+
+        <div class="quote-rail" aria-label="Customer quotes">
+          <div class="quote">
+            <p>“All the legwork that used to take one person three or four days can literally take minutes.”</p>
+            <div class="who"><span>Omar A. Sanchez</span><span>President, iFind Staffing</span></div>
+          </div>
+          <div class="quote">
+            <p>“We cut prep time dramatically — without sacrificing how ‘sales-ready’ our accounts are.”</p>
+            <div class="who"><span>Thomas Burg</span><span>SVP of Marketing, Aqfer</span></div>
+          </div>
+          <div class="quote">
+            <p>“Signals + drafts improved performance while keeping our stack lean.”</p>
+            <div class="who"><span>Paul Rios</span><span>Head of Revenue Experimentation, Telescoped</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS + EXPERT HOURS -->
+    <section id="integrations">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Integrations</div>
+            <h2>Works with your stack. Improves what you already pay for.</h2>
+            <p class="lead">
+              Keep Apollo / ZoomInfo / Cognism (or whatever you’ve got). Evergrowth sits upstream, verifies and enriches, then syncs back into CRM + sequencers.
+            </p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-pad feature">
+              <h3>Multi-vendor enrichment (waterfall)</h3>
+              <p>
+                Enrich via a waterfall across many providers — so you get higher match rates and fewer blind spots, without vendor wrangling.
+              </p>
+              <ul class="checks">
+                <li><span class="check">✓</span> Reachability-first enrichment (not just “has a record”)</li>
+                <li><span class="check">✓</span> Better coverage across segments + regions</li>
+                <li><span class="check">✓</span> Fewer bad emails → safer sending</li>
+              </ul>
+
+              <div class="stack-row">
+                <span class="stack-chip">Salesforce</span>
+                <span class="stack-chip">HubSpot</span>
+                <span class="stack-chip">Apollo</span>
+                <span class="stack-chip">Outreach</span>
+                <span class="stack-chip">Salesloft</span>
+                <span class="stack-chip">Dialers</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="media">
+            <img alt="Agency illustration option"
+              src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_1_copy.png" />
+            <div class="media-cap">
+              <span>Optional illustration: “a better system”</span>
+              <span>Swap for: integration tile grid</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="card">
+          <div class="card-pad feature">
+            <h3>Expert Hours (so your system keeps getting better)</h3>
+            <p>
+              Every subscription includes specialist help to tune messaging, train agents, and refine workflows — so the system improves without becoming your full-time job.
+            </p>
+            <div class="mini-grid">
+              <div class="mini">
+                <strong>Faster time-to-value</strong>
+                <span>Get workflows dialed quickly, then iterate as your motion changes.</span>
+              </div>
+              <div class="mini">
+                <strong>Less drift over time</strong>
+                <span>Keep plays aligned when ICP, product, or messaging shifts.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES / HELP -->
+    <section id="resources">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Need more?</div>
+            <h2>Get your team live fast.</h2>
+            <p class="lead">
+              Documentation, examples, and templates for building plays that actually ship.
+            </p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="#how">Back to top</a>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-pad feature">
+              <h3>What to embed on the real site</h3>
+              <ul class="checks">
+                <li><span class="check">✓</span> Short Storylane tours per agent (inside each modal)</li>
+                <li><span class="check">✓</span> A single 90-sec “how it works” video (hero or section 2)</li>
+                <li><span class="check">✓</span> A workflow diagram (qualify → signals → buyers → plays → CRM)</li>
+              </ul>
+              <p style="margin-top:10px">Keep the text punchy. Let media carry the complex parts.</p>
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="storylane" title="Storylane demo">
+              <iframe
+                src="https://evergrowth.storylane.io/share/cgryuvacskki"
+                allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+            <div class="media-cap">
+              <span>Support media: Storylane walkthrough</span>
+              <span>Embed site-wide or per-agent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="foot">
+            <div class="brand" style="margin-bottom:10px;">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span>Evergrowth</span>
+            </div>
+            <div class="muted" style="font-weight:650; line-height:1.6; font-size:13px;">
+              The GTM workspace where agents remove busywork and reps show up prepared.
+            </div>
+            <div style="height:12px"></div>
+            <div class="muted" style="font-weight:750; font-size:12px;">© Evergrowth</div>
+          </div>
+          <div class="foot">
+            <h5>Product</h5>
+            <a href="#how">How it works</a>
+            <a href="#agents">Agents</a>
+            <a href="#playbooks">Playbooks</a>
+            <a href="#integrations">Integrations</a>
+          </div>
+          <div class="foot">
+            <h5>Solutions</h5>
+            <a href="#for-teams">For SDRs</a>
+            <a href="#for-teams">For AEs</a>
+            <a href="#for-teams">For RevOps</a>
+            <a href="#proof">Customer outcomes</a>
+          </div>
+          <div class="foot">
+            <h5>Resources</h5>
+            <a href="#resources">Guides</a>
+            <a href="#resources">Templates</a>
+            <a href="#resources">Help center</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Agent details">
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div class="modal-title">
+            <div class="agent-ico" id="modalIcon" aria-hidden="true"></div>
+            <div>
+              <h3 id="modalH">Agent</h3>
+              <p id="modalSub">Description</p>
+            </div>
+          </div>
+          <button class="close" id="modalClose" aria-label="Close">×</button>
+        </div>
+
+        <div class="modal-grid">
+          <div class="modal-box">
+            <h4>What it does</h4>
+            <ul class="bullets" id="modalBullets"></ul>
+          </div>
+          <div class="modal-box">
+            <h4>Why reps care</h4>
+            <ul class="bullets" id="modalBullets2"></ul>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="modal-box">
+          <h4>Walkthrough (Storylane)</h4>
+          <div class="storylane">
+            <iframe
+              src="https://evergrowth.storylane.io/share/cgryuvacskki"
+              allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"></iframe>
+          </div>
+          <div class="fineprint">On the live site, swap this for the agent-specific Storylane.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- HERO ROTATOR (auto every 5–10s) ----------
+    const rot = [
+      {
+        title: "Stop selling to bad-fit accounts.",
+        desc: "Qualification + gates keep your team focused on accounts that can actually buy."
+      },
+      {
+        title: "Turn research into ready-to-send outreach.",
+        desc: "Agents pull signals, build context, and draft plays that sound like your best reps."
+      },
+      {
+        title: "Fill pipeline with reachable, persona-fit buyers.",
+        desc: "Contact Finder builds buying groups and enriches reachability so reps stop guessing."
+      }
+    ];
+
+    let rotIdx = 0;
+    let rotTimer = null;
+
+    const rotTitle = document.getElementById("rotTitle");
+    const rotDesc = document.getElementById("rotDesc");
+    const dotBtns = Array.from(document.querySelectorAll(".dotbtn"));
+
+    function setRot(i, user=false){
+      rotIdx = i;
+      rotTitle.style.opacity = 0;
+      rotDesc.style.opacity = 0;
+      setTimeout(() => {
+        rotTitle.textContent = rot[i].title;
+        rotDesc.textContent = rot[i].desc;
+        rotTitle.style.opacity = 1;
+        rotDesc.style.opacity = 1;
+      }, 140);
+
+      dotBtns.forEach(b => b.classList.remove("active"));
+      dotBtns[i].classList.add("active");
+
+      if(user){
+        restartRot();
+      }
+    }
+
+    function restartRot(){
+      if(rotTimer) clearInterval(rotTimer);
+      rotTimer = setInterval(() => {
+        const next = (rotIdx + 1) % rot.length;
+        setRot(next, false);
+      }, 7000); // ~7s (within 5–10s requirement)
+    }
+
+    dotBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const i = Number(btn.dataset.rot);
+        setRot(i, true);
+      });
+    });
+
+    restartRot();
+
+    // ---------- AGENT CARDS + MODAL ----------
+    const agents = [
+      {
+        key: "qualification",
+        name: "Qualification",
+        icon: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79e99c619db09f7629e25_Account%20Qualification.png",
+        blurb: "Gate accounts with real research — not flimsy filters.",
+        does: [
+          "Applies your ICP using real account research (not just firmographics).",
+          "Outputs an ICP fit decision (Yes/No) with evidence.",
+          "Routes accounts into the right vertical/tier before downstream work."
+        ],
+        care: [
+          "Stops reps wasting time on the wrong accounts.",
+          "Protects domain + sequence performance by avoiding bad-fit sends.",
+          "Creates a consistent quality bar across the team."
+        ]
+      },
+      {
+        key: "research",
+        name: "Research & Signals",
+        icon: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79ed29c77114bfbcbebc6_Account%20Research.png",
+        blurb: "Find “why now” signals in minutes, not tabs.",
+        does: [
+          "Pulls context from public sources and converts it into structured briefs.",
+          "Lets you define your own signal set (hiring, launches, funding, etc.).",
+          "Runs on-demand, scheduled, or triggered — then syncs back to CRM."
+        ],
+        care: [
+          "Reps show up informed (without spending half the day researching).",
+          "Prioritization becomes evidence-based, not gut feel.",
+          "Signals flow directly into plays and talk tracks."
+        ]
+      },
+      {
+        key: "planning",
+        name: "Account Planning",
+        icon: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79ed57a462e44ce8d6ac0_Account%20Planning.png",
+        blurb: "Turn research into a plan your team can actually run.",
+        does: [
+          "Creates a structured account plan from research and signals.",
+          "Recommends stakeholders and outlines meeting structure + next steps.",
+          "Highlights risks and opportunities for a consistent approach."
+        ],
+        care: [
+          "Better meetings with less scrambling.",
+          "A repeatable standard for key accounts and long-tail alike.",
+          "Less improvisation, more confident execution."
+        ]
+      },
+      {
+        key: "contacts",
+        name: "Contact Finder",
+        icon: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79eda20e7ac27ae80da50_Contact%20Finder.png",
+        blurb: "Build buying groups — enriched for reachability.",
+        does: [
+          "Finds persona-fit contacts using your Ideal Buyer Persona definitions.",
+          "Searches public sources (LinkedIn, company sites) for the right people.",
+          "Enriches reachability via a waterfall across many data providers."
+        ],
+        care: [
+          "Stops single-threading and weak list pulls.",
+          "Improves connect rates by prioritizing reachability.",
+          "Creates CRM-ready buying groups for immediate activation."
+        ]
+      },
+      {
+        key: "plays",
+        name: "Plays",
+        icon: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79ee0b840121152f4e02a_Play%20Copywriting.png",
+        blurb: "Write plays tied to real signals — not generic templates.",
+        does: [
+          "Drafts signal-tied outreach based on your messaging and tone-of-voice.",
+          "Adjusts proof, language, and tone by persona so it reads like a human.",
+          "Outputs CRM-compatible fields so drafts populate sequencers and dialers."
+        ],
+        care: [
+          "Outbound gets more specific and more credible.",
+          "Messaging stays consistent even as the team scales.",
+          "Reps spend time sending and selling — not drafting from scratch."
+        ]
+      },
+      {
+        key: "twins",
+        name: "Digital Twins",
+        icon: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/69457c3b99653224258a3783_DigitalTwin-New.png",
+        blurb: "Strategy assistants that help reps before outreach.",
+        does: [
+          "Creates prospect replicas to pressure-test approach and messaging.",
+          "Highlights what to lead with (and what to avoid) per account/persona.",
+          "Supports coaching-style guidance to improve confidence and clarity."
+        ],
+        care: [
+          "Reps sound more confident and more informed.",
+          "Fewer awkward first touches and wasted cycles.",
+          "A faster path to a strong talk track per account."
+        ]
+      }
+    ];
+
+    const agentsGrid = document.getElementById("agentsGrid");
+
+    function agentCard(agent){
+      const div = document.createElement("button");
+      div.type = "button";
+      div.className = "agent-card";
+      div.setAttribute("aria-label", `Open ${agent.name} details`);
+
+      div.innerHTML = `
+        <div class="agent-ico"><img alt="" src="${agent.icon}" /></div>
+        <div class="agent-meta">
+          <h4>${agent.name}</h4>
+          <p>${agent.blurb}</p>
+        </div>
+        <div class="agent-open">+</div>
+      `;
+
+      div.addEventListener("click", () => openModal(agent));
+      return div;
+    }
+
+    agents.forEach(a => agentsGrid.appendChild(agentCard(a)));
+
+    const backdrop = document.getElementById("modalBackdrop");
+    const modalClose = document.getElementById("modalClose");
+    const modalH = document.getElementById("modalH");
+    const modalSub = document.getElementById("modalSub");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalBullets = document.getElementById("modalBullets");
+    const modalBullets2 = document.getElementById("modalBullets2");
+
+    function openModal(agent){
+      modalH.textContent = agent.name;
+      modalSub.textContent = agent.blurb;
+      modalIcon.innerHTML = `<img alt="" src="${agent.icon}" />`;
+
+      modalBullets.innerHTML = agent.does.map(x => `<li>${x}</li>`).join("");
+      modalBullets2.innerHTML = agent.care.map(x => `<li>${x}</li>`).join("");
+
+      backdrop.classList.add("open");
+      backdrop.setAttribute("aria-hidden","false");
+
+      // Trap basic focus
+      modalClose.focus();
+    }
+
+    function closeModal(){
+      backdrop.classList.remove("open");
+      backdrop.setAttribute("aria-hidden","true");
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", (e) => {
+      if(e.target === backdrop) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && backdrop.classList.contains("open")) closeModal();
+    });
+
+    // ---------- ROLE TABS ----------
+    const tabData = {
+      sdr: {
+        title: "SDRs: stop spending half your day on prep.",
+        body: "Qualification, signals, contacts, and drafts happen upstream — so you spend time running conversations, not building lists and stitching tools together.",
+        minis: [
+          ["Walk into every touch prepared", "Signals + context show you what’s happening right now."],
+          ["More accounts covered", "Agents run at scale, so you’re not choosing between quality and volume."]
+        ]
+      },
+      ae: {
+        title: "AEs: get handed accounts that are actually ready.",
+        body: "No more chasing the wrong leads or entering meetings cold. Get accounts with fit decisions, key stakeholders, and next-step plays ready to run.",
+        minis: [
+          ["Better meetings", "Plans, talk tracks, and stakeholder recommendations in one place."],
+          ["Faster follow-up", "Draft plays tied to real context — not generic templates."]
+        ]
+      },
+      leaders: {
+        title: "Sales leaders: predictable coverage across your TAM.",
+        body: "Standardize what “good” looks like for fit, signals, and plays — then automate execution so your motion runs consistently (even as the team scales).",
+        minis: [
+          ["Consistency without micromanagement", "Workflows make the right steps happen every time."],
+          ["Less wasted effort", "Gates stop reps selling to bad fit after hours of work."]
+        ]
+      },
+      revops: {
+        title: "RevOps: fewer tools to stitch, cleaner CRM outcomes.",
+        body: "Evergrowth can sit on top of your existing vendors and systems, then sync structured outputs back into CRM and sequencers. Less list wrangling, more leverage.",
+        minis: [
+          ["Cleaner routing", "ICP decisions and tiers happen before downstream workflows."],
+          ["More reliable data", "Reachability-focused enrichment helps reduce dead contacts."]
+        ]
+      },
+      marketing: {
+        title: "Marketing: keep messaging consistent in the field.",
+        body: "When ICP, personas, proof, and preferred messaging are wired into plays, outbound stays on-brand and up-to-date — without hoping every rep remembers the latest doc.",
+        minis: [
+          ["Less messaging drift", "Plays pull from your latest standards."],
+          ["Better alignment", "Signals and use cases map to your positioning in execution."]
+        ]
+      }
+    };
+
+    const tabPanel = document.getElementById("tabpanel");
+    const tabBtns = Array.from(document.querySelectorAll(".tabbtn"));
+
+    function renderTab(key){
+      const d = tabData[key];
+      tabPanel.innerHTML = `
+        <h3>${d.title}</h3>
+        <p>${d.body}</p>
+        <div class="mini-grid">
+          <div class="mini"><strong>${d.minis[0][0]}</strong><span>${d.minis[0][1]}</span></div>
+          <div class="mini"><strong>${d.minis[1][0]}</strong><span>${d.minis[1][1]}</span></div>
+        </div>
+      `;
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderTab(btn.dataset.tab);
+      });
+    });
+
+    renderTab("sdr");
+  </script>
+</body>
+</html>
