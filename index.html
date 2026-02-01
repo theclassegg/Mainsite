@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -72,7 +72,7 @@
       inset:-20%;
       pointer-events:none;
       z-index:-3;
-      opacity:.35;
+      opacity:.30;
       transform: rotate(-8deg);
       background-image: repeating-linear-gradient(
         90deg,
@@ -110,7 +110,7 @@
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:700;
+      font-weight:800;
       letter-spacing:-0.03em;
     }
     .brand-mark{
@@ -166,7 +166,7 @@
       gap:10px;
       border-radius:999px;
       padding:12px 16px;
-      font-weight:600;
+      font-weight:700;
       letter-spacing:-0.02em;
       border:1px solid transparent;
       cursor:pointer;
@@ -306,7 +306,7 @@
       border:1px solid rgba(34,197,94,.25);
       display:inline-flex;align-items:center;justify-content:center;
       color: rgba(22,101,52,.95);
-      font-weight:800;
+      font-weight:900;
       font-size:12px;
       line-height:1;
     }
@@ -346,11 +346,11 @@
       background: rgba(47,93,255,.10);
       color: rgba(11,27,92,.90);
       border: 1px solid rgba(47,93,255,.18);
-      font-weight: 600;
+      font-weight: 700;
       white-space:nowrap;
     }
 
-    /* Floating illustrations (your agency icons) */
+    /* Optional agency illustrations (subtle) */
     .float-illust{
       position:absolute;
       right:-14px;
@@ -371,6 +371,86 @@
       opacity:.75;
     }
 
+    /* Use case tabs (Hero) */
+    .usecase-wrap{
+      margin-top: 20px;
+    }
+    .usecase-label{
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,.46);
+      margin: 0 0 10px;
+    }
+    .usecase-row{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .usecase-card{
+      text-align:left;
+      border-radius: 22px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.68));
+      box-shadow: var(--shadow-sm);
+      padding: 14px 14px 14px;
+      cursor:pointer;
+      position:relative;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .usecase-card:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(47,93,255,.18);
+    }
+    .usecase-card.is-active{
+      border-color: rgba(47,93,255,.34);
+      background:
+        radial-gradient(700px 220px at 30% 30%, rgba(47,93,255,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.70));
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .usecase-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .usecase-title{
+      font-weight: 800;
+      letter-spacing:-0.02em;
+      color: rgba(15,23,42,.90);
+      margin: 0;
+      font-size: 15px;
+    }
+    .usecase-desc{
+      margin: 0;
+      color: rgba(15,23,42,.66);
+      font-size: 13px;
+      max-width: 46ch;
+    }
+    .usecase-indicator{
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.70);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(15,23,42,.65);
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(15,23,42,.06);
+      flex: 0 0 auto;
+    }
+    .usecase-card.is-active .usecase-indicator{
+      border-color: rgba(47,93,255,.24);
+      background: rgba(47,93,255,.10);
+      color: rgba(11,27,92,.90);
+    }
+
     /* Logos */
     .logos{
       padding: 22px 0 0;
@@ -389,17 +469,11 @@
       background: rgba(255,255,255,.62);
       border: 1px solid rgba(15,23,42,.08);
       color: rgba(15,23,42,.55);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 13px;
     }
 
     /* Cards / grids */
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items:center;
-    }
     .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -427,43 +501,7 @@
     }
     .bullets li{ margin: 8px 0; }
 
-    /* Workflow */
-    .workflow{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      margin-top: 22px;
-    }
-    .workflow-rail{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-    }
-    .step-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.75);
-      border: 1px solid rgba(15,23,42,.08);
-      box-shadow: 0 12px 26px rgba(15,23,42,.05);
-      font-size: 14px;
-      color: rgba(15,23,42,.72);
-      font-weight: 600;
-    }
-    .chip-num{
-      width: 22px; height: 22px;
-      border-radius: 999px;
-      background: rgba(47,93,255,.14);
-      border: 1px solid rgba(47,93,255,.22);
-      color: rgba(11,27,92,.95);
-      display:inline-flex; align-items:center; justify-content:center;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
+    /* Split */
     .split{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -517,7 +555,7 @@
       margin-bottom: 10px;
     }
     .agent-title{
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing:-0.02em;
       color: rgba(15,23,42,.90);
       margin: 0;
@@ -537,19 +575,20 @@
       align-items:center;
       justify-content:center;
       color: rgba(15,23,42,.65);
-      font-weight: 800;
+      font-weight: 900;
       box-shadow: 0 12px 26px rgba(15,23,42,.06);
       flex: 0 0 auto;
     }
-    .agent-illust{
+    .agent-icon{
       position:absolute;
-      right:-18px;
-      bottom:-22px;
-      width: 165px;
-      opacity: .90;
-      filter: drop-shadow(0 26px 38px rgba(15,23,42,.12));
+      right: 14px;
+      bottom: 14px;
+      width: 86px;
+      height: 86px;
+      object-fit: contain;
+      opacity: .98;
+      filter: drop-shadow(0 18px 28px rgba(15,23,42,.14));
       pointer-events:none;
-      transform: rotate(2deg);
     }
 
     /* Proof */
@@ -569,7 +608,7 @@
     .metric-value{
       font-size: 34px;
       letter-spacing:-0.04em;
-      font-weight: 800;
+      font-weight: 900;
       color: rgba(15,23,42,.92);
       margin: 0 0 6px;
     }
@@ -606,7 +645,7 @@
     }
     .quote .who strong{
       color: rgba(15,23,42,.82);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     /* Footer */
@@ -736,12 +775,6 @@
       grid-template-columns: 1.2fr .8fr;
       gap: 14px;
     }
-    .modal-proof .quote{
-      margin:0;
-    }
-    .modal-proof .metric{
-      margin:0;
-    }
 
     .storylane{
       margin-top: 18px;
@@ -793,10 +826,14 @@
       align-items:center;
     }
 
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+    }
+
     /* Responsive */
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
-      .float-illust.small{ display:none; }
       .split{ grid-template-columns: 1fr; }
       .grid-3{ grid-template-columns: 1fr; }
       .agent-grid{ grid-template-columns: 1fr; }
@@ -807,6 +844,19 @@
       .modal-top{ grid-template-columns: 1fr; }
       .modal-proof{ grid-template-columns: 1fr; }
       .cta-band{ grid-template-columns: 1fr; }
+
+      /* Hero use case selector becomes swipeable row */
+      .usecase-row{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding-bottom: 6px;
+        scroll-snap-type: x mandatory;
+      }
+      .usecase-card{
+        min-width: 78%;
+        scroll-snap-align: center;
+      }
     }
   </style>
 </head>
@@ -833,23 +883,21 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#tour" data-modal-open="modal-tour">Watch tour</a>
+        <a href="#" data-modal-open="modal-tour">Watch tour</a>
         <a href="#">Log in</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
+  <section class="hero" id="top">
+    <div class="container hero-grid" id="heroRegion">
       <div>
-        <div class="pill"><span class="dot" aria-hidden="true"></span>GTM agents for better outbound</div>
+        <div class="pill"><span class="dot" aria-hidden="true"></span><span id="heroPill">GTM agents for better outbound</span></div>
 
-        <h1>
-          <span id="heroRotator">Make outbound sound confident and well-informed.</span>
-        </h1>
+        <h1 id="heroHeadline">Make outbound sound confident and well-informed.</h1>
 
-        <p class="hero-subhead">
+        <p class="hero-subhead" id="heroSubhead">
           Evergrowth is an agentic GTM workspace where digital colleagues qualify accounts, find “why now” signals,
           build persona‑fit buying groups, draft outreach, and prep reps — then sync outputs into your CRM and sequencing tools
           so reps can execute fast.
@@ -868,6 +916,36 @@
           <span><span class="tiny-check" aria-hidden="true">✓</span>Outputs land in CRM fields, sequences, and call tracks.</span>
         </div>
 
+        <!-- Use case selector (auto-cycles every 5–10s) -->
+        <div class="usecase-wrap" aria-label="Hero use cases">
+          <p class="usecase-label">Top use cases</p>
+          <div class="usecase-row" id="usecaseRow" role="tablist" aria-label="Use case tabs">
+            <button class="usecase-card is-active" type="button" role="tab" aria-selected="true" data-usecase="0">
+              <div class="usecase-top">
+                <p class="usecase-title">Confident outbound</p>
+                <div class="usecase-indicator" aria-hidden="true">▸</div>
+              </div>
+              <p class="usecase-desc">Signal‑tied plays + talk tracks that sound human.</p>
+            </button>
+
+            <button class="usecase-card" type="button" role="tab" aria-selected="false" data-usecase="1">
+              <div class="usecase-top">
+                <p class="usecase-title">Research in minutes</p>
+                <div class="usecase-indicator" aria-hidden="true">▸</div>
+              </div>
+              <p class="usecase-desc">“Why now” briefs + prep, without tab‑hopping.</p>
+            </button>
+
+            <button class="usecase-card" type="button" role="tab" aria-selected="false" data-usecase="2">
+              <div class="usecase-top">
+                <p class="usecase-title">Right accounts + contacts</p>
+                <div class="usecase-indicator" aria-hidden="true">▸</div>
+              </div>
+              <p class="usecase-desc">ICP fit + buying groups before reps invest time.</p>
+            </button>
+          </div>
+        </div>
+
         <div class="logos" aria-label="Customer logos">
           <div class="logo-row">
             <span class="logo">Customer logo</span>
@@ -882,21 +960,22 @@
       <div class="hero-media">
         <div class="media-card">
           <img
+            id="heroMediaImg"
             src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png"
             alt="Evergrowth product placeholder"
           >
           <div class="media-caption">
-            <span>List → Fit → Signals → Buying group → Plays → Sync</span>
-            <span class="caption-chip">Workflow preview</span>
+            <span id="heroMediaCaption">List → Fit → Signals → Buying group → Plays → Sync</span>
+            <span class="caption-chip" id="heroMediaChip">Outbound quality</span>
           </div>
 
-          <!-- Replace with your agency illustration (place PNG in ./assets/illust/) -->
+          <!-- Optional: agency illustrations (raw GitHub assets) -->
           <img class="float-illust"
-               src="./assets/illust/Artboard_1.png"
+               src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_1.png"
                alt=""
                aria-hidden="true">
           <img class="float-illust small"
-               src="./assets/illust/Artboard_2.png"
+               src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_2.png"
                alt=""
                aria-hidden="true">
         </div>
@@ -931,11 +1010,10 @@
         <div class="visual-pad">
           <div class="pill" style="margin-bottom:12px;"><span class="dot"></span>Less busywork, more selling</div>
           <p style="margin-bottom:0;">
-            Evergrowth turns this into one repeatable workflow — with clear gates, consistent outputs, and a single place leaders can improve what “good” looks like.
+            Evergrowth turns this into one repeatable workflow — with clear gates, consistent outputs, and a single place leaders can improve results.
           </p>
         </div>
-        <!-- Replace with one of your agency icons -->
-        <img src="./assets/illust/Artboard_1_copy.png" alt="Illustration placeholder">
+        <img src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_1_copy.png" alt="Illustration placeholder">
       </div>
     </div>
   </section>
@@ -952,38 +1030,27 @@
         </div>
       </div>
 
-      <div class="workflow">
-        <div class="workflow-rail" aria-label="Workflow steps">
-          <span class="step-chip"><span class="chip-num">1</span>Qualify accounts</span>
-          <span class="step-chip"><span class="chip-num">2</span>Find “why now” signals</span>
-          <span class="step-chip"><span class="chip-num">3</span>Build buying groups</span>
-          <span class="step-chip"><span class="chip-num">4</span>Create account plans</span>
-          <span class="step-chip"><span class="chip-num">5</span>Draft plays</span>
-          <span class="step-chip"><span class="chip-num">6</span>Sync + coach</span>
+      <div class="split" style="margin-top:18px;">
+        <div class="grid-3">
+          <div class="card soft">
+            <h3>Better targets</h3>
+            <p>Block bad‑fit accounts before reps spend time researching and writing.</p>
+          </div>
+          <div class="card soft">
+            <h3>Better context</h3>
+            <p>Turn scattered sources into a structured “why now” brief reps can use.</p>
+          </div>
+          <div class="card soft">
+            <h3>Better plays</h3>
+            <p>Signal‑tied outreach and talk tracks that feel human and sound confident.</p>
+          </div>
         </div>
 
-        <div class="split" style="margin-top:18px;">
-          <div class="grid-3">
-            <div class="card soft">
-              <h3>Better targets</h3>
-              <p>Block bad‑fit accounts before reps spend time researching and writing.</p>
-            </div>
-            <div class="card soft">
-              <h3>Better context</h3>
-              <p>Turn scattered sources into a structured “why now” brief reps can use.</p>
-            </div>
-            <div class="card soft">
-              <h3>Better plays</h3>
-              <p>Signal‑tied outreach and talk tracks that feel human and sound confident.</p>
-            </div>
-          </div>
-
-          <div class="visual-frame">
-            <img
-              src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png"
-              alt="Product placeholder: Intelligent GTM Data"
-            >
-          </div>
+        <div class="visual-frame">
+          <img
+            src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png"
+            alt="Product placeholder: Intelligent GTM Data"
+          >
         </div>
       </div>
     </div>
@@ -1005,14 +1072,15 @@
         <button class="agent-card" type="button" data-modal-open="agent-qualification">
           <div>
             <div class="agent-top">
-              <div>
-                <div class="agent-title">Qualification</div>
-              </div>
+              <div class="agent-title">Qualification</div>
               <div class="agent-plus" aria-hidden="true">+</div>
             </div>
             <p class="agent-line">Stop wasting time on bad‑fit accounts.</p>
           </div>
-          <img class="agent-illust" src="./assets/illust/Artboard_1.png" alt="" aria-hidden="true">
+          <img class="agent-icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79e99c619db09f7629e25_Account%20Qualification.png"
+               alt=""
+               aria-hidden="true">
         </button>
 
         <button class="agent-card" type="button" data-modal-open="agent-research">
@@ -1023,7 +1091,10 @@
             </div>
             <p class="agent-line">Close the tabs. Start selling with signals.</p>
           </div>
-          <img class="agent-illust" src="./assets/illust/Artboard_2_copy.png" alt="" aria-hidden="true">
+          <img class="agent-icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79ed29c77114bfbcbebc6_Account%20Research.png"
+               alt=""
+               aria-hidden="true">
         </button>
 
         <button class="agent-card" type="button" data-modal-open="agent-planning">
@@ -1034,7 +1105,10 @@
             </div>
             <p class="agent-line">Walk into every call with a plan.</p>
           </div>
-          <img class="agent-illust" src="./assets/illust/Artboard_2_copy.png" alt="" aria-hidden="true">
+          <img class="agent-icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79ed57a462e44ce8d6ac0_Account%20Planning.png"
+               alt=""
+               aria-hidden="true">
         </button>
 
         <button class="agent-card" type="button" data-modal-open="agent-contacts">
@@ -1045,7 +1119,10 @@
             </div>
             <p class="agent-line">Build buying groups—without keyword roulette.</p>
           </div>
-          <img class="agent-illust" src="./assets/illust/Artboard_1.png" alt="" aria-hidden="true">
+          <img class="agent-icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79eda20e7ac27ae80da50_Contact%20Finder.png"
+               alt=""
+               aria-hidden="true">
         </button>
 
         <button class="agent-card" type="button" data-modal-open="agent-plays">
@@ -1056,7 +1133,10 @@
             </div>
             <p class="agent-line">Signal‑tied outreach that sounds human.</p>
           </div>
-          <img class="agent-illust" src="./assets/illust/Artboard_1_copy.png" alt="" aria-hidden="true">
+          <img class="agent-icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79ee0b840121152f4e02a_Play%20Copywriting.png"
+               alt=""
+               aria-hidden="true">
         </button>
 
         <button class="agent-card" type="button" data-modal-open="agent-twins">
@@ -1067,7 +1147,10 @@
             </div>
             <p class="agent-line">Insider guidance before the first touch.</p>
           </div>
-          <img class="agent-illust" src="./assets/illust/Artboard_2.png" alt="" aria-hidden="true">
+          <img class="agent-icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/69457c3b99653224258a3783_DigitalTwin-New.png"
+               alt=""
+               aria-hidden="true">
         </button>
       </div>
     </div>
@@ -1116,7 +1199,7 @@
       <div class="section-head">
         <div>
           <h2>Proof teams report after deploying Evergrowth</h2>
-          <p class="lead">Keep these as placeholders until you finalize which metrics and customers are approved for homepage use.</p>
+          <p class="lead">Placeholders until you finalize which metrics/customers are approved for homepage use.</p>
         </div>
       </div>
 
@@ -1186,7 +1269,7 @@
             Replace this with a screenshot showing Evergrowth outputs inside CRM fields / views.
           </p>
         </div>
-        <img src="./assets/illust/Artboard_2.png" alt="Illustration placeholder">
+        <img src="https://raw.githubusercontent.com/theclassegg/Mainsite/main/Artboard_2_copy.png" alt="Illustration placeholder">
       </div>
     </div>
   </section>
@@ -1301,11 +1384,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“All the legwork that used to take days can literally take minutes.”</p>
                 <div class="who"><strong>President</strong><span>iFind Staffing</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">15–20</div>
                 <p class="metric-label">accounts/week (example)</p>
               </div>
@@ -1316,7 +1399,7 @@
         <div class="storylane">
           <div class="storylane-head">
             <strong style="letter-spacing:-0.02em;">Interactive demo</strong>
-            <p class="muted">Placeholder embed (replace with your final Storylane experience)</p>
+            <p class="muted">Placeholder embed (swap for your final Storylane)</p>
           </div>
           <div class="storylane-embed">
             <iframe title="Evergrowth Storylane demo" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
@@ -1358,7 +1441,7 @@
         <div class="storylane">
           <div class="storylane-head">
             <strong style="letter-spacing:-0.02em;">Tour placeholder</strong>
-            <p class="muted">Swap this iframe for a 90‑sec hosted video if preferred</p>
+            <p class="muted">Swap iframe for a hosted 90‑sec video if preferred</p>
           </div>
           <div class="storylane-embed">
             <iframe title="Evergrowth tour" data-src="https://evergrowth.storylane.io/share/cgryuvacskki" loading="lazy"></iframe>
@@ -1369,8 +1452,7 @@
   </div>
 
   <!-- =========================
-       AGENT MODALS (6)
-       Each includes embedded Storylane placeholder
+       AGENT MODALS (keep same as before)
        ========================= -->
 
   <!-- Qualification -->
@@ -1397,11 +1479,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“All the legwork that used to take days can literally take minutes.”</p>
                 <div class="who"><strong>President</strong><span>iFind Staffing</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">15–20</div>
                 <p class="metric-label">accounts/week (example)</p>
               </div>
@@ -1446,11 +1528,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“We can have everything we need in one place.”</p>
                 <div class="who"><strong>Head of Revenue Experimentation</strong><span>Telescoped</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">3–5×</div>
                 <p class="metric-label">open rates (example)</p>
               </div>
@@ -1495,11 +1577,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“Prep that used to take hours can take minutes.”</p>
-                <div class="who"><strong>ABM team</strong><span>(example placeholder)</span></div>
+                <div class="who"><strong>ABM team</strong><span>(placeholder)</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">11 min</div>
                 <p class="metric-label">prep time (example)</p>
               </div>
@@ -1544,11 +1626,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“We’re able to use Evergrowth for more personalized copy.”</p>
                 <div class="who"><strong>Sales Manager</strong><span>Printful</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">30</div>
                 <p class="metric-label">data vendors (placeholder)</p>
               </div>
@@ -1593,11 +1675,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“More personalized copy — without the reps doing all the work.”</p>
-                <div class="who"><strong>Sales leader</strong><span>(example placeholder)</span></div>
+                <div class="who"><strong>Sales leader</strong><span>(placeholder)</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">3–5×</div>
                 <p class="metric-label">open rates (example)</p>
               </div>
@@ -1642,11 +1724,11 @@
             </ul>
 
             <div class="modal-proof">
-              <div class="quote">
+              <div class="quote" style="margin:0;">
                 <p>“Reps sound confident because they’re prepared.”</p>
-                <div class="who"><strong>Sales leader</strong><span>(example placeholder)</span></div>
+                <div class="who"><strong>Sales leader</strong><span>(placeholder)</span></div>
               </div>
-              <div class="metric">
+              <div class="metric" style="margin:0;">
                 <div class="metric-value">↓</div>
                 <p class="metric-label">ramp time (example)</p>
               </div>
@@ -1669,54 +1751,166 @@
 
   <script>
     // ---------------------------
-    // Hero headline rotator
+    // Hero Use Case Rotator (cards + headline + subhead + media)
     // ---------------------------
     (function(){
-      const el = document.getElementById("heroRotator");
-      if(!el) return;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      const lines = [
-        "Make outbound sound confident and well-informed.",
-        "Cut research + prep from hours to minutes.",
-        "Stop wasting time on bad-fit accounts and the wrong contacts."
+      const hero = document.getElementById("heroRegion");
+      const headlineEl = document.getElementById("heroHeadline");
+      const subheadEl  = document.getElementById("heroSubhead");
+      const pillEl     = document.getElementById("heroPill");
+      const imgEl      = document.getElementById("heroMediaImg");
+      const captionEl  = document.getElementById("heroMediaCaption");
+      const chipEl     = document.getElementById("heroMediaChip");
+      const rowEl      = document.getElementById("usecaseRow");
+
+      if(!headlineEl || !subheadEl || !imgEl || !rowEl) return;
+
+      const cards = Array.from(rowEl.querySelectorAll("[data-usecase]"));
+
+      const usecases = [
+        {
+          pill: "Use case: Confident outbound",
+          headline: "Make outbound sound confident and well-informed.",
+          subhead:
+            "Draft signal‑tied plays, openers, and talk tracks grounded in your messaging — then sync into your sequencer so reps can execute fast.",
+          img: "https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png",
+          caption: "Signals → plays → sequencer-ready fields",
+          chip: "Outbound quality"
+        },
+        {
+          pill: "Use case: Research in minutes",
+          headline: "Cut research + prep from hours to minutes.",
+          subhead:
+            "Agents surface “why now” signals, compile a clean brief, and generate an account plan — so reps start the day prepared.",
+          img: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png",
+          caption: "Sources → brief → plan (ready to run)",
+          chip: "Research + prep"
+        },
+        {
+          pill: "Use case: Right accounts + contacts",
+          headline: "Stop wasting time on bad-fit accounts and the wrong contacts.",
+          subhead:
+            "Qualify accounts with evidence, then build persona‑fit buying groups with enriched reachability — before reps invest effort.",
+          img: "https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png",
+          caption: "ICP fit → buying group → reachability",
+          chip: "Targets + buyers"
+        }
       ];
 
-      let i = 0;
+      let index = 0;
       let timer = null;
-      const intervalMs = 7000;
+      const intervalMs = 7000; // set to 5000–10000 to taste
 
-      const fadeOut = () => {
+      const setActiveCard = (i) => {
+        cards.forEach((c, idx) => {
+          const active = idx === i;
+          c.classList.toggle("is-active", active);
+          c.setAttribute("aria-selected", active ? "true" : "false");
+        });
+
+        // On mobile, keep the active card centered (feels like "swipe" through)
+        const activeCard = cards[i];
+        if(activeCard && window.innerWidth <= 980){
+          activeCard.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        }
+      };
+
+      const fadeSwap = (el, nextText) => {
         el.style.transition = "opacity 220ms ease, transform 220ms ease";
         el.style.opacity = "0";
         el.style.transform = "translateY(6px)";
-      };
-      const fadeIn = () => {
-        el.style.transition = "opacity 260ms ease, transform 260ms ease";
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      };
-
-      const tick = () => {
-        fadeOut();
         window.setTimeout(() => {
-          i = (i + 1) % lines.length;
-          el.textContent = lines[i];
-          fadeIn();
+          el.textContent = nextText;
+          el.style.transition = "opacity 260ms ease, transform 260ms ease";
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
         }, 240);
       };
 
-      timer = window.setInterval(tick, intervalMs);
+      const applyUsecase = (i, { animate=true } = {}) => {
+        const u = usecases[i];
+        index = i;
 
-      // pause on hover (premium feel)
-      el.addEventListener("mouseenter", () => { if(timer) { clearInterval(timer); timer = null; } });
-      el.addEventListener("mouseleave", () => { if(!timer) timer = setInterval(tick, intervalMs); });
+        setActiveCard(i);
+
+        if(pillEl) pillEl.textContent = u.pill;
+
+        if(animate && !prefersReducedMotion){
+          fadeSwap(headlineEl, u.headline);
+          // subhead (soft fade, no translate)
+          subheadEl.style.transition = "opacity 220ms ease";
+          subheadEl.style.opacity = "0";
+          window.setTimeout(() => {
+            subheadEl.textContent = u.subhead;
+            subheadEl.style.opacity = "1";
+          }, 220);
+        } else {
+          headlineEl.textContent = u.headline;
+          subheadEl.textContent = u.subhead;
+        }
+
+        // media swap (simple crossfade)
+        imgEl.style.transition = "opacity 220ms ease";
+        imgEl.style.opacity = "0";
+        window.setTimeout(() => {
+          imgEl.src = u.img;
+          imgEl.onload = () => { imgEl.style.opacity = "1"; };
+          // if cached
+          if(imgEl.complete) imgEl.style.opacity = "1";
+        }, 220);
+
+        if(captionEl) captionEl.textContent = u.caption;
+        if(chipEl) chipEl.textContent = u.chip;
+      };
+
+      const start = () => {
+        if(prefersReducedMotion) return;
+        if(timer) return;
+        timer = window.setInterval(() => {
+          const next = (index + 1) % usecases.length;
+          applyUsecase(next, { animate:true });
+        }, intervalMs);
+      };
+      const stop = () => {
+        if(timer){
+          clearInterval(timer);
+          timer = null;
+        }
+      };
+
+      // Click selection
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const i = parseInt(card.getAttribute("data-usecase"), 10);
+          stop(); // user took control
+          applyUsecase(i, { animate:true });
+          // restart after a short delay (optional)
+          window.setTimeout(start, 1200);
+        });
+      });
+
+      // Pause on hover/focus (premium feel)
+      const hoverTargets = [hero, rowEl, headlineEl];
+      hoverTargets.forEach((t) => {
+        if(!t) return;
+        t.addEventListener("mouseenter", stop);
+        t.addEventListener("mouseleave", start);
+        t.addEventListener("focusin", stop);
+        t.addEventListener("focusout", start);
+      });
+
+      // init
+      applyUsecase(0, { animate:false });
+      start();
     })();
 
     // ---------------------------
     // Modal system + lazy Storylane iframe loading
     // ---------------------------
     (function(){
-      const openBtns = document.querySelectorAll("[data-modal-open]");
+      const openEls = document.querySelectorAll("[data-modal-open]");
       const closeSelectors = "[data-modal-close]";
       const modals = document.querySelectorAll(".modal");
 
@@ -1746,14 +1940,15 @@
         document.body.style.overflow = "hidden";
         lazyLoadIframes(modal);
 
-        // move focus to close button for accessibility
         const closeBtn = modal.querySelector(".modal-close");
         if(closeBtn) closeBtn.focus();
       };
 
-      openBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-modal-open");
+      openEls.forEach(el => {
+        el.addEventListener("click", (e) => {
+          // prevent anchors from jumping
+          if(el.tagName.toLowerCase() === "a") e.preventDefault();
+          const id = el.getAttribute("data-modal-open");
           openModal(id);
         });
       });
