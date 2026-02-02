@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Evergrowth — Meet Qualification (Agent Page)</title>
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --bg2:#fbfbfd;
+      --text:#101225;
+      --muted: rgba(16,18,37,.66);
+      --muted2: rgba(16,18,37,.45);
+      --line: rgba(16,18,37,.10);
+      --surface: #ffffff;
+      --surface2: rgba(255,255,255,.72);
+
+      --purple:#7c3aed;
+      --purple2:#a78bfa;
+      --blue:#2563eb;
+
+      --shadow: 0 22px 70px rgba(16,18,37,.10);
+      --shadow2: 0 16px 44px rgba(16,18,37,.08);
+
+      --r-xl: 26px;
+      --r-lg: 20px;
+      --r-md: 16px;
+
+      --container: 1160px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        /* subtle vertical grid columns (Alta-like) */
+        linear-gradient(to right, rgba(16,18,37,.045) 1px, transparent 1px) 0 0 / 140px 140px,
+        /* subtle horizontal grid */
+        linear-gradient(to bottom, rgba(16,18,37,.03) 1px, transparent 1px) 0 0 / 140px 140px,
+        /* soft top wash */
+        radial-gradient(900px 480px at 70% 10%, rgba(124,58,237,.10), transparent 55%),
+        radial-gradient(780px 440px at 20% 0%, rgba(37,99,235,.08), transparent 55%),
+        var(--bg2);
+      overflow-x:hidden;
+    }
+
+    a{ color: inherit; text-decoration:none; }
+    .container{ width:min(var(--container), calc(100% - 48px)); margin:0 auto; }
+
+    /* Header */
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, #ffffff 78%, transparent);
+      border-bottom: 1px solid rgba(16,18,37,.06);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .mark{
+      width: 30px; height: 30px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 14px 28px rgba(37,99,235,.16);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark::after{
+      content:"";
+      position:absolute; inset:-45%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.75), transparent 42%);
+      transform: rotate(18deg);
+    }
+    .links{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(16,18,37,.62);
+    }
+    .links a{
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .links a:hover{
+      background: rgba(16,18,37,.05);
+      color: rgba(16,18,37,.92);
+    }
+    .nav-right{ display:flex; align-items:center; gap: 10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 14px;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-ghost{
+      background: rgba(255,255,255,.70);
+      border-color: rgba(16,18,37,.12);
+      color: rgba(16,18,37,.88);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,.95); box-shadow: var(--shadow2); }
+    .btn-primary{
+      background: linear-gradient(90deg, rgba(124,58,237,1), rgba(37,99,235,1));
+      color:#fff;
+      box-shadow: 0 18px 50px rgba(124,58,237,.18);
+    }
+    .btn-primary:hover{ box-shadow: 0 22px 62px rgba(124,58,237,.24); transform: translateY(-1px); }
+
+    /* Hero */
+    .hero{
+      padding: 58px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
+      align-items:center;
+    }
+    h1{
+      margin: 8px 0 10px;
+      font-size: clamp(38px, 4.2vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+    .sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 70ch;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(16,18,37,.10);
+      color: rgba(16,18,37,.76);
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .kicker .dot{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      box-shadow: 0 0 0 4px rgba(124,58,237,.12);
+    }
+
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 14px;
+    }
+
+    /* Right hero visual (Alta-like: character + floating UI) */
+    .hero-visual{
+      border-radius: var(--r-xl);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,18,37,.10);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+      min-height: 360px;
+    }
+    .hero-visual::before{
+      content:"";
+      position:absolute; inset:-45%;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(124,58,237,.18), transparent 38%),
+        radial-gradient(circle at 70% 30%, rgba(37,99,235,.14), transparent 42%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+    .hero-visual > *{ position:relative; }
+    .agent-bubble{
+      width: 220px;
+      height: 220px;
+      border-radius: 30px;
+      background: rgba(124,58,237,.20);
+      display:grid;
+      place-items:center;
+      margin-left:auto;
+      margin-top: 6px;
+      box-shadow: 0 18px 46px rgba(124,58,237,.12);
+    }
+    .agent-bubble img{
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 36px rgba(16,18,37,.18));
+    }
+    .float-ui{
+      position:absolute;
+      right: 20px;
+      bottom: 18px;
+      width: 300px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(16,18,37,.10);
+      box-shadow: 0 18px 48px rgba(16,18,37,.12);
+      overflow:hidden;
+    }
+    .float-ui .top{
+      padding: 10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(16,18,37,.08);
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(16,18,37,.70);
+      background: rgba(248,248,252,.9);
+    }
+    .float-ui .rows{ padding: 10px 12px; display:grid; gap: 10px; }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      font-size: 12px;
+      color: rgba(16,18,37,.72);
+      font-weight: 750;
+    }
+    .row .left{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .avatar{
+      width: 26px; height: 26px;
+      border-radius: 10px;
+      background: rgba(16,18,37,.08);
+      display:grid; place-items:center;
+      font-weight: 900;
+      color: rgba(16,18,37,.60);
+      flex:0 0 auto;
+    }
+    .pillfit{
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,18,37,.10);
+      background: rgba(255,255,255,.9);
+      font-weight: 900;
+      font-size: 11px;
+      color: rgba(16,18,37,.66);
+      flex:0 0 auto;
+    }
+    .pillfit.good{ border-color: rgba(20,184,166,.25); background: rgba(20,184,166,.08); color: rgba(13,148,136,.9); }
+    .pillfit.bad{ border-color: rgba(239,68,68,.25); background: rgba(239,68,68,.08); color: rgba(220,38,38,.9); }
+
+    /* Logo strip */
+    .logo-strip{
+      margin-top: 24px;
+      text-align:center;
+      color: rgba(16,18,37,.58);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .logos{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap: wrap;
+      justify-content:center;
+      gap: 14px;
+    }
+    .logo{
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(16,18,37,.10);
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(16,18,37,.60);
+      letter-spacing: .02em;
+    }
+
+    /* Sections */
+    section{ padding: 62px 0; }
+    .section-title{
+      text-align:center;
+      margin-bottom: 22px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(28px, 2.8vw, 40px);
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+    }
+    .section-title p{
+      margin: 10px auto 0;
+      max-width: 80ch;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .accent{
+      color: var(--purple);
+      font-weight: 900;
+    }
+
+    /* Steps (Alta-style left text + right visual, stacked) */
+    .steps{
+      display:grid;
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .step{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:center;
+      padding: 18px;
+      border-radius: var(--r-xl);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,18,37,.10);
+      box-shadow: var(--shadow2);
+    }
+    .step:nth-child(even){ grid-template-columns: 1fr 1fr; }
+    .step .meta{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: 900;
+      color: rgba(124,58,237,.92);
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .num{
+      width: 24px; height: 24px;
+      border-radius: 999px;
+      background: rgba(124,58,237,.14);
+      border: 1px solid rgba(124,58,237,.22);
+      display:grid; place-items:center;
+      font-weight: 950;
+      color: rgba(124,58,237,.95);
+      flex:0 0 auto;
+    }
+    .step h3{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .step p{
+      margin:0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 68ch;
+    }
+    .step-actions{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .tiny{
+      color: rgba(16,18,37,.55);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .media{
+      border-radius: var(--r-xl);
+      background: rgba(124,58,237,.10);
+      border: 1px solid rgba(16,18,37,.10);
+      padding: 14px;
+      overflow:hidden;
+      position:relative;
+      min-height: 220px;
+    }
+    .media::before{
+      content:"";
+      position:absolute; inset:-55%;
+      background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.20), transparent 38%),
+                  radial-gradient(circle at 75% 65%, rgba(37,99,235,.14), transparent 42%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+    .media > *{ position:relative; }
+    .media img{
+      width:100%;
+      border-radius: 18px;
+      border: 1px solid rgba(16,18,37,.10);
+      background:#fff;
+      box-shadow: 0 14px 36px rgba(16,18,37,.10);
+      display:block;
+    }
+    .media-cap{
+      margin-top: 10px;
+      color: rgba(16,18,37,.55);
+      font-size: 12px;
+      font-weight: 800;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+
+    /* Metrics (Alta-style grid) */
+    .metrics{
+      margin-top: 18px;
+      text-align:center;
+    }
+    .metrics h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .metric-grid{
+      margin: 14px auto 0;
+      width: min(880px, 100%);
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(16,18,37,.12);
+      border-left: 1px solid rgba(16,18,37,.12);
+      background: rgba(255,255,255,.62);
+      border-radius: 18px;
+      overflow:hidden;
+    }
+    .metric{
+      padding: 18px 14px;
+      border-right: 1px solid rgba(16,18,37,.12);
+      border-bottom: 1px solid rgba(16,18,37,.12);
+      background: rgba(255,255,255,.8);
+    }
+    .metric .big{
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+      color: rgba(16,18,37,.92);
+    }
+    .metric .lbl{
+      margin-top: 6px;
+      color: rgba(16,18,37,.60);
+      font-weight: 850;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    /* CTA form card (Alta-style purple panel + form) */
+    .cta-wrap{
+      margin-top: 22px;
+      display:flex;
+      justify-content:center;
+    }
+    .cta-card{
+      width: min(980px, 100%);
+      border-radius: var(--r-xl);
+      background:
+        radial-gradient(800px 420px at 20% 30%, rgba(124,58,237,.22), transparent 55%),
+        radial-gradient(800px 420px at 80% 40%, rgba(37,99,235,.18), transparent 55%),
+        rgba(124,58,237,.10);
+      border: 1px solid rgba(124,58,237,.22);
+      box-shadow: var(--shadow2);
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      padding: 18px;
+      align-items:center;
+    }
+    .cta-card h4{
+      margin:0 0 8px;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+    .cta-card p{
+      margin:0;
+      color: rgba(16,18,37,.68);
+      font-weight: 650;
+      line-height: 1.6;
+      font-size: 13px;
+      max-width: 62ch;
+    }
+    form{
+      display:grid;
+      gap: 10px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,18,37,.10);
+      border-radius: 18px;
+      padding: 14px;
+    }
+    label{
+      font-size: 12px;
+      font-weight: 900;
+      color: rgba(16,18,37,.65);
+    }
+    input, textarea{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(16,18,37,.12);
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 13px;
+      outline:none;
+      background: rgba(255,255,255,.92);
+    }
+    textarea{ min-height: 76px; resize: vertical; }
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* Results carousel */
+    .results{
+      text-align:center;
+    }
+    .carousel{
+      margin-top: 14px;
+      display:flex;
+      gap: 14px;
+      overflow:auto;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+    }
+    .review{
+      scroll-snap-align: start;
+      min-width: min(360px, 88%);
+      border-radius: 18px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,18,37,.10);
+      box-shadow: var(--shadow2);
+      padding: 16px;
+      text-align:left;
+    }
+    .stars{
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: rgba(255,193,7,.95);
+      font-weight: 900;
+    }
+    .review p{
+      margin: 10px 0 0;
+      color: rgba(16,18,37,.74);
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 650;
+    }
+    .who{
+      margin-top: 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 10px;
+      color: rgba(16,18,37,.55);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    /* FAQ */
+    .faq{
+      width: min(900px, 100%);
+      margin: 0 auto;
+    }
+    .faq h3{
+      text-align:center;
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .qa{
+      border-radius: 16px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,18,37,.10);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      margin-top: 10px;
+    }
+    .q{
+      width:100%;
+      text-align:left;
+      padding: 14px 14px;
+      border:0;
+      background: transparent;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 14px;
+      font-weight: 900;
+      color: rgba(16,18,37,.82);
+      font-size: 14px;
+    }
+    .q span:last-child{
+      width: 28px; height: 28px;
+      border-radius: 10px;
+      border: 1px solid rgba(16,18,37,.12);
+      background: rgba(255,255,255,.9);
+      display:grid; place-items:center;
+      color: rgba(16,18,37,.55);
+      font-weight: 950;
+      flex:0 0 auto;
+    }
+    .a{
+      padding: 0 14px 14px;
+      color: rgba(16,18,37,.68);
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 650;
+      display:none;
+    }
+    .qa.open .a{ display:block; }
+    .qa.open .q span:last-child{ color: rgba(124,58,237,.95); border-color: rgba(124,58,237,.22); background: rgba(124,58,237,.08); }
+
+    /* Resources */
+    .resources{
+      text-align:center;
+    }
+    .cards{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items:stretch;
+    }
+    .card{
+      border-radius: 18px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,18,37,.10);
+      box-shadow: var(--shadow2);
+      padding: 14px;
+      text-align:left;
+      overflow:hidden;
+    }
+    .thumb{
+      height: 110px;
+      border-radius: 14px;
+      background:
+        radial-gradient(240px 120px at 30% 40%, rgba(124,58,237,.18), transparent 60%),
+        radial-gradient(240px 120px at 70% 60%, rgba(37,99,235,.14), transparent 60%),
+        rgba(16,18,37,.04);
+      border: 1px solid rgba(16,18,37,.10);
+      margin-bottom: 12px;
+    }
+    .card h4{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .card p{
+      margin:0;
+      color: rgba(16,18,37,.66);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+    .card .link{
+      margin-top: 12px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      color: rgba(124,58,237,.95);
+      font-size: 13px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 52px 0 66px;
+      border-top: 1px solid rgba(16,18,37,.08);
+      background: rgba(255,255,255,.60);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+    .foot h5{
+      margin:0 0 12px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(16,18,37,.58);
+      font-weight: 950;
+    }
+    .foot a{
+      display:block;
+      padding: 8px 0;
+      color: rgba(16,18,37,.56);
+      font-weight: 750;
+      font-size: 13px;
+    }
+    .foot a:hover{ color: rgba(16,18,37,.88); }
+    .fine{
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(16,18,37,.08);
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+      color: rgba(16,18,37,.46);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    /* Storylane modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index:100;
+    }
+    .modal[aria-hidden="false"]{ display:flex; }
+    .overlay{
+      position:absolute; inset:0;
+      background: rgba(5,6,18,.55);
+      backdrop-filter: blur(10px);
+    }
+    .panel{
+      position:relative;
+      width: min(1040px, 100%);
+      border-radius: 24px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: 0 34px 120px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .panel-inner{ padding: 16px; }
+    .close{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px; height: 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(16,18,37,.12);
+      background: rgba(255,255,255,.78);
+      cursor:pointer;
+      font-weight: 950;
+      color: rgba(16,18,37,.65);
+      display:grid; place-items:center;
+    }
+    .storylane{
+      border-radius: 18px;
+      border: 1px solid rgba(16,18,37,.10);
+      overflow:hidden;
+      background: #fff;
+      aspect-ratio: 16/9;
+    }
+    .storylane iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .links{ display:none; }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .step{ grid-template-columns: 1fr; }
+      .cta-card{ grid-template-columns: 1fr; }
+      .metric-grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+      .float-ui{ position:static; width:100%; margin-top: 12px; }
+      .agent-bubble{ margin: 0 auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Evergrowth</span>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#why">Why it wins</a>
+        <a href="#results">Results</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-right">
+        <a class="btn btn-ghost" href="/agents">All agents</a>
+        <button class="btn btn-primary" type="button" data-open="walkthrough">Watch walkthrough</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (Alta-like) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker"><span class="dot"></span> Meet the agent</span>
+
+        <h1>
+          Meet <span style="font-weight:950;">Qualification</span> — your<br/>
+          new <span style="color:var(--purple); font-weight:950;">Account Qualification</span> agent
+        </h1>
+
+        <p class="sub">
+          Qualification stops reps wasting time on bad-fit accounts. It applies your ICP with real evidence,
+          tiers accounts, and routes the right ones downstream to research, contacts, and plays.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="button" data-open="walkthrough">Watch walkthrough</button>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-label="Agent visual">
+        <div class="agent-bubble" aria-hidden="true">
+          <!-- Use your agent icon -->
+          <img alt="Qualification agent icon"
+               src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/68f79e99c619db09f7629e25_Account%20Qualification.png">
+        </div>
+
+        <!-- floating UI card (placeholder) -->
+        <div class="float-ui" aria-hidden="true">
+          <div class="top">
+            <span>Qualification results</span>
+            <span style="color:rgba(16,18,37,.45); font-weight:900;">Synced to CRM</span>
+          </div>
+          <div class="rows">
+            <div class="row">
+              <div class="left">
+                <span class="avatar">A</span>
+                <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Acme Logistics</span>
+              </div>
+              <span class="pillfit good">ICP Fit</span>
+            </div>
+            <div class="row">
+              <div class="left">
+                <span class="avatar">B</span>
+                <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">BluePeak IT</span>
+              </div>
+              <span class="pillfit bad">No Fit</span>
+            </div>
+            <div class="row">
+              <div class="left">
+                <span class="avatar">C</span>
+                <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">CloudNine SaaS</span>
+              </div>
+              <span class="pillfit good">Tier 1</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="container">
+      <div class="logo-strip">Join teams building cleaner pipeline with better fit</div>
+      <div class="logos" aria-label="Logo placeholders">
+        <span class="logo">Customer</span>
+        <span class="logo">Customer</span>
+        <span class="logo">Customer</span>
+        <span class="logo">Customer</span>
+        <span class="logo">Customer</span>
+        <span class="logo">Customer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-title">
+        <h2>How the <span class="accent">Qualification</span> agent works</h2>
+        <p>
+          A simple flow: define your ICP, run qualification at scale, get evidence-backed decisions,
+          and route only the right accounts into the rest of your outbound motion.
+        </p>
+      </div>
+
+      <div class="steps">
+        <!-- Step 1 -->
+        <div class="step">
+          <div>
+            <div class="meta"><span class="num">1</span> Define ICP & disqualifiers</div>
+            <h3>Your ICP, enforced (not “remembered”)</h3>
+            <p>
+              Set the rules that matter: who you win with, who you don’t, and the signals that should
+              increase or decrease priority. The agent uses this to make consistent fit calls.
+            </p>
+            <div class="step-actions">
+              <button class="btn btn-primary" type="button" data-open="walkthrough">Watch walkthrough</button>
+              <span class="tiny">Pairs with your CRM + data sources</span>
+            </div>
+          </div>
+          <div class="media">
+            <img alt="Placeholder screenshot"
+                 src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" />
+            <div class="media-cap">
+              <span>Support media: ICP settings UI</span>
+              <span>Swap for real product shot</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step">
+          <div>
+            <div class="meta"><span class="num">2</span> Run qualification on lists or CRM</div>
+            <h3>Qualify hundreds of accounts without the busywork</h3>
+            <p>
+              Apply your ICP to inbound, outbound lists, or existing CRM accounts.
+              Qualification is the gate — so bad-fit accounts don’t consume research, contacts, or plays.
+            </p>
+            <div class="step-actions">
+              <a class="btn btn-ghost" href="#why">See why it wins</a>
+              <span class="tiny">Stops wasted effort early</span>
+            </div>
+          </div>
+          <div class="media">
+            <img alt="Placeholder screenshot"
+                 src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png" />
+            <div class="media-cap">
+              <span>Support media: list → qualified pipeline view</span>
+              <span>Swap for workflow diagram</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step">
+          <div>
+            <div class="meta"><span class="num">3</span> Evidence-backed decisions</div>
+            <h3>“Fit / no fit” with reasons you can trust</h3>
+            <p>
+              Every decision includes rationale — so reps and leaders can understand what drove the call,
+              and refine ICP rules as the motion evolves.
+            </p>
+            <div class="step-actions">
+              <button class="btn btn-primary" type="button" data-open="walkthrough">See example output</button>
+              <span class="tiny">Built for consistency across reps</span>
+            </div>
+          </div>
+          <div class="media">
+            <img alt="Placeholder screenshot"
+                 src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" />
+            <div class="media-cap">
+              <span>Support media: “reasons” panel</span>
+              <span>Swap for real UI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step">
+          <div>
+            <div class="meta"><span class="num">4</span> Route to downstream agents</div>
+            <h3>Only the right accounts move forward</h3>
+            <p>
+              Send qualified accounts to Research & Signals, Contact Finder, Plays, or Account Planning —
+              and push structured outputs back into CRM/sequencers so the team can execute fast.
+            </p>
+            <div class="step-actions">
+              <a class="btn btn-ghost" href="/agents">Explore all agents</a>
+              <span class="tiny">Works best as the first gate</span>
+            </div>
+          </div>
+          <div class="media">
+            <img alt="Placeholder screenshot"
+                 src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c631721e2b495b55852b_Centralized%20Intelligence%20for%20AI%20agents%20%26%20Copilots.png" />
+            <div class="media-cap">
+              <span>Support media: orchestration diagram</span>
+              <span>Qualify → Signals → Buyers → Plays</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why choose section (Alta-like metrics + CTA form) -->
+      <div id="why" class="metrics">
+        <h3>Why teams start with Qualification</h3>
+
+        <!-- Replace these metrics with approved / verified numbers -->
+        <div class="metric-grid" aria-label="Metrics grid">
+          <div class="metric">
+            <div class="big">↓</div>
+            <div class="lbl">Less time wasted on bad-fit accounts</div>
+          </div>
+          <div class="metric">
+            <div class="big">↑</div>
+            <div class="lbl">More consistent outbound quality</div>
+          </div>
+          <div class="metric">
+            <div class="big">⚡</div>
+            <div class="lbl">Faster routing into the right next step</div>
+          </div>
+          <div class="metric">
+            <div class="big">✓</div>
+            <div class="lbl">Cleaner CRM segments and tiers</div>
+          </div>
+          <div class="metric">
+            <div class="big">★</div>
+            <div class="lbl">Higher rep confidence (less guessing)</div>
+          </div>
+          <div class="metric">
+            <div class="big">◎</div>
+            <div class="lbl">Better leadership visibility into fit</div>
+          </div>
+        </div>
+
+        <div class="cta-wrap">
+          <div class="cta-card" aria-label="Lead form">
+            <div>
+              <h4>See Qualification on your accounts</h4>
+              <p>
+                Get a sample output: fit decisions + rationale + tiering.  
+                (Replace this form with your actual flow / routing.)
+              </p>
+            </div>
+            <form onsubmit="event.preventDefault(); alert('Mock form — wire to your backend');">
+              <div class="form-row">
+                <div>
+                  <label>First name*</label>
+                  <input required placeholder="First name" />
+                </div>
+                <div>
+                  <label>Work email*</label>
+                  <input required type="email" placeholder="name@company.com" />
+                </div>
+              </div>
+              <div>
+                <label>What should we qualify?</label>
+                <textarea placeholder="e.g., 200 target accounts in Logistics (US) — need fit gating + tiering"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit" style="width:fit-content;">Get sample</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS (Alta-like) -->
+  <section id="results">
+    <div class="container results">
+      <div class="section-title">
+        <h2>Real results from cleaner fit</h2>
+        <p>Swap these with approved customer quotes + logos. Keep them short and specific.</p>
+      </div>
+
+      <div class="carousel" aria-label="Customer reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“We stopped researching accounts that were never going to convert. The team instantly got time back.”</p>
+          <div class="who"><span>Revenue Leader</span><span>Customer (placeholder)</span></div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Fit decisions + reasons made it easy to tighten our ICP without slowing execution.”</p>
+          <div class="who"><span>RevOps</span><span>Customer (placeholder)</span></div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Outbound got more consistent because everyone starts from the same gate.”</p>
+          <div class="who"><span>Sales Manager</span><span>Customer (placeholder)</span></div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Qualification is the missing layer between lists and real pipeline work.”</p>
+          <div class="who"><span>Head of Growth</span><span>Customer (placeholder)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (Alta-like) -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq">
+        <h3>FAQ</h3>
+
+        <div class="qa">
+          <button class="q" type="button">
+            What does the Qualification agent do?
+            <span>+</span>
+          </button>
+          <div class="a">
+            It applies your ICP to accounts (lists or CRM), produces fit/tier outcomes, and provides rationale so teams can trust the decision and improve it over time.
+          </div>
+        </div>
+
+        <div class="qa">
+          <button class="q" type="button">
+            How is this different from a scoring model?
+            <span>+</span>
+          </button>
+          <div class="a">
+            Scoring often becomes a black box. This page template positions Qualification as “evidence-backed fit” — clear yes/no gating + reasons that reps and leaders can act on.
+          </div>
+        </div>
+
+        <div class="qa">
+          <button class="q" type="button">
+            Where do the outputs go?
+            <span>+</span>
+          </button>
+          <div class="a">
+            Structured outputs should sync into your CRM and feed downstream workflows (signals research, contact finding, play generation, account planning). Replace this text with your exact integration behavior.
+          </div>
+        </div>
+
+        <div class="qa">
+          <button class="q" type="button">
+            Can we customize ICP rules by segment?
+            <span>+</span>
+          </button>
+          <div class="a">
+            This template assumes yes (segment/tier definitions), but swap this answer to match the exact product behavior you support.
+          </div>
+        </div>
+
+        <div class="qa">
+          <button class="q" type="button">
+            How quickly can we see value?
+            <span>+</span>
+          </button>
+          <div class="a">
+            Use a realistic claim here. The “Meet the Agent” page should emphasize speed-to-output without making unverified promises.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES (Alta-like “Learn with …” row) -->
+  <section>
+    <div class="container resources">
+      <div class="section-title">
+        <h2>From fit to pipeline: learn with Evergrowth</h2>
+        <p>Three cards that match the agent’s job. Replace with your real content.</p>
+      </div>
+
+      <div class="cards" aria-label="Resource cards">
+        <div class="card">
+          <div class="thumb" aria-hidden="true"></div>
+          <h4>How to define an ICP that holds up in the field</h4>
+          <p>Practical disqualifiers, tiers, and “don’t sell to these” guardrails.</p>
+          <a class="link" href="#">Read guide →</a>
+        </div>
+
+        <div class="card">
+          <div class="thumb" aria-hidden="true"></div>
+          <h4>Qualification gates that protect rep time</h4>
+          <p>Where to gate, what to require, and how to avoid bottlenecks.</p>
+          <a class="link" href="#">Read guide →</a>
+        </div>
+
+        <div class="card">
+          <div class="thumb" aria-hidden="true"></div>
+          <h4>Routing qualified accounts into the next workflow</h4>
+          <p>How to push segments into signals, contacts, and plays without tool sprawl.</p>
+          <a class="link" href="#">Read guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="foot">
+        <div class="brand" style="margin-bottom:10px;">
+          <span class="mark" aria-hidden="true"></span>
+          <span>Evergrowth</span>
+        </div>
+        <div style="color:rgba(16,18,37,.62); font-weight:700; font-size:13px; line-height:1.55; max-width:48ch;">
+          Agentic GTM workflows that fix fit, signals, buyers, and plays — without the tool chaos.
+        </div>
+      </div>
+
+      <div class="foot">
+        <h5>Product</h5>
+        <a href="/agents">Agents</a>
+        <a href="/playbooks">Playbooks</a>
+        <a href="/integrations">Integrations</a>
+        <a href="/security">Trust & security</a>
+      </div>
+
+      <div class="foot">
+        <h5>Company</h5>
+        <a href="/about">About</a>
+        <a href="/careers">Careers</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="foot">
+        <h5>Resources</h5>
+        <a href="/blog">Blog</a>
+        <a href="/guides">Guides</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+
+    <div class="container fine">
+      <div>© Evergrowth (mock)</div>
+      <div>Template: “Meet the Agent” page layout</div>
+    </div>
+  </footer>
+
+  <!-- Storylane modal -->
+  <div class="modal" id="walkthrough" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Walkthrough">
+    <div class="overlay" data-close></div>
+    <div class="panel" role="document">
+      <button class="close" type="button" data-close aria-label="Close">×</button>
+      <div class="panel-inner">
+        <div style="font-weight:950; letter-spacing:-0.03em; font-size:16px; margin-bottom:10px;">
+          Qualification walkthrough
+        </div>
+        <div class="storylane">
+          <iframe
+            title="Evergrowth Storylane"
+            src="https://evergrowth.storylane.io/share/cgryuvacskki"
+            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+        <div style="margin-top:10px; color: rgba(16,18,37,.55); font-size:12px; font-weight:800;">
+          On the live site: swap this for the agent-specific Storylane.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll(".qa .q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const qa = btn.closest(".qa");
+        qa.classList.toggle("open");
+        btn.querySelector("span").textContent = qa.classList.contains("open") ? "–" : "+";
+      });
+    });
+
+    // Modal open/close
+    (function(){
+      const openers = document.querySelectorAll("[data-open]");
+      const closers = document.querySelectorAll("[data-close]");
+
+      function open(id){
+        const m = document.getElementById(id);
+        if(!m) return;
+        m.setAttribute("aria-hidden","false");
+        document.body.style.overflow="hidden";
+      }
+      function close(){
+        document.querySelectorAll(".modal").forEach(m => m.setAttribute("aria-hidden","true"));
+        document.body.style.overflow="";
+      }
+
+      openers.forEach(o => o.addEventListener("click", () => open(o.getAttribute("data-open"))));
+      closers.forEach(c => c.addEventListener("click", close));
+      window.addEventListener("keydown", (e)=>{ if(e.key==="Escape") close(); });
+    })();
+  </script>
+</body>
+</html>
