@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Credit Usage Forecaster</title>
+  <style>
+    :root { --bg:#f6f7fb; --card:#fff; --text:#0f172a; --muted:#64748b; --border:#e2e8f0; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); }
+    header { padding:18px 22px; border-bottom:1px solid var(--border); background:#fff; }
+    header .title { font-weight:700; }
+    header .sub { color:var(--muted); font-size:13px; margin-top:4px; }
+    .wrap { max-width:1200px; margin:18px auto; padding:0 14px; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; box-shadow: 0 1px 2px rgba(16,24,40,.06); }
+    .card h2 { margin:0 0 10px; font-size:16px; }
+    .row { display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+    label { display:block; font-size:12px; color:var(--muted); margin:10px 0 6px; }
+    input[type="text"], input[type="number"] {
+      width:100%; box-sizing:border-box; padding:10px 10px; border:1px solid var(--border);
+      border-radius:10px; font-size:14px; outline:none; background:#fff;
+    }
+    input[type="number"] { appearance:textfield; }
+    .toggles { margin-top:12px; border-top:1px solid var(--border); padding-top:12px; }
+    .toggle { display:flex; align-items:center; justify-content:space-between; padding:8px 0; }
+    .toggle span { font-size:14px; }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; font-size:13px; font-weight:600; }
+    .ok { background:#e7f8ee; color:#0f7a38; border:1px solid #b9ebca; }
+    .bad { background:#ffe9ea; color:#b42318; border:1px solid #fecaca; }
+    .muted { color:var(--muted); font-size:12px; }
+    .impactGrid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-top:10px; }
+    .stat { border:1px solid var(--border); border-radius:12px; padding:10px; }
+    .stat .k { color:var(--muted); font-size:12px; }
+    .stat .v { font-size:22px; font-weight:700; margin-top:6px; }
+    .breakdown { margin-top:14px; border-top:1px solid var(--border); padding-top:12px; }
+    .line { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #eef2f7; }
+    .line:last-child { border-bottom:none; }
+    .bar { height:8px; background:#e8eef8; border-radius:999px; overflow:hidden; margin-top:6px; }
+    .bar > div { height:100%; background:#2563eb; width:0%; }
+    button {
+      border:1px solid var(--border); background:#fff; border-radius:10px; padding:9px 12px;
+      cursor:pointer; font-weight:600;
+    }
+    button:hover { background:#f8fafc; }
+    .topActions { display:flex; gap:8px; justify-content:flex-end; }
+    iframe { width:100%; height:820px; border:0; border-radius:12px; background:#fff; }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } iframe { height:900px; } }
+    .warn { margin-top:10px; padding:10px; border-radius:12px; border:1px solid #fde68a; background:#fffbeb; color:#92400e; font-size:13px; }
+    .err { margin-top:10px; padding:10px; border-radius:12px; border:1px solid #fecaca; background:#fff1f2; color:#b42318; font-size:13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">Credit Usage Forecaster</div>
+    <div class="sub">Estimate campaign credits and compare to current credits left.</div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <div class="topActions">
+          <button id="resetBtn" type="button">Reset</button>
+        </div>
+        <h2>Forecast Calculator</h2>
+
+        <label>Campaign name (optional)</label>
+        <input id="campaignName" type="text" placeholder="e.g. Q3 Enterprise Push" />
+
+        <div class="row">
+          <div>
+            <label>Total accounts</label>
+            <input id="totalAccounts" type="number" min="0" step="1" value="100" />
+          </div>
+          <div>
+            <label>ICP ratio (0 to 1)</label>
+            <input id="icpRatio" type="number" min="0" max="1" step="0.01" value="1" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Signals per ICP account</label>
+            <input id="signalsPerIcp" type="number" min="0" step="1" value="23" />
+          </div>
+          <div>
+            <label>Qualification criteria per account</label>
+            <input id="qualCriteria" type="number" min="0" step="1" value="4" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Contacts per ICP account</label>
+            <input id="contactsPerIcp" type="number" min="0" step="1" value="6" />
+          </div>
+          <div>
+            <label>Custom plays per contact</label>
+            <input id="playsPerContact" type="number" min="0" step="1" value="0" />
+          </div>
+        </div>
+
+        <div class="toggles">
+          <div class="toggle">
+            <span>Enrich emails</span>
+            <input id="enrichEmails" type="checkbox" checked />
+          </div>
+          <div class="toggle">
+            <span>Enrich phones</span>
+            <input id="enrichPhones" type="checkbox" />
+          </div>
+          <div class="toggle">
+            <span>Generate account plans</span>
+            <input id="genPlans" type="checkbox" />
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="muted">Estimated credits required</div>
+          <div style="font-size:34px;font-weight:800;margin-top:4px;" id="totalForecast">0</div>
+
+          <div style="margin-top:10px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em;">BREAKDOWN</div>
+          <div id="breakdown"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <div class="topActions">
+            <button id="refreshBtn" type="button">Refresh</button>
+          </div>
+          <h2>Credits Impact</h2>
+
+          <div class="muted">Current credits left</div>
+          <div style="display:flex; gap:10px; align-items:flex-end; margin-top:8px;">
+            <input id="creditsLeftInput" type="number" min="-999999999" step="1" value="" placeholder="Paste from dashboard (e.g. 21964)" />
+            <button id="autoFillBtn" type="button">Try auto-fill</button>
+          </div>
+
+          <div id="autoFillMsg" class="warn" style="display:none;"></div>
+          <div id="autoFillErr" class="err" style="display:none;"></div>
+
+          <div class="impactGrid">
+            <div class="stat">
+              <div class="k">Current credits left</div>
+              <div class="v" id="creditsLeftDisplay">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">Forecast campaign credits</div>
+              <div class="v" id="forecastDisplay">--</div>
+            </div>
+            <div class="stat">
+              <div class="k">Projected credits left</div>
+              <div class="v" id="projectedDisplay">--</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <span id="statusPill" class="pill ok" style="display:none;">Safe to approve</span>
+          </div>
+
+          <div class="muted" style="margin-top:10px;">
+            Note: Auto-fill will only work if Metabase allows CORS for this site. If it fails, paste the Credits Left value from the dashboard below.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;">
+          <h2>Current Credit Usage</h2>
+          <iframe id="dash"
+            src="https://evergrowth.metabaseapp.com/public/dashboard/cfdc93c9-913f-437b-a80e-78b924caa7f0"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const METABASE_CREDITS_LEFT_JSON =
+      "https://evergrowth.metabaseapp.com/api/public/card/52ec6aa5-baf4-486e-85c0-611a9f27a0d5/query/json";
+
+    const $ = (id) => document.getElementById(id);
+
+    const defaults = {
+      totalAccounts: 100,
+      icpRatio: 1,
+      signalsPerIcp: 23,
+      qualCriteria: 4,
+      contactsPerIcp: 6,
+      playsPerContact: 0,
+      enrichEmails: true,
+      enrichPhones: false,
+      genPlans: false
+    };
+
+    function fmt(n) {
+      if (n === null || n === undefined || Number.isNaN(n)) return "--";
+      return Math.round(n).toLocaleString();
+    }
+
+    function clamp(n, min, max) {
+      n = Number(n);
+      if (Number.isNaN(n)) return min;
+      return Math.max(min, Math.min(max, n));
+    }
+
+    function calc() {
+      const totalAccounts = Math.max(0, Number($("totalAccounts").value || 0));
+      const icpRatio = clamp($("icpRatio").value || 0, 0, 1);
+      const signalsPerIcp = Math.max(0, Number($("signalsPerIcp").value || 0));
+      const qualCriteria = Math.max(0, Number($("qualCriteria").value || 0));
+      const contactsPerIcp = Math.max(0, Number($("contactsPerIcp").value || 0));
+      const playsPerContact = Math.max(0, Number($("playsPerContact").value || 0));
+      const enrichEmails = $("enrichEmails").checked;
+      const enrichPhones = $("enrichPhones").checked;
+      const genPlans = $("genPlans").checked;
+
+      const icpAccounts = totalAccounts * icpRatio;
+      const totalContacts = icpAccounts * contactsPerIcp;
+
+      const lines = [];
+
+      const accountQualification = totalAccounts * qualCriteria * 0.3;
+      if (accountQualification > 0) lines.push({ name: "Account Qualification", value: accountQualification });
+
+      const accountResearch = icpAccounts * signalsPerIcp * 0.3;
+      if (accountResearch > 0) lines.push({ name: "Account Research", value: accountResearch });
+
+      const contactFinder = totalContacts * 1;
+      if (contactFinder > 0) lines.push({ name: "Contact Finder", value: contactFinder });
+
+      const emailWaterfall = enrichEmails ? (totalContacts * 0.3) : 0;
+      if (emailWaterfall > 0) lines.push({ name: "Email Data Waterfall", value: emailWaterfall });
+
+      const phoneWaterfall = enrichPhones ? (totalContacts * 2) : 0;
+      if (phoneWaterfall > 0) lines.push({ name: "Phone Data Waterfall", value: phoneWaterfall });
+
+      const accountPlanning = genPlans ? (icpAccounts * 1) : 0;
+      if (accountPlanning > 0) lines.push({ name: "Account Planning", value: accountPlanning });
+
+      const playCopy = totalContacts * playsPerContact * 2;
+      if (playCopy > 0) lines.push({ name: "Play Copywriting", value: playCopy });
+
+      lines.sort((a,b) => b.value - a.value);
+
+      const total = lines.reduce((s,x) => s + x.value, 0);
+
+      $("totalForecast").textContent = fmt(total);
+      $("forecastDisplay").textContent = fmt(total);
+
+      const breakdown = $("breakdown");
+      breakdown.innerHTML = "";
+
+      const max = lines.length ? lines[0].value : 0;
+
+      for (const l of lines) {
+        const pct = max > 0 ? (l.value / max) * 100 : 0;
+        const share = total > 0 ? (l.value / total) * 100 : 0;
+
+        const row = document.createElement("div");
+        row.className = "line";
+        row.innerHTML = `
+          <div style="flex:1; padding-right:10px;">
+            <div style="font-weight:650;">${l.name}</div>
+            <div class="bar"><div style="width:${pct.toFixed(1)}%"></div></div>
+          </div>
+          <div style="text-align:right; min-width:120px;">
+            <div style="font-weight:750;">${fmt(l.value)}</div>
+            <div class="muted">${share.toFixed(0)}%</div>
+          </div>
+        `;
+        breakdown.appendChild(row);
+      }
+
+      updateImpact(total);
+    }
+
+    function updateImpact(forecastTotal) {
+      const raw = $("creditsLeftInput").value;
+      const creditsLeft = raw === "" ? null : Number(raw);
+
+      $("creditsLeftDisplay").textContent = fmt(creditsLeft);
+
+      const projected = (creditsLeft === null || Number.isNaN(creditsLeft)) ? null : (creditsLeft - forecastTotal);
+      $("projectedDisplay").textContent = fmt(projected);
+
+      const pill = $("statusPill");
+      if (projected === null) {
+        pill.style.display = "none";
+        return;
+      }
+      pill.style.display = "inline-flex";
+      if (projected >= 0) {
+        pill.className = "pill ok";
+        pill.textContent = "Safe to approve";
+      } else {
+        pill.className = "pill bad";
+        pill.textContent = "Likely to exceed credits";
+      }
+    }
+
+    async function tryAutofill() {
+      $("autoFillMsg").style.display = "none";
+      $("autoFillErr").style.display = "none";
+
+      try {
+        const r = await fetch(METABASE_CREDITS_LEFT_JSON, { method: "GET" });
+        if (!r.ok) throw new Error("HTTP " + r.status);
+
+        const data = await r.json();
+        const credits_left = data && data[0] && data[0].credits_left;
+
+        if (typeof credits_left !== "number") throw new Error("Unexpected JSON shape");
+
+        $("creditsLeftInput").value = String(Math.round(credits_left));
+        $("autoFillMsg").textContent = "Auto-filled from Metabase public question JSON.";
+        $("autoFillMsg").style.display = "block";
+        calc();
+      } catch (e) {
+        $("autoFillErr").textContent =
+          "Auto-fill failed (almost always CORS). Paste the Credits Left value from the dashboard. Error: " + String(e.message || e);
+        $("autoFillErr").style.display = "block";
+      }
+    }
+
+    function resetAll() {
+      $("campaignName").value = "";
+      $("totalAccounts").value = defaults.totalAccounts;
+      $("icpRatio").value = defaults.icpRatio;
+      $("signalsPerIcp").value = defaults.signalsPerIcp;
+      $("qualCriteria").value = defaults.qualCriteria;
+      $("contactsPerIcp").value = defaults.contactsPerIcp;
+      $("playsPerContact").value = defaults.playsPerContact;
+      $("enrichEmails").checked = defaults.enrichEmails;
+      $("enrichPhones").checked = defaults.enrichPhones;
+      $("genPlans").checked = defaults.genPlans;
+      $("creditsLeftInput").value = "";
+      $("autoFillMsg").style.display = "none";
+      $("autoFillErr").style.display = "none";
+      calc();
+    }
+
+    function refreshDashboard() {
+      const iframe = $("dash");
+      const src = iframe.src;
+      iframe.src = src;
+    }
+
+    // Wire up events
+    ["totalAccounts","icpRatio","signalsPerIcp","qualCriteria","contactsPerIcp","playsPerContact",
+     "enrichEmails","enrichPhones","genPlans","creditsLeftInput"].forEach(id => {
+      $(id).addEventListener("input", () => calc());
+      $(id).addEventListener("change", () => calc());
+    });
+
+    $("autoFillBtn").addEventListener("click", tryAutofill);
+    $("resetBtn").addEventListener("click", resetAll);
+    $("refreshBtn").addEventListener("click", () => { refreshDashboard(); tryAutofill(); });
+
+    // Initial render
+    calc();
+  </script>
+</body>
+</html>
