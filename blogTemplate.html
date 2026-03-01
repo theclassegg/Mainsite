@@ -18,7 +18,6 @@
       --card: rgba(255,255,255,.72);
       --card-strong: rgba(255,255,255,.92);
       --stroke: rgba(10,20,30,.10);
-      --stroke-2: rgba(10,20,30,.14);
       --text: #0f172a;
       --muted: rgba(15,23,42,.70);
       --muted2: rgba(15,23,42,.55);
@@ -26,8 +25,6 @@
       --link2:#1f3cff;
       --accent: #2b59ff;
       --accent2: #6d5efc;
-      --success:#16a34a;
-      --warn:#f59e0b;
 
       --radius-xl: 28px;
       --radius-lg: 20px;
@@ -432,8 +429,6 @@
       font-weight: 950;
       font-size: 12px;
     }
-    .warning .badge{ background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.22); }
-    .success .badge{ background: rgba(22,163,74,.12); border-color: rgba(22,163,74,.20); }
 
     /* Evidence blocks */
     .evidence{
@@ -472,7 +467,7 @@
     table{
       border-collapse: collapse;
       width: 100%;
-      min-width: 760px; /* protects columns */
+      min-width: 760px;
       font-size: 14px;
     }
     th, td{
@@ -526,16 +521,15 @@
       margin-bottom: 8px;
       width: fit-content;
     }
+    .media-label:empty{ display:none; }
     .media-caption{
       color: var(--muted);
       font-size: 13px;
       line-height: 1.45;
       margin: 0;
     }
-    /* Auto-hide label if empty */
-    .media-label:empty{ display:none; }
 
-    /* NEW CTA (CMS-factorable) */
+    /* CTA: FULL-WIDTH TEXT ONLY */
     .cta{
       margin: 28px 0 10px;
       border-radius: 30px;
@@ -544,16 +538,29 @@
       box-shadow: 0 26px 80px rgba(15,23,42,.16);
       position: relative;
       background:
-        radial-gradient(1100px 500px at 10% 0%, rgba(255,255,255,.14), transparent 58%),
-        radial-gradient(900px 420px at 92% 8%, rgba(255,255,255,.10), transparent 56%),
+        radial-gradient(1200px 520px at 8% 0%, rgba(255,255,255,.16), transparent 60%),
+        radial-gradient(900px 420px at 92% 10%, rgba(255,255,255,.12), transparent 56%),
+        radial-gradient(700px 340px at 50% 110%, rgba(109,94,252,.18), transparent 60%),
         linear-gradient(180deg, rgba(12,54,184,1), rgba(5,32,128,1));
     }
+    .cta:after{
+      content:"";
+      position:absolute;
+      right:-160px;
+      top:-120px;
+      width: 520px;
+      height: 520px;
+      border-radius: 120px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
     .cta-inner{
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 18px;
-      padding: 24px;
-      align-items: stretch;
+      display:block;
+      padding: 28px;
+      position: relative;
+      z-index: 1;
     }
     .cta-kicker{
       display:inline-flex;
@@ -573,17 +580,17 @@
     .cta h3{
       margin: 12px 0 0;
       color:#fff;
-      font-size: 28px;
+      font-size: 30px;
       letter-spacing:-0.03em;
       line-height: 1.10;
-      max-width: 24ch;
+      max-width: 26ch;
     }
     .cta p{
       margin: 10px 0 0;
       color: rgba(255,255,255,.88);
       font-size: 16px;
       line-height: 1.55;
-      max-width: 62ch;
+      max-width: 70ch;
     }
     .cta-chips{
       display:flex;
@@ -622,32 +629,6 @@
       color: rgba(255,255,255,.74);
       font-weight: 760;
     }
-
-    .cta-side{
-      border-radius: 22px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      position: relative;
-      min-height: 210px;
-    }
-    .cta-side img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit: cover;
-      opacity: .95;
-    }
-    .cta-side:after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(700px 260px at 20% 20%, rgba(255,255,255,.20), transparent 58%),
-        linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.18));
-      pointer-events:none;
-    }
-    /* If CTA image is removed (empty src in CMS), hide box */
-    .cta-side img[src=""]{ display:none; }
-    .cta-side:has(img[src=""]){ display:none; }
 
     /* Next up */
     .nextup{
@@ -744,13 +725,11 @@
       font-size: 14px;
     }
 
-    /* Responsive */
     @media (max-width: 980px){
       .hero{ grid-template-columns: 1fr; }
       .content-grid{ grid-template-columns: 1fr; }
       .toc{ position: relative; top: 0; }
       .byline{ grid-template-columns: 1fr; }
-      .cta-inner{ grid-template-columns: 1fr; }
       .cards{ grid-template-columns: 1fr; }
     }
   </style>
@@ -864,7 +843,7 @@
             If you can’t define the bottleneck, the tool will devolve into “cool demos” and then… nothing.
           </p>
 
-          <div class="callout success">
+          <div class="callout">
             <div class="title"><span class="badge">Do</span>Start with a measurable bottleneck</div>
             <p style="margin:8px 0 0; font-size:15px;">
               Examples: “SDRs spend 30% of their week researching accounts,” “meeting-to-opportunity conversion is flat,”
@@ -872,7 +851,7 @@
             </p>
           </div>
 
-          <div class="callout warning">
+          <div class="callout">
             <div class="title"><span class="badge">Avoid</span>Buying “AI” to increase activity volume</div>
             <p style="margin:8px 0 0; font-size:15px;">
               If your ICP and routing aren’t tight, more outreach usually means worse deliverability and less focus on the accounts that can convert.
@@ -943,7 +922,7 @@
           <figure class="media">
             <img src="https://github.com/theclassegg/Mainsite/blob/main/Artboard_1.png?raw=true" alt="Illustration: prospecting and research workflow" />
             <div class="media-meta">
-              <div class="media-label"><!-- CMS: Image label -->Illustration</div>
+              <div class="media-label">Illustration</div>
               <p class="media-caption">Research tools win when they change prioritization—not when they just generate more leads.</p>
             </div>
           </figure>
@@ -957,7 +936,7 @@
           <figure class="media">
             <img src="https://github.com/theclassegg/Mainsite/blob/main/Artboard_2.png?raw=true" alt="Illustration: personalized outreach" />
             <div class="media-meta">
-              <div class="media-label"><!-- CMS: Image label -->Illustration</div>
+              <div class="media-label">Illustration</div>
               <p class="media-caption">Guardrails matter more than clever copy. Prevent risky claims, invented facts, and off-brand tone.</p>
             </div>
           </figure>
@@ -970,7 +949,7 @@
           <figure class="media">
             <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2ba_342d509b.png" alt="Data flow diagram showing qualification and routing signals" />
             <div class="media-meta">
-              <div class="media-label"><!-- CMS: Image label -->Data diagram</div>
+              <div class="media-label">Data diagram</div>
               <p class="media-caption">Clean signals → consistent decisions → less wasted rep time.</p>
             </div>
           </figure>
@@ -978,7 +957,7 @@
           <figure class="media">
             <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c63b2984bc2bb2f4d200_Account%20%26%20contact%20qualification%20Agents.png" alt="Product screenshot: Account and contact qualification agents" />
             <div class="media-meta">
-              <div class="media-label"><!-- CMS: Image label -->Product example</div>
+              <div class="media-label">Product example</div>
               <p class="media-caption">Example: qualification agents that standardize fit decisions and route accounts based on signals.</p>
             </div>
           </figure>
@@ -986,51 +965,35 @@
           <figure class="media">
             <img src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" alt="Product screenshot: Intelligent GTM data" />
             <div class="media-meta">
-              <div class="media-label"><!-- CMS: Image label -->Product example</div>
+              <div class="media-label">Product example</div>
               <p class="media-caption">Data quality isn’t glamorous—but it’s the foundation that makes automation trustworthy.</p>
             </div>
           </figure>
 
-          <!-- NEW CTA (CMS-factorable copy + optional image) -->
+          <!-- CTA: full width text-only -->
           <section class="cta" id="cta" aria-label="Call to action">
-  <div class="cta-inner">
-    <div class="cta-left">
-      <div class="cta-kicker"><!-- CMS: CTA kicker -->See Evergrowth on your ICP</div>
+            <div class="cta-inner">
+              <div class="cta-kicker">See Evergrowth on your ICP</div>
+              <h3>Give your reps 6+ hours back every week</h3>
+              <p>
+                Evergrowth handles research, signals, and prep work so your team stops wasting cycles chasing data.
+                Share a target list (or a CRM view) and we’ll show qualification + routing on your real accounts.
+              </p>
 
-      <h3><!-- CMS: CTA headline -->Give your reps 6+ hours back every week</h3>
+              <div class="cta-chips" aria-label="Value highlights">
+                <span class="chip">Less manual research</span>
+                <span class="chip">Cleaner routing decisions</span>
+                <span class="chip">Faster first touch</span>
+              </div>
 
-      <p><!-- CMS: CTA body -->
-        Evergrowth handles research, signals, and prep work so your team stops wasting cycles chasing data.
-        Share a target list (or a CRM view) and we’ll show qualification + routing on your real accounts.
-      </p>
+              <div class="cta-actions">
+                <a class="primary" href="#">Get a demo</a>
+                <a class="secondary" href="#">Explore agents</a>
+              </div>
 
-      <div class="cta-chips" aria-label="Value highlights">
-        <span class="chip"><!-- CMS: chip 1 -->Less manual research</span>
-        <span class="chip"><!-- CMS: chip 2 -->Cleaner routing decisions</span>
-        <span class="chip"><!-- CMS: chip 3 -->Faster first touch</span>
-      </div>
-
-      <div class="cta-actions">
-        <a class="primary" href="#"><!-- CMS: CTA primary -->Get a demo</a>
-        <a class="secondary" href="#"><!-- CMS: CTA secondary -->Explore agents</a>
-      </div>
-
-      <div class="cta-fineprint"><!-- CMS: fineprint -->No deck. No fluff. Real accounts only.</div>
-    </div>
-
-    <!-- OPTIONAL right-side media:
-         - Set data-has-media="false" to force hide even if CMS provides an image.
-         - In Webflow, bind the img src to a CMS field (CTA Media Image). -->
-    <div class="cta-media" data-has-media="true">
-      <img
-        src=""
-        alt=""
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-  </div>
-</section>
+              <div class="cta-fineprint">No deck. No fluff. Real accounts only.</div>
+            </div>
+          </section>
 
           <hr />
 
@@ -1067,7 +1030,6 @@
       </aside>
     </section>
 
-    <!-- NEXT UP (CMS-factorable) -->
     <section class="nextup" aria-label="Next up">
       <div class="nextup-head">
         <div>
@@ -1145,16 +1107,12 @@
       const toc = document.getElementById('toc');
       if(!toc) return;
       const links = Array.from(toc.querySelectorAll('a'));
-      const targets = links
-        .map(a => document.querySelector(a.getAttribute('href')))
-        .filter(Boolean);
-
+      const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
       const map = new Map();
       links.forEach(a => map.set(a.getAttribute('href').slice(1), a));
 
       const obs = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
+        const visible = entries.filter(e => e.isIntersecting)
           .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
         if(!visible) return;
         const id = visible.target.id;
