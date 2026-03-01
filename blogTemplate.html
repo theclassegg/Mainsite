@@ -993,35 +993,44 @@
 
           <!-- NEW CTA (CMS-factorable copy + optional image) -->
           <section class="cta" id="cta" aria-label="Call to action">
-            <div class="cta-inner">
-              <div>
-                <div class="cta-kicker"><!-- CMS: CTA kicker -->See Evergrowth on your ICP</div>
-                <h3><!-- CMS: CTA headline -->Give your reps 6+ hours back every week</h3>
-                <p><!-- CMS: CTA body -->
-                  Evergrowth handles research, signals, and prep work so your team stops wasting cycles chasing data.
-                  Share a target list (or a CRM view) and we’ll show qualification + routing on your real accounts.
-                </p>
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="cta-kicker"><!-- CMS: CTA kicker -->See Evergrowth on your ICP</div>
 
-                <div class="cta-chips" aria-label="Value highlights">
-                  <span class="chip"><!-- CMS: chip 1 -->Less manual research</span>
-                  <span class="chip"><!-- CMS: chip 2 -->Cleaner routing decisions</span>
-                  <span class="chip"><!-- CMS: chip 3 -->Faster first touch</span>
-                </div>
+      <h3><!-- CMS: CTA headline -->Give your reps 6+ hours back every week</h3>
 
-                <div class="cta-actions">
-                  <a class="primary" href="#"><!-- CMS: CTA primary -->Get a demo</a>
-                  <a class="secondary" href="#"><!-- CMS: CTA secondary -->Explore agents</a>
-                </div>
+      <p><!-- CMS: CTA body -->
+        Evergrowth handles research, signals, and prep work so your team stops wasting cycles chasing data.
+        Share a target list (or a CRM view) and we’ll show qualification + routing on your real accounts.
+      </p>
 
-                <div class="cta-fineprint"><!-- CMS: fineprint -->No deck. No fluff. Real accounts only.</div>
-              </div>
+      <div class="cta-chips" aria-label="Value highlights">
+        <span class="chip"><!-- CMS: chip 1 -->Less manual research</span>
+        <span class="chip"><!-- CMS: chip 2 -->Cleaner routing decisions</span>
+        <span class="chip"><!-- CMS: chip 3 -->Faster first touch</span>
+      </div>
 
-              <div class="cta-side" aria-hidden="true">
-                <!-- CMS: CTA image (optional) -->
-                <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2c0_f2f1613c.png" alt="" />
-              </div>
-            </div>
-          </section>
+      <div class="cta-actions">
+        <a class="primary" href="#"><!-- CMS: CTA primary -->Get a demo</a>
+        <a class="secondary" href="#"><!-- CMS: CTA secondary -->Explore agents</a>
+      </div>
+
+      <div class="cta-fineprint"><!-- CMS: fineprint -->No deck. No fluff. Real accounts only.</div>
+    </div>
+
+    <!-- OPTIONAL right-side media:
+         - Set data-has-media="false" to force hide even if CMS provides an image.
+         - In Webflow, bind the img src to a CMS field (CTA Media Image). -->
+    <div class="cta-media" data-has-media="true">
+      <img
+        src=""
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
 
           <hr />
 
