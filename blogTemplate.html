@@ -1,30 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="top">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Best AI Sales Tools (and When Each Adds Real Value) | Evergrowth</title>
   <meta name="description" content="A practical guide to AI sales tools by category, plus decision criteria, pitfalls, and a lightweight evaluation checklist." />
 
-  <!--
-    Webflow notes (for your freelancer):
-    - This is written as a single HTML + CSS file for handoff.
-    - In Webflow, map the CMS fields into the marked regions:
-      Title, Summary, Featured image, Author reference, Reviewer reference,
-      Publish date, Updated date, Read time, Category, Tags, Body (rich text),
-      FAQ (optional), CTA (global component).
-  -->
+  <!-- Social -->
+  <meta property="og:title" content="Best AI Sales Tools (and When Each Adds Real Value)" />
+  <meta property="og:description" content="Pick tools by the workflow they upgrade—not by 'AI features'." />
+  <meta property="og:image" content="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    /* ----------------------------
-      Evergrowth-ish "Qualification" vibe:
-      - soft warm canvas
-      - subtle gradients + glass cards
-      - big friendly type
-      - quiet shadows
-      - generous whitespace
-    ----------------------------- */
-
     :root{
       --bg: #f6f3ef;
       --bg2: #f2f5f7;
@@ -48,13 +36,11 @@
 
       --shadow-sm: 0 10px 30px rgba(15,23,42,.08);
       --shadow-md: 0 18px 60px rgba(15,23,42,.12);
-      --shadow-inset: inset 0 1px 0 rgba(255,255,255,.65);
 
       --container: 1180px;
       --content: 760px;
 
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
     *{ box-sizing:border-box; }
@@ -69,11 +55,9 @@
         radial-gradient(900px 700px at 80% 100%, rgba(22,163,74,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
-
     a{ color:var(--link); text-decoration:none; }
     a:hover{ color:var(--link2); text-decoration:underline; }
 
-    /* Top progress bar (subtle, premium) */
     .progress{
       position:fixed; top:0; left:0; height:3px; width:0;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -81,10 +65,6 @@
       box-shadow: 0 6px 18px rgba(43,89,255,.22);
     }
 
-    /* Layout */
-    .wrap{ max-width:var(--container); margin:0 auto; padding:22px 20px 72px; }
-
-    /* Header (marketing-site nav vibe) */
     .site-header{
       position:sticky; top:0; z-index: 50;
       backdrop-filter: blur(14px);
@@ -117,7 +97,6 @@
     .nav a{ color: var(--muted); text-decoration:none; padding:8px 10px; border-radius: 10px; }
     .nav a:hover{ background: rgba(255,255,255,.55); color: var(--text); text-decoration:none; }
 
-    .header-actions{ display:flex; align-items:center; gap:10px; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:8px;
@@ -127,10 +106,10 @@
       background: rgba(255,255,255,.72);
       box-shadow: var(--shadow-sm);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       cursor:pointer;
-      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      transition: transform .12s ease, box-shadow .12s ease;
       text-decoration:none;
       white-space:nowrap;
     }
@@ -142,7 +121,9 @@
       box-shadow: 0 18px 55px rgba(43,89,255,.28);
     }
 
-    /* Hero area */
+    .wrap{ max-width:var(--container); margin:0 auto; padding:22px 20px 72px; }
+
+    /* Hero */
     .hero{
       margin-top: 26px;
       display:grid;
@@ -150,7 +131,6 @@
       gap: 18px;
       align-items: stretch;
     }
-
     .hero-card{
       border-radius: var(--radius-xl);
       padding: 28px;
@@ -178,7 +158,7 @@
       border: 1px solid rgba(15,23,42,.10);
       color: var(--muted);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       width: fit-content;
     }
     .kicker .dot{
@@ -187,13 +167,22 @@
       box-shadow: 0 10px 30px rgba(43,89,255,.25);
     }
 
+    .breadcrumbs{
+      margin-top: 14px;
+      color: var(--muted2);
+      font-weight: 750;
+      font-size: 13px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .breadcrumbs a{ color: var(--muted2); }
+    .breadcrumbs a:hover{ color: var(--text); text-decoration:none; }
+
     h1{
-      margin: 14px 0 10px;
+      margin: 10px 0 10px;
       font-size: clamp(30px, 3.1vw, 44px);
       line-height: 1.08;
       letter-spacing: -0.03em;
     }
-
     .subhead{
       margin: 0 0 18px;
       color: var(--muted);
@@ -202,11 +191,10 @@
       max-width: 62ch;
     }
 
-    /* Above-the-fold E-E-A-T block */
-    .eeat-row{
+    .meta-row{
       display:flex;
       flex-wrap:wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       margin-top: 8px;
     }
@@ -218,34 +206,36 @@
       border: 1px solid rgba(15,23,42,.10);
       color: var(--muted);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 750;
     }
-    .meta-pill strong{ color: var(--text); font-weight: 800; }
+    .meta-pill strong{ color: var(--text); font-weight: 900; }
     .meta-sep{ color: rgba(15,23,42,.25); padding: 0 4px; }
 
     .byline{
-      display:flex; flex-wrap:wrap; gap: 10px; align-items:center;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
       margin-top: 16px;
     }
     .person{
-      display:flex; align-items:center; gap:10px;
+      display:flex; align-items:center; gap:12px;
       padding: 12px;
       border-radius: 18px;
       background: rgba(255,255,255,.70);
       border: 1px solid rgba(15,23,42,.10);
       box-shadow: var(--shadow-sm);
-      min-width: 260px;
+      min-height: 86px;
     }
-    .avatar{
-      width: 44px; height: 44px; border-radius: 16px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.75), rgba(255,255,255,.20)),
-                  linear-gradient(135deg, rgba(43,89,255,.85), rgba(109,94,252,.85));
-      border: 1px solid rgba(255,255,255,.45);
-      box-shadow: 0 14px 40px rgba(43,89,255,.20);
+    .avatar-img{
+      width: 48px; height: 48px; border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: 0 14px 40px rgba(15,23,42,.12);
       flex: 0 0 auto;
+      background: rgba(255,255,255,.6);
     }
-    .person .label{ font-size: 12px; color: var(--muted2); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-    .person .name{ font-size: 14px; font-weight: 900; letter-spacing: -0.01em; margin-top: 1px; }
+    .person .label{ font-size: 12px; color: var(--muted2); font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .person .name{ font-size: 14px; font-weight: 950; letter-spacing: -0.01em; margin-top: 1px; }
     .person .cred{ font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.25; }
     .person .links{ display:flex; gap: 10px; margin-top: 7px; }
     .person .links a{
@@ -256,7 +246,6 @@
     }
     .person .links a:hover{ text-decoration: underline; }
 
-    /* Featured image card */
     .feature-card{
       border-radius: var(--radius-xl);
       border: 1px solid rgba(15,23,42,.08);
@@ -277,7 +266,7 @@
       position:absolute; left: 18px; right: 18px; bottom: 16px;
       padding: 12px 14px;
       border-radius: 16px;
-      background: rgba(255,255,255,.80);
+      background: rgba(255,255,255,.85);
       border: 1px solid rgba(15,23,42,.10);
       backdrop-filter: blur(10px);
       color: var(--muted);
@@ -285,7 +274,7 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Main content grid */
+    /* Main grid */
     .content-grid{
       margin-top: 22px;
       display:grid;
@@ -294,7 +283,6 @@
       align-items:start;
     }
 
-    /* Article shell */
     .article{
       border-radius: var(--radius-xl);
       background: rgba(255,255,255,.70);
@@ -303,14 +291,13 @@
       overflow:hidden;
     }
     .article-inner{
-      padding: 28px 28px 10px;
+      padding: 28px 28px 18px;
       max-width: var(--content);
     }
 
-    /* Sticky TOC card (E-E-A-T UX/readability) */
     .toc{
       position: sticky;
-      top: 86px; /* below sticky header */
+      top: 86px;
       border-radius: var(--radius-xl);
       background: rgba(255,255,255,.70);
       border: 1px solid rgba(15,23,42,.08);
@@ -323,7 +310,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.62));
     }
     .toc-title{
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: -0.02em;
       margin:0;
       font-size: 14px;
@@ -349,7 +336,7 @@
       padding: 10px 10px;
       border-radius: 14px;
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 850;
       font-size: 13px;
       text-decoration:none;
       line-height: 1.25;
@@ -371,7 +358,6 @@
       border-top: 1px solid rgba(15,23,42,.08);
       display:flex; flex-direction:column; gap: 10px;
     }
-    .toc-foot small{ color: var(--muted2); }
     .mini-btn{
       display:inline-flex; justify-content:center; align-items:center;
       padding: 10px 12px;
@@ -385,7 +371,7 @@
     }
     .mini-btn:hover{ box-shadow: var(--shadow-sm); text-decoration:none; }
 
-    /* Typography / rich content */
+    /* Typography */
     .article p{
       color: rgba(15,23,42,.86);
       line-height: 1.78;
@@ -417,7 +403,7 @@
       margin: 26px 0;
     }
 
-    /* Callouts / patterns that signal expertise */
+    /* Callouts */
     .callout{
       margin: 18px 0;
       padding: 16px 16px;
@@ -443,12 +429,10 @@
       font-weight: 950;
       font-size: 12px;
     }
-    .callout p{ margin: 8px 0 0; font-size: 15px; }
-
     .warning .badge{ background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.22); }
     .success .badge{ background: rgba(22,163,74,.12); border-color: rgba(22,163,74,.20); }
 
-    /* Evidence block */
+    /* Evidence blocks */
     .evidence{
       margin: 18px 0;
       border-radius: 18px;
@@ -465,38 +449,11 @@
       background: linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.64));
     }
     .evidence-head strong{ font-weight: 950; letter-spacing:-0.02em; }
-    .evidence-head span{ color: var(--muted2); font-size: 13px; font-weight: 800; }
+    .evidence-head span{ color: var(--muted2); font-size: 13px; font-weight: 850; }
     .evidence-body{ padding: 14px 16px; }
     .evidence-body p{ margin: 10px 0; font-size: 15px; }
-    .sources{
-      margin: 12px 0 0;
-      padding: 12px 12px;
-      border-radius: 16px;
-      background: rgba(15,23,42,.04);
-      border: 1px solid rgba(15,23,42,.08);
-    }
-    .sources .label{
-      font-size: 12px;
-      letter-spacing:.10em;
-      text-transform: uppercase;
-      color: var(--muted2);
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-    .sources a{
-      display:block;
-      font-weight: 850;
-      font-size: 13px;
-      padding: 8px 10px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(15,23,42,.08);
-      margin: 6px 0;
-      text-decoration:none;
-    }
-    .sources a:hover{ box-shadow: var(--shadow-sm); text-decoration:none; }
 
-    /* Comparison table */
+    /* Tables */
     .table-wrap{
       margin: 18px 0;
       border-radius: 18px;
@@ -505,11 +462,7 @@
       box-shadow: var(--shadow-sm);
       background: rgba(255,255,255,.75);
     }
-    table{
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 14px;
-    }
+    table{ border-collapse: collapse; width: 100%; font-size: 14px; }
     th, td{
       padding: 12px 12px;
       border-bottom: 1px solid rgba(15,23,42,.08);
@@ -524,106 +477,108 @@
       background: rgba(15,23,42,.03);
       font-weight: 950;
     }
-    td strong{ font-weight: 950; }
 
-    /* Inline “definition” blocks (E-E-A-T clarity) */
-    .def{
+    /* Figures */
+    figure.media{
       margin: 18px 0;
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(43,89,255,.08);
-      border: 1px solid rgba(43,89,255,.18);
-    }
-    .def p{ margin: 0; font-size: 15px; }
-    .def strong{ font-weight: 950; }
-
-    /* Quote */
-    blockquote{
-      margin: 18px 0;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(15,23,42,.10);
-      box-shadow: var(--shadow-sm);
-    }
-    blockquote p{
-      margin: 0;
-      font-size: 15px;
-      color: rgba(15,23,42,.82);
-    }
-    blockquote footer{
-      margin-top: 10px;
-      color: var(--muted2);
-      font-weight: 850;
-      font-size: 13px;
-    }
-
-    /* Mid-article illustration */
-    .illustration{
-      margin: 20px 0;
       border-radius: 22px;
       overflow:hidden;
       border: 1px solid rgba(15,23,42,.10);
       box-shadow: var(--shadow-md);
-      background: rgba(255,255,255,.80);
+      background: rgba(255,255,255,.84);
     }
-    .illustration img{ width:100%; height:auto; display:block; }
-    .illustration figcaption{
+    figure.media img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    figure.media figcaption{
       padding: 12px 14px;
       color: var(--muted);
       font-size: 13px;
       border-top: 1px solid rgba(15,23,42,.08);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.78);
     }
 
-    /* CTA box using your provided image */
+    /* CTA (FIXED: text is never part of the image, image is decorative) */
     .cta{
-      margin: 26px 0 6px;
-      border-radius: 26px;
+      margin: 28px 0 10px;
+      border-radius: 28px;
       overflow:hidden;
       border: 1px solid rgba(15,23,42,.10);
       box-shadow: 0 26px 80px rgba(15,23,42,.16);
-      background: rgba(255,255,255,.80);
       position: relative;
-    }
-    .cta img{ width:100%; height:auto; display:block; }
-    .cta-overlay{
-      position:absolute; inset:0;
-      padding: 22px;
-      display:flex; flex-direction:column; justify-content:flex-end;
-      gap: 10px;
       background:
-        linear-gradient(180deg, transparent 40%, rgba(15,23,42,.55) 100%);
+        radial-gradient(900px 400px at 10% 10%, rgba(255,255,255,.16), transparent 55%),
+        radial-gradient(900px 400px at 90% 10%, rgba(255,255,255,.10), transparent 55%),
+        linear-gradient(180deg, rgba(12,54,184,1), rgba(5,32,128,1));
+    }
+    .cta-inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      padding: 22px;
+      align-items:center;
     }
     .cta h3{
       margin:0;
-      color:white;
-      font-size: 22px;
-      letter-spacing:-0.02em;
-      text-shadow: 0 8px 30px rgba(0,0,0,.22);
+      color:#fff;
+      font-size: 26px;
+      letter-spacing:-0.03em;
+      line-height: 1.12;
     }
     .cta p{
-      margin:0;
+      margin: 10px 0 0;
       color: rgba(255,255,255,.88);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.55;
-      max-width: 56ch;
-      text-shadow: 0 8px 30px rgba(0,0,0,.22);
+      max-width: 58ch;
     }
-    .cta-actions{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 8px; }
+    .cta-actions{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 16px; }
     .cta-actions a{
       display:inline-flex; align-items:center; justify-content:center;
-      padding: 10px 14px;
+      padding: 11px 16px;
       border-radius: 999px;
       font-weight: 950;
       text-decoration:none;
       border: 1px solid rgba(255,255,255,.28);
       backdrop-filter: blur(10px);
+      white-space:nowrap;
     }
-    .cta-actions a.primary{ background: rgba(255,255,255,.92); color: var(--text); }
+    .cta-actions a.primary{ background: rgba(255,255,255,.92); color: #0b1b3a; border-color: rgba(255,255,255,.0); }
     .cta-actions a.secondary{ background: rgba(255,255,255,.12); color: white; }
 
-    /* Author / reviewer sections */
+    .cta-art{
+      position: relative;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      min-height: 160px;
+    }
+    .cta-art img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      opacity: .85;
+      filter: saturate(1.02);
+    }
+    .cta-art:after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(600px 240px at 20% 20%, rgba(255,255,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .cta-fineprint{
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+      font-weight: 750;
+    }
+
+    /* Author/reviewer blocks */
     .about{
       margin: 22px 0 10px;
       padding: 18px;
@@ -632,10 +587,17 @@
       border: 1px solid rgba(15,23,42,.10);
       box-shadow: var(--shadow-sm);
       display:grid;
-      grid-template-columns: 54px 1fr;
+      grid-template-columns: 64px 1fr;
       gap: 12px;
     }
-    .about .avatar{ width:54px; height:54px; border-radius: 20px; }
+    .about img{
+      width:64px; height:64px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: 0 14px 40px rgba(15,23,42,.12);
+      background: rgba(255,255,255,.6);
+    }
     .about h4{
       margin: 2px 0 4px;
       font-size: 16px;
@@ -653,9 +615,9 @@
       font-size: 13px;
       color: var(--muted2);
       font-weight: 850;
+      align-items:center;
     }
 
-    /* Footer */
     .site-footer{
       margin-top: 46px;
       padding: 26px 0 10px;
@@ -670,15 +632,74 @@
       .content-grid{ grid-template-columns: 1fr; }
       .toc{ position: relative; top: 0; }
       .article-inner{ max-width: 100%; }
-      .person{ min-width: 100%; }
+      .byline{ grid-template-columns: 1fr; }
+      .cta-inner{ grid-template-columns: 1fr; }
+      .cta-art{ min-height: 220px; }
     }
   </style>
+
+  <!-- JSON-LD (safe for Webflow; doesn’t change visible UI) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Best AI Sales Tools (and When Each Adds Real Value)",
+    "description":"A practical guide to AI sales tools by category, plus decision criteria, pitfalls, and a lightweight evaluation checklist.",
+    "image":"https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png",
+    "datePublished":"2026-03-01",
+    "dateModified":"2026-03-01",
+    "author":{
+      "@type":"Person",
+      "name":"James Ince",
+      "image":"https://github.com/theclassegg/evergrowthOrg/blob/main/James.png?raw=true",
+      "jobTitle":"Head of Product Marketing",
+      "worksFor":{"@type":"Organization","name":"Evergrowth"}
+    },
+    "reviewedBy":{
+      "@type":"Person",
+      "name":"Jack Wedgbury",
+      "jobTitle":"Demand Gen Expert",
+      "worksFor":{"@type":"Organization","name":"Ellipsis"},
+      "image":"https://ca.slack-edge.com/T04EJ529AJD-U0801LJ4M7T-3311d9da3ab2-512"
+    },
+    "publisher":{
+      "@type":"Organization",
+      "name":"Evergrowth",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Do AI sales tools replace SDRs or AEs?",
+        "acceptedAnswer":{"@type":"Answer","text":"In most teams, the best tools remove low-leverage work (research, data cleanup, drafting) and make decisions consistent (routing, prioritization). The human still owns judgment, relationships, and deal craft."}
+      },
+      {
+        "@type":"Question",
+        "name":"What’s the first AI category most teams should invest in?",
+        "acceptedAnswer":{"@type":"Answer","text":"If your CRM is messy and routing is inconsistent, start with data quality plus qualification/routing. If you already have clean signals and clear ICP, then add research and autopersonalization."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do we prevent hallucinations or risky outreach?",
+        "acceptedAnswer":{"@type":"Answer","text":"Use trusted sources only, require citations for factual claims, and add no-send rules for sensitive segments (regulated industries, Tier 1 accounts, etc.)."}}
+    ]
+  }
+  </script>
 </head>
 
 <body>
   <div class="progress" id="progress"></div>
 
-  <!-- Sticky marketing header -->
   <header class="site-header">
     <div class="site-header-inner">
       <div class="brand">
@@ -693,7 +714,7 @@
         <a href="#"><strong>Blog</strong></a>
       </nav>
 
-      <div class="header-actions">
+      <div style="display:flex; gap:10px; align-items:center;">
         <a class="btn" href="#">Watch walkthrough</a>
         <a class="btn primary" href="#">Get a demo</a>
       </div>
@@ -701,89 +722,84 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO / ABOVE THE FOLD -->
     <section class="hero" aria-label="Article header">
       <div class="hero-card">
         <div class="kicker">
           <span class="dot" aria-hidden="true"></span>
-          <span><!-- WF: Category -->Sales AI Guides</span>
+          <span>Sales AI Guides</span>
         </div>
 
-        <!-- WF: Title -->
+        <div class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="#">Blog</a>
+          <span>›</span>
+          <a href="#">Sales AI Guides</a>
+          <span>›</span>
+          <span style="color:rgba(15,23,42,.75); font-weight:900;">Best AI Sales Tools</span>
+        </div>
+
         <h1>Best AI Sales Tools (and When Each Adds Real Value)</h1>
 
-        <!-- WF: Summary/Excerpt -->
         <p class="subhead">
-          Most “AI sales tools” lists are feature dumps. This guide is different: it maps each category to
-          the specific part of your funnel it improves, the data it needs to work, the hidden gotchas, and
-          how to evaluate tools in a week—without derailing pipeline.
+          Most “AI sales tools” lists are feature dumps. This guide maps each category to the workflow it improves,
+          the inputs it needs to work, the gotchas that kill ROI, and a simple evaluation plan you can run with a small cohort.
         </p>
 
-        <!-- WF: Meta (publish/update/read time) -->
-        <div class="eeat-row">
-          <span class="meta-pill"><strong><!-- WF: Publish date -->Published</strong><span class="meta-sep">•</span><span>Mar 1, 2026</span></span>
-          <span class="meta-pill"><strong><!-- WF: Updated date -->Updated</strong><span class="meta-sep">•</span><span>Mar 1, 2026</span></span>
-          <span class="meta-pill"><strong><!-- WF: Read time -->7 min read</strong></span>
-          <span class="meta-pill"><strong><!-- WF: Intended audience -->For</strong><span class="meta-sep">•</span><span>Sales leaders, RevOps, SDR managers</span></span>
+        <div class="meta-row">
+          <span class="meta-pill"><strong>Published</strong><span class="meta-sep">•</span><span>Mar 1, 2026</span></span>
+          <span class="meta-pill"><strong>Updated</strong><span class="meta-sep">•</span><span>Mar 1, 2026</span></span>
+          <span class="meta-pill"><strong>7 min read</strong></span>
+          <span class="meta-pill"><strong>For</strong><span class="meta-sep">•</span><span>Sales leaders, RevOps, SDR managers</span></span>
         </div>
 
-        <!-- E-E-A-T: Author + Reviewer above fold, with links to author pages -->
         <div class="byline" aria-label="Author and reviewer">
           <div class="person">
-            <div class="avatar" aria-hidden="true"></div>
+            <img class="avatar-img" src="https://github.com/theclassegg/evergrowthOrg/blob/main/James.png?raw=true" alt="James Ince headshot" />
             <div>
               <div class="label">Written by</div>
-              <div class="name"><!-- WF: Author name -->James Ince</div>
-              <div class="cred"><!-- WF: Author credentials -->Head of Product Marketing at Evergrowth • Former GTM operator</div>
+              <div class="name">James Ince</div>
+              <div class="cred">Head of Product Marketing at Evergrowth</div>
               <div class="links">
-                <a href="#" aria-label="Author page link"><!-- WF: Author page -->Author profile</a>
-                <a href="#" aria-label="LinkedIn link"><!-- WF: Author LinkedIn -->LinkedIn</a>
+                <a href="#">Author profile</a>
+                <a href="#">LinkedIn</a>
               </div>
             </div>
           </div>
 
           <div class="person">
-            <div class="avatar" aria-hidden="true" style="background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.75), rgba(255,255,255,.20)),
-                  linear-gradient(135deg, rgba(22,163,74,.85), rgba(43,89,255,.65));"></div>
+            <img class="avatar-img" src="https://ca.slack-edge.com/T04EJ529AJD-U0801LJ4M7T-3311d9da3ab2-512" alt="Jack Wedgbury headshot" />
             <div>
               <div class="label">Reviewed by</div>
-              <div class="name"><!-- WF: Reviewer name -->RevOps Lead (Name)</div>
-              <div class="cred"><!-- WF: Reviewer credentials -->10+ years in Sales Ops & GTM systems • Implemented AI tooling at scale</div>
+              <div class="name">Jack Wedgbury</div>
+              <div class="cred">Demand Gen Expert at Ellipsis</div>
               <div class="links">
-                <a href="#" aria-label="Reviewer page link"><!-- WF: Reviewer page -->Reviewer profile</a>
-                <a href="#" aria-label="Reviewer LinkedIn link"><!-- WF: Reviewer LinkedIn -->LinkedIn</a>
+                <a href="#">Reviewer profile</a>
+                <a href="#">LinkedIn</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Editorial integrity (optional but strong E-E-A-T signal) -->
         <div class="callout" style="margin-top:14px;">
           <div class="title"><span class="badge">Method</span>How we evaluated categories</div>
-          <p>
-            We focused on categories that measurably improve: <strong>time-to-first-touch</strong>, <strong>meeting conversion</strong>,
-            <strong>data quality</strong>, and <strong>deal progression</strong>. Recommendations are framed by use-case and required inputs,
-            not logos. (Add your internal methodology / scoring rubric here.)
+          <p style="margin:8px 0 0; font-size:15px;">
+            We focused on what actually moves outcomes: time-to-first-touch, meeting conversion, data quality, and deal progression.
+            Recommendations are framed by use-case and required inputs—not logos.
           </p>
         </div>
       </div>
 
-      <!-- Featured image (use provided illustration URL; swap per CMS field) -->
       <aside class="feature-card" aria-label="Featured image">
-        <!-- WF: Featured image -->
-        <img class="img" src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png" alt="Abstract illustration representing AI sales tools" />
+        <img class="img" src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png" alt="AI sales tools illustration" />
         <div class="cap">
           <strong>TL;DR:</strong> Pick tools by the workflow they upgrade—not by “AI features.”
         </div>
       </aside>
     </section>
 
-    <!-- MAIN GRID: Article + Sticky TOC -->
     <section class="content-grid" aria-label="Article content">
-      <!-- ARTICLE -->
       <article class="article" id="article">
         <div class="article-inner">
-          <!-- Quick “Key takeaways” block (scannability + expertise) -->
+
           <div class="evidence" id="key-takeaways">
             <div class="evidence-head">
               <strong>Key takeaways</strong>
@@ -801,15 +817,8 @@
 
           <p>
             AI is now in every sales workflow—whether you bought it deliberately or it arrived inside tools you already pay for.
-            The hard part isn’t “should we use AI?” It’s <strong>where it creates durable advantage</strong> versus generating busywork, risk, and noise.
+            The hard part isn’t “should we use AI?” It’s <strong>where it creates durable advantage</strong> versus generating noise, risk, and busywork.
           </p>
-
-          <div class="def" id="what-this-guide-covers">
-            <p>
-              <strong>What this guide covers:</strong> categories of AI sales tools, what each category is good for, required inputs,
-              common failure modes, and a practical evaluation checklist you can run with a small pilot.
-            </p>
-          </div>
 
           <h2 id="how-to-choose">How to choose AI sales tools without buying shelfware</h2>
           <p>
@@ -819,7 +828,7 @@
 
           <div class="callout success">
             <div class="title"><span class="badge">Do</span>Start with a measurable bottleneck</div>
-            <p>
+            <p style="margin:8px 0 0; font-size:15px;">
               Examples: “SDRs spend 30% of their week researching accounts,” “meeting-to-opportunity conversion is flat,”
               “CRM data is stale and routing is inconsistent,” or “AEs aren’t getting to next steps.”
             </p>
@@ -827,9 +836,8 @@
 
           <div class="callout warning">
             <div class="title"><span class="badge">Avoid</span>Buying “AI” to increase activity volume</div>
-            <p>
-              If your ICP and routing aren’t tight, more outreach usually means more spam, worse deliverability,
-              and less focus on accounts that can actually convert.
+            <p style="margin:8px 0 0; font-size:15px;">
+              If your ICP and routing aren’t tight, more outreach usually means worse deliverability and less focus on the accounts that can convert.
             </p>
           </div>
 
@@ -889,70 +897,48 @@
 
           <h3 id="prospecting">1) Prospecting & account research tools</h3>
           <p>
-            This category helps reps answer: “Is this account worth time?” and “What’s the sharpest angle?” The value is <strong>focus</strong>,
-            not volume.
+            This category helps reps answer: “Is this account worth time?” and “What’s the sharpest angle?” The value is <strong>focus</strong>, not volume.
           </p>
 
-          <div class="evidence">
-            <div class="evidence-head">
-              <strong>When it adds real value</strong>
-              <span>Good fit</span>
-            </div>
-            <div class="evidence-body">
-              <ul>
-                <li>Your ICP can be expressed as rules (firmographics + signals).</li>
-                <li>Reps currently waste cycles on research that can be standardized.</li>
-                <li>You will actually route/reprioritize based on outputs (not just “save notes”).</li>
-              </ul>
-              <div class="sources">
-                <div class="label">Suggested sources to cite in the CMS</div>
-                <a href="#" target="_blank" rel="noopener">Internal: ICP definition doc / scoring rules</a>
-                <a href="#" target="_blank" rel="noopener">External: market report or benchmark relevant to your audience</a>
-              </div>
-            </div>
-          </div>
-
-          <figure class="illustration" id="illustration-1">
-            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989bbe124577dc5dd63031f_artificial_intelligence_and_sales_featured.png"
-                 alt="Illustration representing artificial intelligence and sales workflows" />
+          <figure class="media">
+            <img src="https://github.com/theclassegg/Mainsite/blob/main/Artboard_1.png?raw=true" alt="Illustration: prospecting and research workflow" />
             <figcaption>
-              AI is most valuable when it creates consistent decisions (prioritization, routing, next steps)—not just content.
+              Research tools win when they change prioritization—not when they just generate more leads.
             </figcaption>
           </figure>
 
           <div class="callout warning">
             <div class="title"><span class="badge">Gotcha</span>“Research” output is only as good as enforcement</div>
-            <p>
-              If reps can ignore the recommendation with no consequence, the system won’t converge. Build lightweight enforcement:
-              required fields, routing gates, or manager review prompts.
+            <p style="margin:8px 0 0; font-size:15px;">
+              If reps can ignore recommendations with no consequence, the system won’t converge.
+              Tie outputs to routing gates, required fields, or manager review prompts.
             </p>
           </div>
 
           <h3 id="autopersonalization">2) Autopersonalization & outreach tools</h3>
           <p>
-            Autopersonalization can be great—when it’s constrained. The goal isn’t “write everything,” it’s
-            <strong>produce a consistent first draft</strong> that reps can approve quickly and safely.
+            Autopersonalization works best when it produces a consistent first draft and leaves judgment to the rep.
+            The goal is speed without brand damage.
           </p>
 
-          <blockquote>
-            <p>
-              “The best AI message is the one that still sounds like your company wrote it—and never invents facts.”
-            </p>
-            <footer>— A practical rule of thumb</footer>
-          </blockquote>
+          <figure class="media">
+            <img src="https://github.com/theclassegg/Mainsite/blob/main/Artboard_2.png?raw=true" alt="Illustration: personalized outreach" />
+            <figcaption>
+              Guardrails matter more than clever copy. Prevent risky claims, invented facts, and off-brand tone.
+            </figcaption>
+          </figure>
 
           <div class="callout">
             <div class="title"><span class="badge">Guardrail</span>Three rules that prevent brand damage</div>
-            <p>
-              (1) Only cite verifiable facts (no invented customer logos), (2) prohibit claims about “seeing your metrics”
-              unless you actually have them, and (3) require a human approve send on Tier 1 accounts.
+            <p style="margin:8px 0 0; font-size:15px;">
+              (1) Only allow verifiable facts, (2) ban “we saw your metrics” unless you truly have them, and
+              (3) require human approval for Tier 1 accounts.
             </p>
           </div>
 
           <h3 id="conversation-intel">3) Conversation intelligence & deal risk</h3>
           <p>
-            This is the category most teams buy first—and then underuse. The unlock is turning “insights” into
-            <strong>manager behavior</strong>: coaching, deal reviews, and pipeline hygiene.
+            This category is only valuable when it changes manager behavior: coaching, deal review quality, and next-step enforcement.
           </p>
 
           <div class="evidence">
@@ -963,66 +949,89 @@
             <div class="evidence-body">
               <p>
                 If managers don’t have a weekly cadence that uses these outputs, adoption will fade.
-                Build one ritual: <strong>deal review prompts</strong> + <strong>coaching clips</strong> + <strong>next-step enforcement</strong>.
+                Build one ritual: deal review prompts + coaching clips + next-step enforcement.
               </p>
             </div>
           </div>
 
           <h3 id="qualification-routing">4) Qualification & routing (where ROI gets real)</h3>
           <p>
-            The biggest hidden cost in GTM is time spent on accounts that won’t convert. Qualification/routing tools
-            create ROI when they:
+            The biggest hidden cost in GTM is time spent on accounts that won’t convert. Routing and qualification wins when it makes good-fit decisions consistent.
           </p>
-          <ul>
-            <li>codify “good fit” and “bad fit” so it’s consistent across the org,</li>
-            <li>route winners forward fast, and</li>
-            <li>reduce manual research / context switching.</li>
-          </ul>
+
+          <figure class="media">
+            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2ba_342d509b.png" alt="Data flow diagram showing qualification and routing signals" />
+            <figcaption>
+              Clean signals → consistent decisions → less wasted rep time. (This is where most stacks quietly leak ROI.)
+            </figcaption>
+          </figure>
+
+          <figure class="media">
+            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c63b2984bc2bb2f4d200_Account%20%26%20contact%20qualification%20Agents.png" alt="Product screenshot: Account and contact qualification agents" />
+            <figcaption>
+              Example: qualification agents that standardize fit decisions and route accounts based on real signals.
+            </figcaption>
+          </figure>
+
+          <figure class="media">
+            <img src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" alt="Product screenshot: Intelligent GTM data" />
+            <figcaption>
+              Data quality is not glamorous—but it’s the foundation that makes automation trustworthy.
+            </figcaption>
+          </figure>
 
           <div class="callout success">
             <div class="title"><span class="badge">Signal</span>You’ll know it works when…</div>
-            <p>
-              Meeting conversion and time-per-qualified-opportunity improves without increasing spam volume.
+            <p style="margin:8px 0 0; font-size:15px;">
+              Meeting conversion and time-per-qualified-opportunity improve without increasing spam volume.
             </p>
           </div>
 
           <hr />
 
-          <h2 id="evaluation">A 7-day evaluation plan (simple, real-world)</h2>
-          <p>
-            Here’s a lightweight pilot plan that avoids “months of setup” while still producing signal:
-          </p>
+          <h2 id="evaluation">A 7-day evaluation plan</h2>
           <ol>
             <li><strong>Day 1:</strong> Define the bottleneck and success metrics (two numbers only).</li>
             <li><strong>Day 2:</strong> Pick a small cohort (2–5 reps) + 50–100 accounts.</li>
             <li><strong>Day 3:</strong> Configure guardrails (routing rules, exclusions, required fields).</li>
-            <li><strong>Day 4–6:</strong> Run with weekly ritual (deal review / coaching / routing checks).</li>
+            <li><strong>Day 4–6:</strong> Run with a weekly ritual (deal review / coaching / routing checks).</li>
             <li><strong>Day 7:</strong> Review impact + decide: expand, revise, or kill.</li>
           </ol>
 
           <div class="callout warning">
             <div class="title"><span class="badge">Pitfall</span>Don’t pilot with your messiest data</div>
-            <p>
-              If your CRM is inconsistent, you’ll confuse “tool quality” with “input quality.” Fix the minimum viable hygiene first.
+            <p style="margin:8px 0 0; font-size:15px;">
+              If your CRM is inconsistent, you’ll confuse tool quality with input quality.
+              Fix minimum viable hygiene first.
             </p>
           </div>
 
-          <!-- CTA -->
-          <div class="cta" id="cta">
-            <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2c0_f2f1613c.png" alt="CTA background illustration" />
-            <div class="cta-overlay">
-              <h3>Want to see Evergrowth on your ICP?</h3>
-              <p>Share a target list (or a CRM view). We’ll show how qualification + routing works on your real accounts.</p>
-              <div class="cta-actions">
-                <a class="primary" href="#">Get a demo</a>
-                <a class="secondary" href="#">Explore agents</a>
+          <!-- CTA (fixed) -->
+          <section class="cta" id="cta" aria-label="Call to action">
+            <div class="cta-inner">
+              <div>
+                <h3>Ready to give your reps 6+ hours back every week?</h3>
+                <p>
+                  Evergrowth handles research, signals, and prep work so your team stops wasting cycles chasing data.
+                  Share a target list (or a CRM view) and we’ll show qualification + routing on your real accounts.
+                </p>
+                <div class="cta-actions">
+                  <a class="primary" href="#">Get a demo</a>
+                  <a class="secondary" href="#">Explore agents</a>
+                </div>
+                <div class="cta-fineprint">No deck. No fluff. Real accounts only.</div>
+              </div>
+
+              <!-- Decorative image only: no text baked into image, never sits behind copy -->
+              <div class="cta-art" aria-hidden="true">
+                <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2c0_f2f1613c.png" alt="" />
               </div>
             </div>
-          </div>
+          </section>
 
           <hr />
 
-          <h2 id="faq">FAQ (E-E-A-T friendly)</h2>
+          <h2 id="faq">FAQ</h2>
           <div class="evidence">
             <div class="evidence-head">
               <strong>Do AI sales tools replace SDRs or AEs?</strong>
@@ -1030,8 +1039,8 @@
             </div>
             <div class="evidence-body">
               <p>
-                In most teams, the best tools <strong>remove low-leverage work</strong> (research, data cleanup, drafting) and
-                make decisions consistent (routing, prioritization). The human still owns judgment, relationships, and deal craft.
+                In most teams, the best tools remove low-leverage work (research, data cleanup, drafting) and make decisions consistent (routing, prioritization).
+                The human still owns judgment, relationships, and deal craft.
               </p>
             </div>
           </div>
@@ -1043,7 +1052,7 @@
             </div>
             <div class="evidence-body">
               <p>
-                If your CRM is messy and routing is inconsistent, start with <strong>data quality + qualification/routing</strong>.
+                If your CRM is messy and routing is inconsistent, start with data quality plus qualification/routing.
                 If you already have clean signals and clear ICP, then add research and autopersonalization.
               </p>
             </div>
@@ -1056,8 +1065,7 @@
             </div>
             <div class="evidence-body">
               <p>
-                Only allow the model to use trusted sources, require citation links for factual claims, and add “no-send” rules
-                for sensitive segments (regulated industries, Tier 1 accounts, etc.).
+                Use trusted sources only, require citations for factual claims, and add no-send rules for sensitive segments (regulated industries, Tier 1 accounts, etc.).
               </p>
             </div>
           </div>
@@ -1066,19 +1074,17 @@
 
           <h2 id="conclusion">Conclusion: buy outcomes, not AI</h2>
           <p>
-            The best AI sales stacks are boring in a good way: they standardize decisions, reduce waste, and keep teams focused
-            on accounts that can actually convert. If you choose categories based on measurable bottlenecks, you’ll avoid shelfware.
+            The best AI sales stacks are boring in a good way: they standardize decisions, reduce waste, and keep teams focused on accounts that can convert.
+            If you choose categories based on measurable bottlenecks, you’ll avoid shelfware.
           </p>
 
-          <!-- Strong E-E-A-T: Detailed author and reviewer blocks near end -->
-          <section aria-label="About the author" class="about" id="about-author">
-            <div class="avatar" aria-hidden="true"></div>
+          <section class="about" id="about-author" aria-label="About the author">
+            <img src="https://github.com/theclassegg/evergrowthOrg/blob/main/James.png?raw=true" alt="James Ince headshot" />
             <div>
               <h4>About the author — James Ince</h4>
               <p>
-                James leads Product Marketing at Evergrowth and works closely with GTM teams on qualification, routing,
-                and agentic workflows. He has supported go-to-market motions across early-stage and growth teams.
-                (In Webflow, this should link to a robust author page with verifiable bio details and a portfolio of articles.)
+                James leads Product Marketing at Evergrowth and works closely with GTM teams on qualification, routing, and agentic workflows.
+                He partners with Sales and RevOps teams to operationalize signals into consistent decisions.
               </p>
               <div class="meta">
                 <span>Focus: GTM workflows, qualification, routing</span>
@@ -1090,17 +1096,15 @@
             </div>
           </section>
 
-          <section aria-label="Reviewed by" class="about" id="about-reviewer">
-            <div class="avatar" aria-hidden="true" style="background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.75), rgba(255,255,255,.20)),
-                  linear-gradient(135deg, rgba(22,163,74,.85), rgba(43,89,255,.65));"></div>
+          <section class="about" id="about-reviewer" aria-label="Reviewed by">
+            <img src="https://ca.slack-edge.com/T04EJ529AJD-U0801LJ4M7T-3311d9da3ab2-512" alt="Jack Wedgbury headshot" />
             <div>
-              <h4>Reviewed by — RevOps Lead (Name)</h4>
+              <h4>Reviewed by — Jack Wedgbury</h4>
               <p>
-                This article was reviewed for technical accuracy, operational realism, and risks (data quality,
-                workflow ownership, and compliance). Add reviewer details and credentials on the reviewer profile page.
+                Jack is a Demand Gen Expert at Ellipsis. He reviewed this article for operational realism, measurement clarity, and risk (data quality, workflow ownership, compliance).
               </p>
               <div class="meta">
-                <span>Expertise: GTM systems, CRM governance, enablement</span>
+                <span>Expertise: Demand gen, GTM systems, enablement</span>
                 <span>•</span>
                 <a href="#">Reviewer page</a>
                 <span>•</span>
@@ -1109,21 +1113,15 @@
             </div>
           </section>
 
-          <p style="color:var(--muted2); font-size:13px; margin-top:18px;">
-            <strong>Editorial note:</strong> Add your disclosure policy, update policy, and how you test claims.
-            These small trust signals tend to compound over time.
-          </p>
         </div>
       </article>
 
-      <!-- STICKY TOC -->
       <aside class="toc" aria-label="Table of contents">
         <div class="toc-head">
           <p class="toc-title">Contents</p>
-          <p class="toc-sub">Sticky navigation for skimming & returning to key sections.</p>
+          <p class="toc-sub">Jump to sections. The highlight follows your scroll.</p>
         </div>
         <ol class="toc-list" id="toc">
-          <!-- TOC items should match section IDs in the article -->
           <li><a href="#key-takeaways">Key takeaways</a></li>
           <li><a href="#how-to-choose">How to choose</a></li>
           <li><a href="#selection-criteria">Selection criteria</a></li>
@@ -1141,7 +1139,6 @@
         </ol>
 
         <div class="toc-foot">
-          <small><strong>Tip:</strong> In Webflow, you can auto-generate this TOC from headings (H2/H3) or maintain it manually for control.</small>
           <a class="mini-btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to top</a>
         </div>
       </aside>
@@ -1180,7 +1177,7 @@
       onScroll();
     })();
 
-    // TOC active state (simple intersection observer)
+    // TOC active state
     (function(){
       const toc = document.getElementById('toc');
       if(!toc) return;
@@ -1193,11 +1190,9 @@
       links.forEach(a => map.set(a.getAttribute('href').slice(1), a));
 
       const obs = new IntersectionObserver((entries) => {
-        // Find the most visible intersecting heading
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
-
         if(!visible) return;
         const id = visible.target.id;
         links.forEach(a => a.classList.remove('active'));
@@ -1208,13 +1203,5 @@
       targets.forEach(t => obs.observe(t));
     })();
   </script>
-
-  <!--
-    E-E-A-T alignment (implementation checklist for freelancer):
-    - Above fold includes named author, short bio, and links to author/reviewer pages.
-    - Sticky TOC supports readability.
-    - Add robust author pages (verifiable bio, credentials, portfolio).
-    These are the core E-E-A-T requirements you shared. :contentReference[oaicite:2]{index=2}
-  -->
 </body>
 </html>
