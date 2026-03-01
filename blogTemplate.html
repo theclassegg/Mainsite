@@ -6,7 +6,6 @@
   <title>Best AI Sales Tools (and When Each Adds Real Value) | Evergrowth</title>
   <meta name="description" content="A practical guide to AI sales tools by category, plus decision criteria, pitfalls, and a lightweight evaluation checklist." />
 
-  <!-- Social -->
   <meta property="og:title" content="Best AI Sales Tools (and When Each Adds Real Value)" />
   <meta property="og:description" content="Pick tools by the workflow they upgrade—not by 'AI features'." />
   <meta property="og:image" content="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png" />
@@ -80,7 +79,7 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -0.02em;
     }
     .brand-badge{
@@ -91,7 +90,7 @@
     .nav{
       display:flex; align-items:center; gap: 16px;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 650;
       font-size: 14px;
     }
     .nav a{ color: var(--muted); text-decoration:none; padding:8px 10px; border-radius: 10px; }
@@ -106,7 +105,7 @@
       background: rgba(255,255,255,.72);
       box-shadow: var(--shadow-sm);
       color: var(--text);
-      font-weight: 800;
+      font-weight: 850;
       font-size: 14px;
       cursor:pointer;
       transition: transform .12s ease, box-shadow .12s ease;
@@ -125,7 +124,7 @@
 
     /* Hero */
     .hero{
-      margin-top: 26px;
+      margin-top: 22px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 18px;
@@ -133,7 +132,7 @@
     }
     .hero-card{
       border-radius: var(--radius-xl);
-      padding: 28px;
+      padding: 26px;
       background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.62));
       border: 1px solid rgba(15,23,42,.08);
       box-shadow: var(--shadow-md);
@@ -152,13 +151,13 @@
 
     .kicker{
       display:inline-flex; gap:10px; align-items:center;
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: 999px;
       background: rgba(255,255,255,.65);
       border: 1px solid rgba(15,23,42,.10);
       color: var(--muted);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 850;
       width: fit-content;
     }
     .kicker .dot{
@@ -167,24 +166,14 @@
       box-shadow: 0 10px 30px rgba(43,89,255,.25);
     }
 
-    .breadcrumbs{
-      margin-top: 14px;
-      color: var(--muted2);
-      font-weight: 750;
-      font-size: 13px;
-      display:flex; gap:8px; flex-wrap:wrap;
-    }
-    .breadcrumbs a{ color: var(--muted2); }
-    .breadcrumbs a:hover{ color: var(--text); text-decoration:none; }
-
     h1{
-      margin: 10px 0 10px;
+      margin: 12px 0 10px;
       font-size: clamp(30px, 3.1vw, 44px);
       line-height: 1.08;
       letter-spacing: -0.03em;
     }
     .subhead{
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       color: var(--muted);
       font-size: 16px;
       line-height: 1.55;
@@ -196,55 +185,65 @@
       flex-wrap:wrap;
       gap: 10px;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 6px;
     }
     .meta-pill{
       display:inline-flex; align-items:center; gap:8px;
-      padding: 9px 12px;
+      padding: 8px 11px;
       border-radius: 999px;
       background: rgba(255,255,255,.70);
       border: 1px solid rgba(15,23,42,.10);
       color: var(--muted);
-      font-size: 13px;
-      font-weight: 750;
+      font-size: 12.8px;
+      font-weight: 760;
     }
-    .meta-pill strong{ color: var(--text); font-weight: 900; }
+    .meta-pill strong{ color: var(--text); font-weight: 950; }
     .meta-sep{ color: rgba(15,23,42,.25); padding: 0 4px; }
 
+    /* Byline condensed */
     .byline{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 10px;
+      margin-top: 14px;
     }
     .person{
       display:flex; align-items:center; gap:12px;
-      padding: 12px;
+      padding: 10px 12px;
       border-radius: 18px;
       background: rgba(255,255,255,.70);
       border: 1px solid rgba(15,23,42,.10);
       box-shadow: var(--shadow-sm);
-      min-height: 86px;
+      min-height: 74px;
     }
     .avatar-img{
-      width: 48px; height: 48px; border-radius: 16px;
+      width: 44px; height: 44px; border-radius: 16px;
       object-fit: cover;
       border: 1px solid rgba(255,255,255,.55);
       box-shadow: 0 14px 40px rgba(15,23,42,.12);
-      flex: 0 0 auto;
       background: rgba(255,255,255,.6);
+      flex: 0 0 auto;
     }
-    .person .label{ font-size: 12px; color: var(--muted2); font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .person .label{ font-size: 11px; color: var(--muted2); font-weight: 950; text-transform: uppercase; letter-spacing: .08em; }
     .person .name{ font-size: 14px; font-weight: 950; letter-spacing: -0.01em; margin-top: 1px; }
-    .person .cred{ font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.25; }
-    .person .links{ display:flex; gap: 10px; margin-top: 7px; }
-    .person .links a{
-      font-weight: 900;
-      font-size: 13px;
-      text-decoration:none;
-      color: var(--link);
-    }
+    .person .cred{ font-size: 13px; color: var(--muted); margin-top: 1px; line-height: 1.25; }
+    .person .links{ display:flex; gap: 10px; margin-top: 6px; }
+    .person .links a{ font-weight: 900; font-size: 13px; text-decoration:none; }
     .person .links a:hover{ text-decoration: underline; }
+
+    /* Method: lighter + tighter */
+    .methodline{
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(15,23,42,.10);
+      color: rgba(15,23,42,.82);
+      font-size: 14px;
+      line-height: 1.45;
+      box-shadow: var(--shadow-sm);
+    }
+    .methodline strong{ font-weight: 950; }
 
     .feature-card{
       border-radius: var(--radius-xl);
@@ -276,10 +275,10 @@
 
     /* Main grid */
     .content-grid{
-      margin-top: 22px;
+      margin-top: 20px;
       display:grid;
       grid-template-columns: 1fr 320px;
-      gap: 22px;
+      gap: 20px;
       align-items:start;
     }
 
@@ -291,39 +290,34 @@
       overflow:hidden;
     }
     .article-inner{
-      padding: 28px 28px 18px;
+      padding: 26px 28px 22px;
       max-width: var(--content);
     }
 
+    /* TOC softer */
     .toc{
       position: sticky;
       top: 86px;
       border-radius: var(--radius-xl);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.64);
       border: 1px solid rgba(15,23,42,.08);
       box-shadow: var(--shadow-md);
       overflow:hidden;
     }
     .toc-head{
-      padding: 18px 18px 14px;
+      padding: 14px 14px 10px;
       border-bottom: 1px solid rgba(15,23,42,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.62));
+      background: linear-gradient(180deg, rgba(255,255,255,.76), rgba(255,255,255,.58));
     }
     .toc-title{
       font-weight: 950;
       letter-spacing: -0.02em;
       margin:0;
-      font-size: 14px;
-    }
-    .toc-sub{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.35;
+      font-size: 13.5px;
     }
     .toc-list{
       list-style:none;
-      padding: 10px 10px 14px;
+      padding: 8px 8px 10px;
       margin:0;
       display:flex;
       flex-direction:column;
@@ -331,13 +325,22 @@
       max-height: calc(100vh - 210px);
       overflow:auto;
     }
+    .toc-group{
+      margin: 6px 0 2px;
+      padding: 0 8px;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,.55);
+    }
     .toc-list a{
       display:block;
-      padding: 10px 10px;
+      padding: 9px 10px;
       border-radius: 14px;
-      color: var(--muted);
+      color: rgba(15,23,42,.66);
       font-weight: 850;
-      font-size: 13px;
+      font-size: 12.6px;
       text-decoration:none;
       line-height: 1.25;
       border: 1px solid transparent;
@@ -354,9 +357,8 @@
       color: var(--text);
     }
     .toc-foot{
-      padding: 14px 18px 18px;
+      padding: 12px 14px 14px;
       border-top: 1px solid rgba(15,23,42,.08);
-      display:flex; flex-direction:column; gap: 10px;
     }
     .mini-btn{
       display:inline-flex; justify-content:center; align-items:center;
@@ -368,6 +370,7 @@
       font-size: 13px;
       text-decoration:none;
       color: var(--text);
+      width: 100%;
     }
     .mini-btn:hover{ box-shadow: var(--shadow-sm); text-decoration:none; }
 
@@ -453,8 +456,8 @@
     .evidence-body{ padding: 14px 16px; }
     .evidence-body p{ margin: 10px 0; font-size: 15px; }
 
-    /* Tables */
-    .table-wrap{
+    /* TABLE: row separation + mobile scroll */
+    .table-scroll{
       margin: 18px 0;
       border-radius: 18px;
       overflow:hidden;
@@ -462,7 +465,16 @@
       box-shadow: var(--shadow-sm);
       background: rgba(255,255,255,.75);
     }
-    table{ border-collapse: collapse; width: 100%; font-size: 14px; }
+    .table-scroll .inner{
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table{
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 760px; /* protects columns */
+      font-size: 14px;
+    }
     th, td{
       padding: 12px 12px;
       border-bottom: 1px solid rgba(15,23,42,.08);
@@ -477,8 +489,9 @@
       background: rgba(15,23,42,.03);
       font-weight: 950;
     }
+    tbody tr:nth-child(odd) td{ background: rgba(15,23,42,.018); }
 
-    /* Figures */
+    /* Media figures + OPTIONAL label */
     figure.media{
       margin: 18px 0;
       border-radius: 22px;
@@ -491,48 +504,104 @@
       width:100%;
       height:auto;
       display:block;
+      max-height: 520px;
+      object-fit: cover;
     }
-    figure.media figcaption{
-      padding: 12px 14px;
-      color: var(--muted);
-      font-size: 13px;
+    .media-meta{
+      padding: 10px 14px 12px;
       border-top: 1px solid rgba(15,23,42,.08);
       background: rgba(255,255,255,.78);
     }
+    .media-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 12px;
+      color: rgba(15,23,42,.84);
+      background: rgba(43,89,255,.10);
+      border: 1px solid rgba(43,89,255,.18);
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+    .media-caption{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      margin: 0;
+    }
+    /* Auto-hide label if empty */
+    .media-label:empty{ display:none; }
 
-    /* CTA (FIXED: text is never part of the image, image is decorative) */
+    /* NEW CTA (CMS-factorable) */
     .cta{
       margin: 28px 0 10px;
-      border-radius: 28px;
+      border-radius: 30px;
       overflow:hidden;
       border: 1px solid rgba(15,23,42,.10);
       box-shadow: 0 26px 80px rgba(15,23,42,.16);
       position: relative;
       background:
-        radial-gradient(900px 400px at 10% 10%, rgba(255,255,255,.16), transparent 55%),
-        radial-gradient(900px 400px at 90% 10%, rgba(255,255,255,.10), transparent 55%),
+        radial-gradient(1100px 500px at 10% 0%, rgba(255,255,255,.14), transparent 58%),
+        radial-gradient(900px 420px at 92% 8%, rgba(255,255,255,.10), transparent 56%),
         linear-gradient(180deg, rgba(12,54,184,1), rgba(5,32,128,1));
     }
     .cta-inner{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.35fr .65fr;
       gap: 18px;
-      padding: 22px;
+      padding: 24px;
+      align-items: stretch;
+    }
+    .cta-kicker{
+      display:inline-flex;
       align-items:center;
+      gap:10px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      color: rgba(255,255,255,.90);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      width: fit-content;
     }
     .cta h3{
-      margin:0;
+      margin: 12px 0 0;
       color:#fff;
-      font-size: 26px;
+      font-size: 28px;
       letter-spacing:-0.03em;
-      line-height: 1.12;
+      line-height: 1.10;
+      max-width: 24ch;
     }
     .cta p{
       margin: 10px 0 0;
       color: rgba(255,255,255,.88);
       font-size: 16px;
       line-height: 1.55;
-      max-width: 58ch;
+      max-width: 62ch;
+    }
+    .cta-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.90);
+      font-weight: 850;
+      font-size: 13px;
+      white-space:nowrap;
     }
     .cta-actions{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 16px; }
     .cta-actions a{
@@ -547,79 +616,128 @@
     }
     .cta-actions a.primary{ background: rgba(255,255,255,.92); color: #0b1b3a; border-color: rgba(255,255,255,.0); }
     .cta-actions a.secondary{ background: rgba(255,255,255,.12); color: white; }
+    .cta-fineprint{
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,.74);
+      font-weight: 760;
+    }
 
-    .cta-art{
-      position: relative;
+    .cta-side{
       border-radius: 22px;
       overflow:hidden;
       border: 1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.08);
-      min-height: 160px;
+      position: relative;
+      min-height: 210px;
     }
-    .cta-art img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
+    .cta-side img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
       object-fit: cover;
-      opacity: .85;
-      filter: saturate(1.02);
+      opacity: .95;
     }
-    .cta-art:after{
+    .cta-side:after{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(600px 240px at 20% 20%, rgba(255,255,255,.18), transparent 60%);
+      background:
+        radial-gradient(700px 260px at 20% 20%, rgba(255,255,255,.20), transparent 58%),
+        linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.18));
       pointer-events:none;
     }
-    .cta-fineprint{
-      margin-top: 10px;
-      font-size: 13px;
-      color: rgba(255,255,255,.75);
-      font-weight: 750;
-    }
+    /* If CTA image is removed (empty src in CMS), hide box */
+    .cta-side img[src=""]{ display:none; }
+    .cta-side:has(img[src=""]){ display:none; }
 
-    /* Author/reviewer blocks */
-    .about{
-      margin: 22px 0 10px;
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(15,23,42,.10);
-      box-shadow: var(--shadow-sm);
-      display:grid;
-      grid-template-columns: 64px 1fr;
+    /* Next up */
+    .nextup{
+      margin-top: 28px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow-md);
+      overflow:hidden;
+    }
+    .nextup-head{
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.62));
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
       gap: 12px;
+      flex-wrap:wrap;
     }
-    .about img{
-      width:64px; height:64px;
-      border-radius: 22px;
-      object-fit: cover;
-      border: 1px solid rgba(255,255,255,.55);
-      box-shadow: 0 14px 40px rgba(15,23,42,.12);
-      background: rgba(255,255,255,.6);
-    }
-    .about h4{
-      margin: 2px 0 4px;
+    .nextup-head h3{
+      margin:0;
       font-size: 16px;
       letter-spacing:-0.02em;
+      font-weight: 950;
     }
-    .about p{
+    .nextup-head p{
       margin: 6px 0 0;
-      font-size: 14px;
       color: var(--muted);
-      line-height: 1.55;
-    }
-    .about .meta{
-      margin-top: 10px;
-      display:flex; flex-wrap:wrap; gap: 10px;
       font-size: 13px;
-      color: var(--muted2);
-      font-weight: 850;
-      align-items:center;
+      line-height: 1.35;
+      max-width: 60ch;
     }
+    .cards{
+      padding: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .card{
+      border-radius: 20px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: var(--shadow-sm);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 170px;
+    }
+    .card img{
+      width:100%;
+      height:110px;
+      object-fit: cover;
+      display:block;
+      background: rgba(15,23,42,.04);
+    }
+    .card .body{
+      padding: 12px 12px 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+    .card .tag{
+      display:inline-flex;
+      width:fit-content;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 12px;
+      color: rgba(15,23,42,.80);
+      background: rgba(43,89,255,.10);
+      border: 1px solid rgba(43,89,255,.18);
+    }
+    .card .title{
+      font-weight: 950;
+      letter-spacing:-0.02em;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    .card .desc{
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .card:hover{ box-shadow: var(--shadow-md); transform: translateY(-1px); transition: .12s ease; }
+    .card a{ text-decoration:none; }
+    .card a:hover{ text-decoration:none; }
 
     .site-footer{
-      margin-top: 46px;
+      margin-top: 38px;
       padding: 26px 0 10px;
       border-top: 1px solid rgba(15,23,42,.08);
       color: var(--muted);
@@ -631,70 +749,11 @@
       .hero{ grid-template-columns: 1fr; }
       .content-grid{ grid-template-columns: 1fr; }
       .toc{ position: relative; top: 0; }
-      .article-inner{ max-width: 100%; }
       .byline{ grid-template-columns: 1fr; }
       .cta-inner{ grid-template-columns: 1fr; }
-      .cta-art{ min-height: 220px; }
+      .cards{ grid-template-columns: 1fr; }
     }
   </style>
-
-  <!-- JSON-LD (safe for Webflow; doesn’t change visible UI) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Best AI Sales Tools (and When Each Adds Real Value)",
-    "description":"A practical guide to AI sales tools by category, plus decision criteria, pitfalls, and a lightweight evaluation checklist.",
-    "image":"https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png",
-    "datePublished":"2026-03-01",
-    "dateModified":"2026-03-01",
-    "author":{
-      "@type":"Person",
-      "name":"James Ince",
-      "image":"https://github.com/theclassegg/evergrowthOrg/blob/main/James.png?raw=true",
-      "jobTitle":"Head of Product Marketing",
-      "worksFor":{"@type":"Organization","name":"Evergrowth"}
-    },
-    "reviewedBy":{
-      "@type":"Person",
-      "name":"Jack Wedgbury",
-      "jobTitle":"Demand Gen Expert",
-      "worksFor":{"@type":"Organization","name":"Ellipsis"},
-      "image":"https://ca.slack-edge.com/T04EJ529AJD-U0801LJ4M7T-3311d9da3ab2-512"
-    },
-    "publisher":{
-      "@type":"Organization",
-      "name":"Evergrowth",
-      "logo":{
-        "@type":"ImageObject",
-        "url":"https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png"
-      }
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Do AI sales tools replace SDRs or AEs?",
-        "acceptedAnswer":{"@type":"Answer","text":"In most teams, the best tools remove low-leverage work (research, data cleanup, drafting) and make decisions consistent (routing, prioritization). The human still owns judgment, relationships, and deal craft."}
-      },
-      {
-        "@type":"Question",
-        "name":"What’s the first AI category most teams should invest in?",
-        "acceptedAnswer":{"@type":"Answer","text":"If your CRM is messy and routing is inconsistent, start with data quality plus qualification/routing. If you already have clean signals and clear ICP, then add research and autopersonalization."}
-      },
-      {
-        "@type":"Question",
-        "name":"How do we prevent hallucinations or risky outreach?",
-        "acceptedAnswer":{"@type":"Answer","text":"Use trusted sources only, require citations for factual claims, and add no-send rules for sensitive segments (regulated industries, Tier 1 accounts, etc.)."}}
-    ]
-  }
-  </script>
 </head>
 
 <body>
@@ -724,21 +783,9 @@
   <main class="wrap">
     <section class="hero" aria-label="Article header">
       <div class="hero-card">
-        <div class="kicker">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Sales AI Guides</span>
-        </div>
-
-        <div class="breadcrumbs" aria-label="Breadcrumbs">
-          <a href="#">Blog</a>
-          <span>›</span>
-          <a href="#">Sales AI Guides</a>
-          <span>›</span>
-          <span style="color:rgba(15,23,42,.75); font-weight:900;">Best AI Sales Tools</span>
-        </div>
+        <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Sales AI Guides</span></div>
 
         <h1>Best AI Sales Tools (and When Each Adds Real Value)</h1>
-
         <p class="subhead">
           Most “AI sales tools” lists are feature dumps. This guide maps each category to the workflow it improves,
           the inputs it needs to work, the gotchas that kill ROI, and a simple evaluation plan you can run with a small cohort.
@@ -779,20 +826,14 @@
           </div>
         </div>
 
-        <div class="callout" style="margin-top:14px;">
-          <div class="title"><span class="badge">Method</span>How we evaluated categories</div>
-          <p style="margin:8px 0 0; font-size:15px;">
-            We focused on what actually moves outcomes: time-to-first-touch, meeting conversion, data quality, and deal progression.
-            Recommendations are framed by use-case and required inputs—not logos.
-          </p>
+        <div class="methodline">
+          <strong>Method:</strong> Focused on outcomes (time saved, conversion lift, data quality, deal progression). Categories are framed by use-case and required inputs—not logos.
         </div>
       </div>
 
       <aside class="feature-card" aria-label="Featured image">
         <img class="img" src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png" alt="AI sales tools illustration" />
-        <div class="cap">
-          <strong>TL;DR:</strong> Pick tools by the workflow they upgrade—not by “AI features.”
-        </div>
+        <div class="cap"><strong>TL;DR:</strong> Pick tools by the workflow they upgrade—not by “AI features.”</div>
       </aside>
     </section>
 
@@ -801,10 +842,7 @@
         <div class="article-inner">
 
           <div class="evidence" id="key-takeaways">
-            <div class="evidence-head">
-              <strong>Key takeaways</strong>
-              <span>Skim this first</span>
-            </div>
+            <div class="evidence-head"><strong>Key takeaways</strong><span>Skim this first</span></div>
             <div class="evidence-body">
               <ul>
                 <li><strong>Prospecting AI</strong> is only useful when it tightens ICP match + routing—not when it just generates more names.</li>
@@ -856,43 +894,45 @@
             Below is a practical breakdown by category. For each: when it adds real value, what it needs to work, and what usually goes wrong.
           </p>
 
-          <div class="table-wrap" id="category-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Best for</th>
-                  <th>Needs to work</th>
-                  <th>Common failure mode</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Prospecting & research</strong></td>
-                  <td>Faster ICP matching, better account plans</td>
-                  <td>Clear ICP rules + trusted data sources</td>
-                  <td>More names, not better accounts</td>
-                </tr>
-                <tr>
-                  <td><strong>Autopersonalization</strong></td>
-                  <td>Higher reply rates at steady volume</td>
-                  <td>Messaging guardrails + exclusions</td>
-                  <td>Off-brand or risky messages</td>
-                </tr>
-                <tr>
-                  <td><strong>Conversation intelligence</strong></td>
-                  <td>Coaching, forecasting inputs, deal risk</td>
-                  <td>High adoption + manager workflow</td>
-                  <td>Great transcripts, no behavior change</td>
-                </tr>
-                <tr>
-                  <td><strong>Pipeline routing & qualification</strong></td>
-                  <td>Less time wasted on bad-fit</td>
-                  <td>Rules + signals + CRM enforcement</td>
-                  <td>Shadow processes & exceptions</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="table-scroll" id="category-table">
+            <div class="inner">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Best for</th>
+                    <th>Needs to work</th>
+                    <th>Common failure mode</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Prospecting & research</strong></td>
+                    <td>Faster ICP matching, better account plans</td>
+                    <td>Clear ICP rules + trusted data sources</td>
+                    <td>More names, not better accounts</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Autopersonalization</strong></td>
+                    <td>Higher reply rates at steady volume</td>
+                    <td>Messaging guardrails + exclusions</td>
+                    <td>Off-brand or risky messages</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Conversation intelligence</strong></td>
+                    <td>Coaching, forecasting inputs, deal risk</td>
+                    <td>High adoption + manager workflow</td>
+                    <td>Great transcripts, no behavior change</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pipeline routing & qualification</strong></td>
+                    <td>Less time wasted on bad-fit</td>
+                    <td>Rules + signals + CRM enforcement</td>
+                    <td>Shadow processes & exceptions</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <h3 id="prospecting">1) Prospecting & account research tools</h3>
@@ -902,18 +942,11 @@
 
           <figure class="media">
             <img src="https://github.com/theclassegg/Mainsite/blob/main/Artboard_1.png?raw=true" alt="Illustration: prospecting and research workflow" />
-            <figcaption>
-              Research tools win when they change prioritization—not when they just generate more leads.
-            </figcaption>
+            <div class="media-meta">
+              <div class="media-label"><!-- CMS: Image label -->Illustration</div>
+              <p class="media-caption">Research tools win when they change prioritization—not when they just generate more leads.</p>
+            </div>
           </figure>
-
-          <div class="callout warning">
-            <div class="title"><span class="badge">Gotcha</span>“Research” output is only as good as enforcement</div>
-            <p style="margin:8px 0 0; font-size:15px;">
-              If reps can ignore recommendations with no consequence, the system won’t converge.
-              Tie outputs to routing gates, required fields, or manager review prompts.
-            </p>
-          </div>
 
           <h3 id="autopersonalization">2) Autopersonalization & outreach tools</h3>
           <p>
@@ -923,107 +956,68 @@
 
           <figure class="media">
             <img src="https://github.com/theclassegg/Mainsite/blob/main/Artboard_2.png?raw=true" alt="Illustration: personalized outreach" />
-            <figcaption>
-              Guardrails matter more than clever copy. Prevent risky claims, invented facts, and off-brand tone.
-            </figcaption>
+            <div class="media-meta">
+              <div class="media-label"><!-- CMS: Image label -->Illustration</div>
+              <p class="media-caption">Guardrails matter more than clever copy. Prevent risky claims, invented facts, and off-brand tone.</p>
+            </div>
           </figure>
 
-          <div class="callout">
-            <div class="title"><span class="badge">Guardrail</span>Three rules that prevent brand damage</div>
-            <p style="margin:8px 0 0; font-size:15px;">
-              (1) Only allow verifiable facts, (2) ban “we saw your metrics” unless you truly have them, and
-              (3) require human approval for Tier 1 accounts.
-            </p>
-          </div>
-
-          <h3 id="conversation-intel">3) Conversation intelligence & deal risk</h3>
+          <h3 id="qualification-routing">3) Qualification & routing (where ROI gets real)</h3>
           <p>
-            This category is only valuable when it changes manager behavior: coaching, deal review quality, and next-step enforcement.
-          </p>
-
-          <div class="evidence">
-            <div class="evidence-head">
-              <strong>Implementation note</strong>
-              <span>Make it stick</span>
-            </div>
-            <div class="evidence-body">
-              <p>
-                If managers don’t have a weekly cadence that uses these outputs, adoption will fade.
-                Build one ritual: deal review prompts + coaching clips + next-step enforcement.
-              </p>
-            </div>
-          </div>
-
-          <h3 id="qualification-routing">4) Qualification & routing (where ROI gets real)</h3>
-          <p>
-            The biggest hidden cost in GTM is time spent on accounts that won’t convert. Routing and qualification wins when it makes good-fit decisions consistent.
+            Routing and qualification wins when it makes good-fit decisions consistent, reduces wasted rep time, and speeds up the right accounts.
           </p>
 
           <figure class="media">
             <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2ba_342d509b.png" alt="Data flow diagram showing qualification and routing signals" />
-            <figcaption>
-              Clean signals → consistent decisions → less wasted rep time. (This is where most stacks quietly leak ROI.)
-            </figcaption>
+            <div class="media-meta">
+              <div class="media-label"><!-- CMS: Image label -->Data diagram</div>
+              <p class="media-caption">Clean signals → consistent decisions → less wasted rep time.</p>
+            </div>
           </figure>
 
           <figure class="media">
             <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c63b2984bc2bb2f4d200_Account%20%26%20contact%20qualification%20Agents.png" alt="Product screenshot: Account and contact qualification agents" />
-            <figcaption>
-              Example: qualification agents that standardize fit decisions and route accounts based on real signals.
-            </figcaption>
+            <div class="media-meta">
+              <div class="media-label"><!-- CMS: Image label -->Product example</div>
+              <p class="media-caption">Example: qualification agents that standardize fit decisions and route accounts based on signals.</p>
+            </div>
           </figure>
 
           <figure class="media">
             <img src="https://cdn.prod.website-files.com/67de9a786ff9ec4a82a4453a/67f65db219efbcda9ac4c9fd_Intelligent%20GTM%20Data.png" alt="Product screenshot: Intelligent GTM data" />
-            <figcaption>
-              Data quality is not glamorous—but it’s the foundation that makes automation trustworthy.
-            </figcaption>
+            <div class="media-meta">
+              <div class="media-label"><!-- CMS: Image label -->Product example</div>
+              <p class="media-caption">Data quality isn’t glamorous—but it’s the foundation that makes automation trustworthy.</p>
+            </div>
           </figure>
 
-          <div class="callout success">
-            <div class="title"><span class="badge">Signal</span>You’ll know it works when…</div>
-            <p style="margin:8px 0 0; font-size:15px;">
-              Meeting conversion and time-per-qualified-opportunity improve without increasing spam volume.
-            </p>
-          </div>
-
-          <hr />
-
-          <h2 id="evaluation">A 7-day evaluation plan</h2>
-          <ol>
-            <li><strong>Day 1:</strong> Define the bottleneck and success metrics (two numbers only).</li>
-            <li><strong>Day 2:</strong> Pick a small cohort (2–5 reps) + 50–100 accounts.</li>
-            <li><strong>Day 3:</strong> Configure guardrails (routing rules, exclusions, required fields).</li>
-            <li><strong>Day 4–6:</strong> Run with a weekly ritual (deal review / coaching / routing checks).</li>
-            <li><strong>Day 7:</strong> Review impact + decide: expand, revise, or kill.</li>
-          </ol>
-
-          <div class="callout warning">
-            <div class="title"><span class="badge">Pitfall</span>Don’t pilot with your messiest data</div>
-            <p style="margin:8px 0 0; font-size:15px;">
-              If your CRM is inconsistent, you’ll confuse tool quality with input quality.
-              Fix minimum viable hygiene first.
-            </p>
-          </div>
-
-          <!-- CTA (fixed) -->
+          <!-- NEW CTA (CMS-factorable copy + optional image) -->
           <section class="cta" id="cta" aria-label="Call to action">
             <div class="cta-inner">
               <div>
-                <h3>Ready to give your reps 6+ hours back every week?</h3>
-                <p>
+                <div class="cta-kicker"><!-- CMS: CTA kicker -->See Evergrowth on your ICP</div>
+                <h3><!-- CMS: CTA headline -->Give your reps 6+ hours back every week</h3>
+                <p><!-- CMS: CTA body -->
                   Evergrowth handles research, signals, and prep work so your team stops wasting cycles chasing data.
                   Share a target list (or a CRM view) and we’ll show qualification + routing on your real accounts.
                 </p>
-                <div class="cta-actions">
-                  <a class="primary" href="#">Get a demo</a>
-                  <a class="secondary" href="#">Explore agents</a>
+
+                <div class="cta-chips" aria-label="Value highlights">
+                  <span class="chip"><!-- CMS: chip 1 -->Less manual research</span>
+                  <span class="chip"><!-- CMS: chip 2 -->Cleaner routing decisions</span>
+                  <span class="chip"><!-- CMS: chip 3 -->Faster first touch</span>
                 </div>
-                <div class="cta-fineprint">No deck. No fluff. Real accounts only.</div>
+
+                <div class="cta-actions">
+                  <a class="primary" href="#"><!-- CMS: CTA primary -->Get a demo</a>
+                  <a class="secondary" href="#"><!-- CMS: CTA secondary -->Explore agents</a>
+                </div>
+
+                <div class="cta-fineprint"><!-- CMS: fineprint -->No deck. No fluff. Real accounts only.</div>
               </div>
 
-              <!-- Decorative image only: no text baked into image, never sits behind copy -->
-              <div class="cta-art" aria-hidden="true">
+              <div class="cta-side" aria-hidden="true">
+                <!-- CMS: CTA image (optional) -->
                 <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989ba6d14bad7e1125ce2c0_f2f1613c.png" alt="" />
               </div>
             </div>
@@ -1031,117 +1025,77 @@
 
           <hr />
 
-          <h2 id="faq">FAQ</h2>
-          <div class="evidence">
-            <div class="evidence-head">
-              <strong>Do AI sales tools replace SDRs or AEs?</strong>
-              <span>Short answer</span>
-            </div>
-            <div class="evidence-body">
-              <p>
-                In most teams, the best tools remove low-leverage work (research, data cleanup, drafting) and make decisions consistent (routing, prioritization).
-                The human still owns judgment, relationships, and deal craft.
-              </p>
-            </div>
-          </div>
-
-          <div class="evidence">
-            <div class="evidence-head">
-              <strong>What’s the first AI category most teams should invest in?</strong>
-              <span>Depends</span>
-            </div>
-            <div class="evidence-body">
-              <p>
-                If your CRM is messy and routing is inconsistent, start with data quality plus qualification/routing.
-                If you already have clean signals and clear ICP, then add research and autopersonalization.
-              </p>
-            </div>
-          </div>
-
-          <div class="evidence">
-            <div class="evidence-head">
-              <strong>How do we prevent hallucinations or risky outreach?</strong>
-              <span>Guardrails</span>
-            </div>
-            <div class="evidence-body">
-              <p>
-                Use trusted sources only, require citations for factual claims, and add no-send rules for sensitive segments (regulated industries, Tier 1 accounts, etc.).
-              </p>
-            </div>
-          </div>
-
-          <hr />
-
           <h2 id="conclusion">Conclusion: buy outcomes, not AI</h2>
           <p>
-            The best AI sales stacks are boring in a good way: they standardize decisions, reduce waste, and keep teams focused on accounts that can convert.
-            If you choose categories based on measurable bottlenecks, you’ll avoid shelfware.
+            The best stacks standardize decisions, reduce waste, and keep teams focused on accounts that convert.
+            If you choose categories based on measurable bottlenecks, you avoid shelfware.
           </p>
-
-          <section class="about" id="about-author" aria-label="About the author">
-            <img src="https://github.com/theclassegg/evergrowthOrg/blob/main/James.png?raw=true" alt="James Ince headshot" />
-            <div>
-              <h4>About the author — James Ince</h4>
-              <p>
-                James leads Product Marketing at Evergrowth and works closely with GTM teams on qualification, routing, and agentic workflows.
-                He partners with Sales and RevOps teams to operationalize signals into consistent decisions.
-              </p>
-              <div class="meta">
-                <span>Focus: GTM workflows, qualification, routing</span>
-                <span>•</span>
-                <a href="#">Author page</a>
-                <span>•</span>
-                <a href="#">LinkedIn</a>
-              </div>
-            </div>
-          </section>
-
-          <section class="about" id="about-reviewer" aria-label="Reviewed by">
-            <img src="https://ca.slack-edge.com/T04EJ529AJD-U0801LJ4M7T-3311d9da3ab2-512" alt="Jack Wedgbury headshot" />
-            <div>
-              <h4>Reviewed by — Jack Wedgbury</h4>
-              <p>
-                Jack is a Demand Gen Expert at Ellipsis. He reviewed this article for operational realism, measurement clarity, and risk (data quality, workflow ownership, compliance).
-              </p>
-              <div class="meta">
-                <span>Expertise: Demand gen, GTM systems, enablement</span>
-                <span>•</span>
-                <a href="#">Reviewer page</a>
-                <span>•</span>
-                <a href="#">LinkedIn</a>
-              </div>
-            </div>
-          </section>
 
         </div>
       </article>
 
       <aside class="toc" aria-label="Table of contents">
-        <div class="toc-head">
-          <p class="toc-title">Contents</p>
-          <p class="toc-sub">Jump to sections. The highlight follows your scroll.</p>
-        </div>
+        <div class="toc-head"><p class="toc-title">Contents</p></div>
         <ol class="toc-list" id="toc">
+          <li class="toc-group">Intro</li>
           <li><a href="#key-takeaways">Key takeaways</a></li>
           <li><a href="#how-to-choose">How to choose</a></li>
           <li><a href="#selection-criteria">Selection criteria</a></li>
+
+          <li class="toc-group">Categories</li>
           <li><a href="#categories">Tool categories</a></li>
           <li><a href="#prospecting">Prospecting & research</a></li>
           <li><a href="#autopersonalization">Autopersonalization</a></li>
-          <li><a href="#conversation-intel">Conversation intelligence</a></li>
           <li><a href="#qualification-routing">Qualification & routing</a></li>
-          <li><a href="#evaluation">7-day evaluation plan</a></li>
-          <li><a href="#cta">CTA</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#conclusion">Conclusion</a></li>
-          <li><a href="#about-author">About the author</a></li>
-          <li><a href="#about-reviewer">Reviewed by</a></li>
-        </ol>
 
+          <li class="toc-group">Wrap-up</li>
+          <li><a href="#cta">CTA</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ol>
         <div class="toc-foot">
           <a class="mini-btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to top</a>
         </div>
       </aside>
+    </section>
+
+    <!-- NEXT UP (CMS-factorable) -->
+    <section class="nextup" aria-label="Next up">
+      <div class="nextup-head">
+        <div>
+          <h3>Next up</h3>
+          <p>Keep going with related guides (or link to product pages). This section should be driven by your CMS.</p>
+        </div>
+        <a class="btn" href="#">All articles</a>
+      </div>
+
+      <div class="cards">
+        <a class="card" href="#">
+          <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/6989bbe124577dc5dd63031f_artificial_intelligence_and_sales_featured.png" alt="Related article thumbnail" />
+          <div class="body">
+            <div class="tag">Guide</div>
+            <div class="title">How to evaluate AI in your GTM stack</div>
+            <div class="desc">A practical checklist for pilots, measurement, and rollout without breaking pipeline.</div>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/698b05d58c77850dda908da8_ai_sales_tools_featured.png" alt="Related article thumbnail" />
+          <div class="body">
+            <div class="tag">Playbook</div>
+            <div class="title">Qualification that doesn’t waste rep time</div>
+            <div class="desc">A playbook for tighter ICP decisions, routing, and signal governance.</div>
+          </div>
+        </a>
+
+        <a class="card" href="#">
+          <img src="https://cdn.prod.website-files.com/67e1394566ced6cf08f5cb4a/67f8c63b2984bc2bb2f4d200_Account%20%26%20contact%20qualification%20Agents.png" alt="Product thumbnail" />
+          <div class="body">
+            <div class="tag">Product</div>
+            <div class="title">See qualification agents in action</div>
+            <div class="desc">How Evergrowth standardizes fit decisions and routes the right accounts automatically.</div>
+          </div>
+        </a>
+      </div>
     </section>
 
     <footer class="site-footer">
@@ -1158,7 +1112,7 @@
           <a href="#">Contact</a>
         </div>
       </div>
-      <p style="margin-top:14px;">© Evergrowth (mock). Blog article template draft.</p>
+      <p style="margin-top:14px;">© Evergrowth (mock). Blog article template.</p>
     </footer>
   </main>
 
